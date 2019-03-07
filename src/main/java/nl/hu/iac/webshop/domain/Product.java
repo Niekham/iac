@@ -13,5 +13,5 @@ public class Product {
     private double prijs;
     private Aanbieding aanbieding;
     private Categorie categorie;
-    
+
 }
