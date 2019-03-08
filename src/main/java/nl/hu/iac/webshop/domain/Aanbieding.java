@@ -9,7 +9,30 @@ import java.util.Date;
 public class Aanbieding {
     @Id
     @GeneratedValue
-    Long id;
+    private Long id;
     private Date vanDatum;
     private Date totDatum;
+
+    public Aanbieding() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public Date getVanDatum() {
+        return vanDatum;
+    }
+
+    public void setVanDatum(Date vanDatum) {
+        this.vanDatum = vanDatum;
+    }
+
+    public Date getTotDatum() {
+        return totDatum;
+    }
+
+    public void setTotDatum(Date totDatum) {
+        this.totDatum = totDatum;
+    }
 }

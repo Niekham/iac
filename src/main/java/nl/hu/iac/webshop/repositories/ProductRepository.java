@@ -1,5 +1,8 @@
 package nl.hu.iac.webshop.repositories;
 
-public interface ProductRepository {
+import nl.hu.iac.webshop.domain.Product;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ProductRepository extends JpaRepository<Product, Long> {
 
 }

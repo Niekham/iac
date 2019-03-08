@@ -9,8 +9,21 @@ import java.util.Date;
 public class Account {
     @Id
     @GeneratedValue
-    Long id;
+    private Long id;
     private Date openDatum;
-    private Adres factuurAdres;
-    private Bestelling bestelling;
+
+    public Account() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public Date getOpenDatum() {
+        return openDatum;
+    }
+
+    public void setOpenDatum(Date openDatum) {
+        this.openDatum = openDatum;
+    }
 }

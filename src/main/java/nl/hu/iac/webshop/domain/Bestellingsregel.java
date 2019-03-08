@@ -8,8 +8,31 @@ import javax.persistence.Id;
 public class Bestellingsregel {
     @Id
     @GeneratedValue
-    Long id;
+    private Long id;
     private int aantal;
     private double prijs;
-    private Product product;
+
+    public Bestellingsregel() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+
+    public int getAantal() {
+        return aantal;
+    }
+
+    public void setAantal(int aantal) {
+        this.aantal = aantal;
+    }
+
+    public double getPrijs() {
+        return prijs;
+    }
+
+    public void setPrijs(double prijs) {
+        this.prijs = prijs;
+    }
 }

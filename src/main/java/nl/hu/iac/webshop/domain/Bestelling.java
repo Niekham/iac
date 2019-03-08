@@ -9,7 +9,13 @@ import java.util.List;
 public class Bestelling {
     @Id
     @GeneratedValue
-    Long id;
-    private List<Bestellingsregel> regels;
-    private Adres afleverAdres;
+    private Long id;
+
+    public Bestelling(){
+
+    }
+
+    public Long getId() {
+        return id;
+    }
 }
