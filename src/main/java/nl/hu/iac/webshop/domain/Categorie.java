@@ -1,33 +1,50 @@
 package nl.hu.iac.webshop.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
+@Table(name = "CATEGORIE")
 public class Categorie {
     @Id
-    @GeneratedValue
+    @SequenceGenerator(name = "category_id_generator", sequenceName = "category_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "category_id_generator")
     private Long id;
     private String naam;
     private String afbeelding;
     private String omschrijving;
+    @JsonIgnore
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @LazyCollection(LazyCollectionOption.FALSE)
+    @JoinTable(
+            name = "categorie_product",
+            joinColumns = {@JoinColumn(name="categorie_id")},
+            inverseJoinColumns = {@JoinColumn(name="product_id")}
+    )
+    private List<Product> products;
+
 
     public Categorie() {
+        this.products = new ArrayList<>();
     }
 
-    public Long getId() {
-        return id;
-    }
-
-
-    public String getNaam() {
-        return naam;
-    }
-
-    public void setNaam(String naam) {
+    public Categorie(String naam, String afbeelding, String omschrijving) {
         this.naam = naam;
+        this.afbeelding = afbeelding;
+        this.omschrijving = omschrijving;
     }
+
+
+    public Long getId() { return id; }
+
+    public String getNaam() { return naam; }
+
+    public void setNaam(String naam) { this.naam = naam; }
 
     public String getAfbeelding() {
         return afbeelding;
@@ -43,5 +60,16 @@ public class Categorie {
 
     public void setOmschrijving(String omschrijving) {
         this.omschrijving = omschrijving;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+
+    public void addProduct() {
     }
 }
