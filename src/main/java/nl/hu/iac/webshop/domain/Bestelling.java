@@ -46,8 +46,4 @@ public class Bestelling {
         return account;
     }
 
-    public void newBestelling(String status, Account account){
-        this.status = status;
-        this.account = account;
-    }
 }

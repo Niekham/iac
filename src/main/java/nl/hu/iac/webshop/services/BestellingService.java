@@ -6,10 +6,8 @@ import nl.hu.iac.webshop.domain.Bestellingsregel;
 import nl.hu.iac.webshop.repositories.BestellingRegelRepository;
 import nl.hu.iac.webshop.repositories.BestellingRepository;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 @Service
 public class BestellingService {
@@ -38,11 +36,9 @@ public class BestellingService {
     }
 
     private void nieuweBestelling(Account account, Bestellingsregel bestellingsregel) {
-        Bestelling newBestelling = new Bestelling();
         List<Bestellingsregel> bestellingsregels = new ArrayList<>();
         bestellingsregels.add(bestellingsregel);
-        newBestelling.newBestelling("open", account);
-        newBestelling.setBestellingsregels(bestellingsregels);
+        Bestelling newBestelling = new Bestelling("open", account, bestellingsregels);
         bestellingsregel.setBestelling(newBestelling);
         bestellingRepository.save(newBestelling);
         bestellingRegelRepository.save(bestellingsregel);
