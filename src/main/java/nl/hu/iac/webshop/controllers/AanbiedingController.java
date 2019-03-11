@@ -3,12 +3,13 @@ package nl.hu.iac.webshop.controllers;
 import nl.hu.iac.webshop.domain.Aanbieding;
 import nl.hu.iac.webshop.services.AanbiedingService;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping(AanbiedingController.BASE_URL)
 public class AanbiedingController {
     public static final String BASE_URL = "/api/aanbieding";
