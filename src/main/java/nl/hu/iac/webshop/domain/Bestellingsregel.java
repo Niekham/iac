@@ -1,8 +1,7 @@
 package nl.hu.iac.webshop.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+
+import javax.persistence.*;
 
 @Entity
 public class Bestellingsregel {
@@ -11,8 +10,21 @@ public class Bestellingsregel {
     private Long id;
     private int aantal;
     private double prijs;
+    @ManyToOne
+    @JoinColumn(name = "bestelling_id")
+    private Bestelling bestelling;
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
 
     public Bestellingsregel() {
+    }
+
+    public Bestellingsregel(int aantal, double prijs, Bestelling bestelling, Product product) {
+        this.aantal = aantal;
+        this.prijs = prijs;
+        this.bestelling = bestelling;
+        this.product = product;
     }
 
     public Long getId() {
@@ -34,5 +46,17 @@ public class Bestellingsregel {
 
     public void setPrijs(double prijs) {
         this.prijs = prijs;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public Bestelling getBestelling() {
+        return bestelling;
     }
 }

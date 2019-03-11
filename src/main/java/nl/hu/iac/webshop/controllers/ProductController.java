@@ -7,8 +7,6 @@ import nl.hu.iac.webshop.services.CategorieService;
 import nl.hu.iac.webshop.services.ProductService;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.JoinColumn;
-import javax.ws.rs.PathParam;
 import java.util.List;
 
 

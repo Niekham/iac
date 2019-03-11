@@ -1,11 +1,8 @@
 package nl.hu.iac.webshop.domain;
 
-
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -30,18 +27,21 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "aanbieding_id")
     private Aanbieding aanbieding;
+    @JsonIgnore
+    @OneToMany(mappedBy = "product")
+    private List<Bestellingsregel> bestellingsregels;
 
-    public Product(){
-        this.categories = new ArrayList<>();
+    public Product() {
     }
 
-    public Product(Long id, String naam, double prijs, String aanbiedingprijs, String afbeelding, Aanbieding aanbieding) {
-        this.id = id;
+    public Product(String naam, double prijs, String aanbiedingprijs, String afbeelding, List<Categorie> categories, Aanbieding aanbieding, List<Bestellingsregel> bestellingsregels) {
         this.naam = naam;
         this.prijs = prijs;
         this.aanbiedingprijs = aanbiedingprijs;
         this.afbeelding = afbeelding;
+        this.categories = categories;
         this.aanbieding = aanbieding;
+        this.bestellingsregels = bestellingsregels;
     }
 
     public Long getId() {
@@ -79,7 +79,6 @@ public class Product {
         this.categories = categories;
     }
 
-
     public Aanbieding getAanbieding() {
         return aanbieding;
     }
@@ -94,5 +93,9 @@ public class Product {
 
     public void setAanbiedingprijs(String aanbiedingprijs) {
         this.aanbiedingprijs = aanbiedingprijs;
+    }
+
+    public List<Bestellingsregel> getBestellingsregels() {
+        return bestellingsregels;
     }
 }

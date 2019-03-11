@@ -5,7 +5,6 @@ import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -28,17 +27,15 @@ public class Categorie {
     )
     private List<Product> products;
 
-
     public Categorie() {
-        this.products = new ArrayList<>();
     }
 
-    public Categorie(String naam, String afbeelding, String omschrijving) {
+    public Categorie(String naam, String afbeelding, String omschrijving, List<Product> products) {
         this.naam = naam;
         this.afbeelding = afbeelding;
         this.omschrijving = omschrijving;
+        this.products = products;
     }
-
 
     public Long getId() { return id; }
 

@@ -1,6 +1,7 @@
 package nl.hu.iac.webshop.services;
 
 import nl.hu.iac.webshop.domain.Aanbieding;
+import nl.hu.iac.webshop.exceptions.AanbiedingNotFoundException;
 import nl.hu.iac.webshop.repositories.AanbiedingRepository;
 import org.springframework.stereotype.Service;
 
@@ -15,4 +16,6 @@ public class AanbiedingService {
     }
 
     public List<Aanbieding> getAanbiedingen(){return aanbiedingRepository.findAll();}
+
+    public Aanbieding getAanbiedingenById(Long id){return aanbiedingRepository.findById(id).orElseThrow(()-> new AanbiedingNotFoundException(id));}
 }
