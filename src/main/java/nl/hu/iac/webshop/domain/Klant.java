@@ -1,20 +1,34 @@
 package nl.hu.iac.webshop.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "KLANT")
 public class Klant {
     @Id
-    @GeneratedValue
+    @SequenceGenerator(name = "klant_id_generator", sequenceName = "klant_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "klant_id_generator")
     private Long id;
     private String naam;
     private String afbeelding;
+    @OneToOne
+    @JoinColumn(name = "account_id")
+    private Account account;
+    @OneToOne
+    @JoinColumn(name = "adres_id")
+    private Adres adres;
 
     public Klant(){
 
     }
+
+    public Klant(String naam, String afbeelding, Account account, Adres adres) {
+        this.naam = naam;
+        this.afbeelding = afbeelding;
+        this.account = account;
+        this.adres = adres;
+    }
+
 
     public Long getId() {
         return id;

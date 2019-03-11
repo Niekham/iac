@@ -4,8 +4,6 @@ import nl.hu.iac.webshop.domain.Aanbieding;
 import nl.hu.iac.webshop.services.AanbiedingService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -22,4 +20,7 @@ public class AanbiedingController {
 
     @GetMapping
     public List<Aanbieding> getAanbiedingen(){return aanbiedingService.getAanbiedingen();}
+
+    @GetMapping("/{id}")
+    public Aanbieding getAanbiedingById(@PathVariable Long id){return aanbiedingService.getAanbiedingenById(id);}
 }
