@@ -1,16 +1,11 @@
 package nl.hu.iac.webshop.services;
 
-import nl.hu.iac.webshop.domain.Categorie;
 import nl.hu.iac.webshop.domain.Product;
-import nl.hu.iac.webshop.exceptions.CategorieNotFoundException;
 import nl.hu.iac.webshop.exceptions.ProductNotFoundException;
 import nl.hu.iac.webshop.repositories.CategorieRepository;
 import nl.hu.iac.webshop.repositories.ProductRepository;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ProductService {
