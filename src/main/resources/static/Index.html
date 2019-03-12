@@ -8,8 +8,15 @@
 </head>
 <script type="text/javascript" src="/js/aanbiedingRest.js"></script>
 <script type="text/javascript" src="/js/aanbieding.js"></script>
-<body onload="getAanbiedingen()">
-<h1>Home</h1>
+<script type="text/javascript" src="/js/categorieRest.js"></script>
+<script type="text/javascript" src="/js/categorie.js"></script>
+
+<body onload="getAanbiedingen(); getCategories()">
+
+<nav class="navigatie">
+    <a href="Index.html">Home</a>
+    <a onclick="deleteStorage()" href="products.html">Alle</a>
+</nav>
 <div class="container">
 
 </div>
