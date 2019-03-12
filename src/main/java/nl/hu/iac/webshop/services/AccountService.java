@@ -18,5 +18,12 @@ public class AccountService {
     public Account getAccountById(Long id){
         return accountRepository.findById(id).orElseThrow(()-> new AccountNotFoundException(id));
     }
+    public Account saveAccount(Account account){return accountRepository.save(account);}
+
+
+    public void deleteAccount(Account account) {
+        accountRepository.delete(account);
+    }
+
 
  }
