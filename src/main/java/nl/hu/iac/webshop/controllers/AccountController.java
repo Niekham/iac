@@ -1,12 +1,8 @@
 package nl.hu.iac.webshop.controllers;
-        import nl.hu.iac.webshop.DTO.BestellingDTO;
         import nl.hu.iac.webshop.domain.*;
         import nl.hu.iac.webshop.services.AccountService;
-        import nl.hu.iac.webshop.services.BestellingService;
-        import nl.hu.iac.webshop.services.ProductService;
         import org.springframework.web.bind.annotation.*;
 
-        import javax.ws.rs.Path;
 
 @RestController
 @RequestMapping(AccountController.BASE_URL)

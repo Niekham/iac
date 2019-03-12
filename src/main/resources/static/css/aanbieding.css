@@ -5,13 +5,33 @@
     height: 750px;
     margin: auto;
     padding: 20px;
+    overflow: auto;
 }
 
-.aanbiedingLijst{
-    width: 200px;
-    height: 300px;
+.aanbiedingLijst, .productLijst{
+    width: 300px;
+    height: 250px;
     background-color: white;
     border-radius: 5px;
     padding: 10px;
-    margin-top: 10px;
+    margin: 50px;
+    float: left;
+    position: relative;
+}
+
+.aanbiedingButton, .productButton{
+    width: 80px;
+    height: 30px;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    border-radius: 5px;
+}
+
+.aanbiedingId, .productId{
+    display: none;
+}
+
+.text{
+    display: block;
 }
