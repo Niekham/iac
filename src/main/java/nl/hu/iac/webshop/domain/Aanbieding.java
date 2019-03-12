@@ -3,8 +3,9 @@ package nl.hu.iac.webshop.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.List;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @Entity
 @Table(name = "AANBIEDING")
@@ -38,17 +39,34 @@ public class Aanbieding {
         return vanDatum;
     }
 
-    public void setVanDatum(Date vanDatum) {
-        this.vanDatum = vanDatum;
+    public void setVanDatum(String vanDatum) {
+        System.out.println(vanDatum);
+        TimeZone zone = TimeZone.getTimeZone("UTC");
+        SimpleDateFormat formatter1 = new SimpleDateFormat("d-M-yyyy");
+        formatter1.setTimeZone(zone);
+        try {
+            this.vanDatum = formatter1.parse(vanDatum);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void setTotDatum(String totDatum) {
+        System.out.println(totDatum);
+        TimeZone zone = TimeZone.getTimeZone("UTC");
+        SimpleDateFormat formatter2 = new SimpleDateFormat("d-M-yyyy");
+        formatter2.setTimeZone(zone);
+        try {
+            this.totDatum = formatter2.parse(totDatum);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 
     public Date getTotDatum() {
         return totDatum;
     }
 
-    public void setTotDatum(Date totDatum) {
-        this.totDatum = totDatum;
-    }
 
     public int getPercentage() {
         return percentage;

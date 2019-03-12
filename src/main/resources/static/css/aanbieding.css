@@ -1,0 +1,17 @@
+.container{
+    background-color: antiquewhite;
+    opacity: 30%;
+    width: 90%;
+    height: 750px;
+    margin: auto;
+    padding: 20px;
+}
+
+.aanbiedingLijst{
+    width: 200px;
+    height: 300px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+}

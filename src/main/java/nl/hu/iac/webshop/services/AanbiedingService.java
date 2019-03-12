@@ -18,4 +18,6 @@ public class AanbiedingService {
     public List<Aanbieding> getAanbiedingen(){return aanbiedingRepository.findAll();}
 
     public Aanbieding getAanbiedingenById(Long id){return aanbiedingRepository.findById(id).orElseThrow(()-> new AanbiedingNotFoundException(id));}
+
+    public Aanbieding saveAanbieding(Aanbieding aanbieding){ return aanbiedingRepository.save(aanbieding);}
 }

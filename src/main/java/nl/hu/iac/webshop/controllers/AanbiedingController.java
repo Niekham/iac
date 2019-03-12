@@ -1,5 +1,6 @@
 package nl.hu.iac.webshop.controllers;
 
+import nl.hu.iac.webshop.DTO.AanbiedingDTO;
 import nl.hu.iac.webshop.domain.Aanbieding;
 import nl.hu.iac.webshop.services.AanbiedingService;
 import org.springframework.stereotype.Controller;
@@ -23,4 +24,13 @@ public class AanbiedingController {
 
     @GetMapping("/{id}")
     public Aanbieding getAanbiedingById(@PathVariable Long id){return aanbiedingService.getAanbiedingenById(id);}
+
+    @PostMapping
+    public Aanbieding saveAanbieding(@RequestBody AanbiedingDTO aanbiedingDTO){
+        System.out.println("Controller: " + aanbiedingDTO.getVanDatum());
+        Aanbieding aanbieding = new Aanbieding();
+        aanbieding.setVanDatum(aanbiedingDTO.getVanDatum());
+        aanbieding.setTotDatum(aanbiedingDTO.getTotDatum());
+        aanbieding.setPercentage(aanbiedingDTO.getPercentage());
+        return aanbiedingService.saveAanbieding(aanbieding);}
 }
