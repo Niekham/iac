@@ -40,7 +40,6 @@ public class Aanbieding {
     }
 
     public void setVanDatum(String vanDatum) {
-        System.out.println(vanDatum);
         TimeZone zone = TimeZone.getTimeZone("UTC");
         SimpleDateFormat formatter1 = new SimpleDateFormat("d-M-yyyy");
         formatter1.setTimeZone(zone);
@@ -52,7 +51,6 @@ public class Aanbieding {
     }
 
     public void setTotDatum(String totDatum) {
-        System.out.println(totDatum);
         TimeZone zone = TimeZone.getTimeZone("UTC");
         SimpleDateFormat formatter2 = new SimpleDateFormat("d-M-yyyy");
         formatter2.setTimeZone(zone);
