@@ -3,6 +3,7 @@ package nl.hu.iac.webshop.controllers;
 import nl.hu.iac.webshop.DTO.AanbiedingDTO;
 import nl.hu.iac.webshop.domain.Aanbieding;
 import nl.hu.iac.webshop.services.AanbiedingService;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,7 +27,6 @@ public class AanbiedingController {
 
     @PostMapping
     public Aanbieding saveAanbieding(@RequestBody AanbiedingDTO aanbiedingDTO){
-        System.out.println("Controller: " + aanbiedingDTO.getVanDatum());
         Aanbieding aanbieding = new Aanbieding();
         aanbieding.setVanDatum(aanbiedingDTO.getVanDatum());
         aanbieding.setTotDatum(aanbiedingDTO.getTotDatum());

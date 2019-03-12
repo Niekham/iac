@@ -5,13 +5,50 @@
     height: 750px;
     margin: auto;
     padding: 20px;
+    overflow: auto;
 }
 
-.aanbiedingLijst{
-    width: 200px;
-    height: 300px;
+.aanbiedingLijst, .productLijst{
+    width: 300px;
+    height: 250px;
     background-color: white;
     border-radius: 5px;
     padding: 10px;
-    margin-top: 10px;
+    margin: 50px;
+    float: left;
+    position: relative;
+}
+
+.aanbiedingButton, .productButton{
+    width: 80px;
+    height: 30px;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    border-radius: 5px;
+}
+
+.aanbiedingId, .productId{
+    display: none;
+}
+
+.text{
+    display: block;
+}
+
+.navigatie {
+    background-color: #333;
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+/* Style the links inside the navigation bar */
+.navigatie a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
 }
