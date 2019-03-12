@@ -13,14 +13,12 @@ import java.util.List;
 @RestController
 @RequestMapping(ProductController.BASE_URL)
 public class ProductController{
-    public static final String BASE_URL = "/api/products";
+    static final String BASE_URL = "/api/products";
 
     private final ProductService productService;
-    private final CategorieService categorieService;
 
     public ProductController(ProductService productService, CategorieService categorieService) {
         this.productService = productService;
-        this.categorieService = categorieService;
     }
 
     @GetMapping

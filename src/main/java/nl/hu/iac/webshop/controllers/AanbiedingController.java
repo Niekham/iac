@@ -10,7 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping(AanbiedingController.BASE_URL)
 public class AanbiedingController {
-    public static final String BASE_URL = "/api/aanbieding";
+    static final String BASE_URL = "/api/aanbieding";
 
     private final AanbiedingService aanbiedingService;
 

@@ -8,11 +8,12 @@ import java.util.List;
 @Entity
 public class Bestelling {
     @Id
-    @GeneratedValue
+    @SequenceGenerator(name = "bestelling_id_generator", sequenceName = "bestelling_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "bestelling_id_generator")
     private Long id;
     private String status;
     @ManyToOne
-    @JoinColumn(name = "bestelling_id")
+    @JoinColumn(name = "account_id")
     private Account account;
     @JsonIgnore
     @OneToMany(mappedBy = "bestelling")
@@ -44,4 +45,5 @@ public class Bestelling {
     public Account getAccount() {
         return account;
     }
+
 }

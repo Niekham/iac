@@ -6,7 +6,8 @@ import javax.persistence.*;
 @Entity
 public class Bestellingsregel {
     @Id
-    @GeneratedValue
+    @SequenceGenerator(name = "regel_id_generator", sequenceName = "regel_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "regel_id_generator")
     private Long id;
     private int aantal;
     private double prijs;
@@ -58,5 +59,9 @@ public class Bestellingsregel {
 
     public Bestelling getBestelling() {
         return bestelling;
+    }
+
+    public void setBestelling(Bestelling bestelling) {
+        this.bestelling = bestelling;
     }
 }
