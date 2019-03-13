@@ -28,15 +28,19 @@ public class AccountController {
     @PostMapping
     public Account addAccount(@RequestBody AccountKlantDTO accountKlantDTO){
             Account account = new Account();
+            Klant klant = new Klant();
+            Adres adres = new Adres();
             account.setUsername(accountKlantDTO.getAccountUsername());
             account.setPassword(accountKlantDTO.getAccountPassword());
             account.setOpenDatum(accountKlantDTO.getAccountOpenDatum());
 
-            account.klant.setNaam(accountKlantDTO.getKlantNaam());
-            account.klant.setAfbeelding(accountKlantDTO.getKlantAfbeelding());
+            adres.setStraat(accountKlantDTO.getAdresStraat());
+            adres.setStraatNummer(accountKlantDTO.getAdresStraatNummer());
 
-            account.klant.adres.setStraat(accountKlantDTO.getAdresStraat());
-            account.klant.adres.setStraatNummer(accountKlantDTO.getAdresStraatNummer());
+            klant.setNaam(accountKlantDTO.getKlantNaam());
+            klant.setAfbeelding(accountKlantDTO.getKlantAfbeelding());
+
+
 
             return accountService.saveAccount(account);
     }
