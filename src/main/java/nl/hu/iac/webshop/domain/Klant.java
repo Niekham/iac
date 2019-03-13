@@ -13,10 +13,10 @@ public class Klant {
     private String afbeelding;
     @OneToOne
     @JoinColumn(name = "account_id")
-    private Account account;
+    public Account account;
     @OneToOne
     @JoinColumn(name = "adres_id")
-    private Adres adres;
+    public Adres adres;
 
     public Klant(){
 

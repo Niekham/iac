@@ -17,7 +17,7 @@ public class Account {
     private String password;
     private Date openDatum;
     @OneToOne(mappedBy = "account", cascade = CascadeType.ALL)
-    private Klant klant;
+    public Klant klant;
     @JsonIgnore
     @OneToMany(mappedBy = "account")
     private List<Bestelling> bestellingen;

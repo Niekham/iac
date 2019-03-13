@@ -1,13 +1,8 @@
 package nl.hu.iac.webshop.controllers;
-        import nl.hu.iac.webshop.DTO.AccountDTO;
-        import nl.hu.iac.webshop.DTO.BestellingDTO;
+        import nl.hu.iac.webshop.DTO.AccountKlantDTO;
         import nl.hu.iac.webshop.domain.*;
         import nl.hu.iac.webshop.services.AccountService;
-        import nl.hu.iac.webshop.services.BestellingService;
-        import nl.hu.iac.webshop.services.ProductService;
         import org.springframework.web.bind.annotation.*;
-
-        import javax.ws.rs.Path;
 
 @RestController
 @RequestMapping(AccountController.BASE_URL)
@@ -31,12 +26,18 @@ public class AccountController {
     }
 
     @PostMapping
-    public Account addAccount(@RequestBody AccountDTO accountDTO){
+    public Account addAccount(@RequestBody AccountKlantDTO accountKlantDTO){
             Account account = new Account();
-            account.setUsername(accountDTO.getUsername());
-            account.setPassword(accountDTO.getPassword());
-            account.setKlant(accountDTO.getKlant());
-            account.setOpenDatum(accountDTO.getOpenDatum());
+            account.setUsername(accountKlantDTO.getAccountUsername());
+            account.setPassword(accountKlantDTO.getAccountPassword());
+            account.setOpenDatum(accountKlantDTO.getAccountOpenDatum());
+
+            account.klant.setNaam(accountKlantDTO.getKlantNaam());
+            account.klant.setAfbeelding(accountKlantDTO.getKlantAfbeelding());
+
+            account.klant.adres.setStraat(accountKlantDTO.getAdresStraat());
+            account.klant.adres.setStraatNummer(accountKlantDTO.getAdresStraatNummer());
+
             return accountService.saveAccount(account);
     }
 
