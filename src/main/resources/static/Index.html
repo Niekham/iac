@@ -3,22 +3,23 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" type="text/css" href="css/aanbieding.css">
+    <link rel="stylesheet" type="text/css" href="css/generalCSS.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <title>Home</title>
 </head>
 <script type="text/javascript" src="/js/aanbiedingRest.js"></script>
 <script type="text/javascript" src="/js/aanbieding.js"></script>
-<script type="text/javascript" src="/js/categorieRest.js"></script>
-<script type="text/javascript" src="/js/categorie.js"></script>
+<script type="text/javascript" src="/js/navigatie.js"></script>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
 <body onload="getAanbiedingen(); getCategories()">
 
 <nav class="navigatie">
     <a href="Index.html">Home</a>
-    <a onclick="deleteStorage()" href="products.html">Alle</a>
+    <a onclick="emptySessionStorage()" href="products.html">Alle</a>
     <a href="account_aanmaken1.html">Registreren</a>
 </nav>
+
 <div class="container">
 
 </div>
