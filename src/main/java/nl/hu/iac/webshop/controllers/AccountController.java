@@ -20,11 +20,11 @@ public class AccountController {
         this.accountService = accountService;
     }
 
-
-    public Klant getKlant( Long id){
-        Account account = accountService.getAccountById(id);
-        return account.getKlant();
-    }
+// yo niek ik weet niet wat hier mee moet gebeuren dan want deze shit is niet zzoals die getmapping
+//    public Klant getKlant( Long id){
+//        Account account = accountService.getAccountById(id);
+//        return account.getKlant();
+//    }
     @GetMapping("/{id}")
     public Account getAccount(@PathVariable Long id){
         return accountService.getAccountById(id);
@@ -46,5 +46,13 @@ public class AccountController {
         accountService.deleteAccount(account);
     }
 
+    @GetMapping("/klant/{id}")
+    public Klant getKlant(@PathVariable Long id){
+        return accountService.getKlantById(id);
+    }
 
+    @GetMapping("/adres/{id}")
+    public Adres getAdres(@PathVariable Long id){
+        return accountService.getAdresById(id);
+    }
 }
