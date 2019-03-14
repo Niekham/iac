@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+</head>
+<script type="text/javascript" src="/js/login.js"></script>
+
+<body>
+<div class="loginContainer">
+    <h2>Login</h2>
+    <h4>Bestaande klanten.</h4>
+    <form class="loginForm" method="post">
+        <input placeholder="Username" name="username" type="text"><br>
+        <input placeholder="Wachtwoord" name="password" type="password"><br>
+        <input value="Login" type="submit"><br><hr>
+    </form>
+    <h2>Nieuw in onze webshop?</h2>
+    <h4>Maak gemakkelijk een account aan.</h4>
+    <button onclick="hideLogin()">Maak een account aan</button>
+</div>
+
+<div class="createContainer hidden">
+    <h2>Hier kunt u een account aanmaken voor onze webshop!</h2>
+
+    <h4>Vul uw gegevens hier in</h4>
+    <form class="createAccount" method="post">
+        <h3>Inlog gegevens</h3>
+        <input name="email" placeholder="Email" type="text" class="input"><br>
+        <input name="username" placeholder="Username" type="text" class="input"><br>
+        <input name="password" placeholder="Wachtwoord" type="password" class="input"><br>
+
+        <h4>NAW gegevens</h4>
+        <input name="name" placeholder="Naam" type="text" class="input"><br>
+        <input name="tussenvoegsel" placeholder="Tussenvoegsel" type="text" class="input"><br>
+        <input name="achternaam" placeholder="Achternaam" type="text" class="input"><br>
+        <input name="plaats" placeholder="Plaats" type="text" class="input"><br>
+        <input name="postcode" placeholder="Postcode" type="text" class="input"><br>
+        <input name="straat" placeholder="Straat" type="text" class="input"><br>
+        <input type="submit" class="registrerenButton" value="Maak account aan"><br>
+        <input type="button" onclick="hideCreate()" value="Login">
+    </form>
+</div>
+</body>
+</html>

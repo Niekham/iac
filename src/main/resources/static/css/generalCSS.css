@@ -1,20 +1,24 @@
+body{
+    padding: 0;
+    margin: 0;
+}
 .container{
-    background-color: antiquewhite;
     opacity: 30%;
-    width: 90%;
-    height: 750px;
+    width: 60%;
+    height: 100%;
     margin: auto;
-    padding: 20px;
+    padding: 10px;
     overflow: auto;
 }
 
 .aanbiedingLijst, .productLijst{
-    width: 300px;
+    border: lightgray solid 1px;
+    width: 200px;
     height: 250px;
     background-color: white;
     border-radius: 5px;
     padding: 10px;
-    margin: 50px;
+    margin: 30px;
     float: left;
     position: relative;
 }
@@ -36,17 +40,42 @@
     display: block;
 }
 
-.navigatie {
+.topbar{
     background-color: #333;
+    width: 100%;
+    height: 30px;
+    padding: 10px;
+}
+/*snap niks van dit hoeren ding*/
+.topbar h2  {
+    color: white;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+
+.topbar a{
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 17px;
+    float: right;
+}
+
+
+.navigatie {
     overflow: hidden;
     width: 100%;
     margin-bottom: 50px;
+    border: lightgray solid 1px;
 }
+
 
 /* Style the links inside the navigation bar */
 .navigatie a {
     float: left;
-    color: #f2f2f2;
+    color: black;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -69,6 +98,7 @@
 body{
     font-family: Roboto;
 }
+
 
 
 

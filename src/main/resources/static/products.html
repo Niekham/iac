@@ -4,15 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Products</title>
-    <link rel="stylesheet" type="text/css" href="css/aanbieding.css">
+    <link rel="stylesheet" type="text/css" href="css/generalCSS.css">
 </head>
 <script type="text/javascript" src="/js/productRest.js"></script>
 <script type="text/javascript" src="/js/products.js"></script>
+<script type="text/javascript" src="/js/navigatie.js"></script>
+
 <body onload="checkLoad()">
 <nav class="navigatie">
     <a href="Index.html">Home</a>
-    <a onclick="deleteStorage()" href="products.html">Alle</a>
-    <a href="account_aanmaken1.html">Registreren</a>
+    <a onclick="emptySessionStorage()" href="products.html">Alle</a>
 </nav>
 <div class="container"></div>
 </body>
