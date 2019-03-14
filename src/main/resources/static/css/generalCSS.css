@@ -1,20 +1,20 @@
 .container{
-    background-color: antiquewhite;
     opacity: 30%;
-    width: 90%;
-    height: 750px;
+    width: 60%;
+    height: 100%;
     margin: auto;
-    padding: 20px;
+    padding: 10px;
     overflow: auto;
 }
 
 .aanbiedingLijst, .productLijst{
-    width: 300px;
+    border: lightgray solid 1px;
+    width: 200px;
     height: 250px;
     background-color: white;
     border-radius: 5px;
     padding: 10px;
-    margin: 50px;
+    margin: 30px;
     float: left;
     position: relative;
 }
