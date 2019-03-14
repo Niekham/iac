@@ -11,10 +11,9 @@ public class Klant {
     private Long id;
     private String naam;
     private String afbeelding;
-    @OneToOne
-    @JoinColumn(name = "account_id")
+    @OneToOne(mappedBy = "klant",cascade = CascadeType.ALL)
     public Account account;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "adres_id")
     public Adres adres;
 
@@ -49,5 +48,13 @@ public class Klant {
 
     public void setAfbeelding(String afbeelding) {
         this.afbeelding = afbeelding;
+    }
+
+    public void setAdres(Adres adres) {
+        this.adres = adres;
+    }
+
+    public Adres getAdres() {
+        return adres;
     }
 }

@@ -4,6 +4,8 @@ package nl.hu.iac.webshop.controllers;
         import nl.hu.iac.webshop.services.AccountService;
         import org.springframework.web.bind.annotation.*;
 
+        import javax.ws.rs.PathParam;
+
 @RestController
 @RequestMapping(AccountController.BASE_URL)
 public class AccountController {
@@ -39,11 +41,30 @@ public class AccountController {
 
             klant.setNaam(accountKlantDTO.getKlantNaam());
             klant.setAfbeelding(accountKlantDTO.getKlantAfbeelding());
+            klant.setAdres(adres);
 
-
-
+            account.setKlant(klant);
             return accountService.saveAccount(account);
     }
+//    @PostMapping("/{id}/update")
+//    public Account updateAccount(@PathVariable Long id, @RequestBody AccountKlantDTO accountKlantDTO){
+//        Account account = accountService.getAccountById(id);
+//        Klant klant = account.getKlant();
+//        Adres adres = klant.getAdres();
+//        account.setUsername(accountKlantDTO.getAccountUsername());
+//        account.setPassword(accountKlantDTO.getAccountPassword());
+//        account.setOpenDatum(accountKlantDTO.getAccountOpenDatum());
+//
+//        adres.setStraat(accountKlantDTO.getAdresStraat());
+//        adres.setStraatNummer(accountKlantDTO.getAdresStraatNummer());
+//
+//        klant.setNaam(accountKlantDTO.getKlantNaam());
+//        klant.setAfbeelding(accountKlantDTO.getKlantAfbeelding());
+//        klant.setAdres(adres);
+//
+//        account.setKlant(klant);
+//        return accountService.saveAccount(account);
+//    }
 
     @GetMapping("/delete/{id}")
     public void deleteAccount(@PathVariable Long id) {
