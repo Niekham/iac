@@ -9,16 +9,18 @@ public class Adres {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "adres_id_generator")
     private Long id;
     private String straat;
-    private String straatNummer;
+    private String postcode;
+    private String plaats;
     @OneToOne(mappedBy = "adres", cascade = CascadeType.ALL)
     private Klant klant;
 
     public Adres() {
     }
 
-    public Adres(String straat, String straatNummer, Klant klant) {
+    public Adres(String straat, String postcode, String plaats, Klant klant) {
         this.straat = straat;
-        this.straatNummer = straatNummer;
+        this.postcode = postcode;
+        this.plaats = plaats;
         this.klant = klant;
     }
 
@@ -34,15 +36,23 @@ public class Adres {
         this.straat = straat;
     }
 
-    public String getStraatNummer() {
-        return straatNummer;
-    }
-
-    public void setStraatNummer(String straatNummer) {
-        this.straatNummer = straatNummer;
-    }
-
     public Klant getKlant() {
         return klant;
     }
+
+    public String getPostcode() { return postcode;}
+
+    public void setPostcode(String postcode) {
+        this.postcode = postcode;
+    }
+
+    public void setPlaats(String plaats) {
+        this.plaats = plaats;
+    }
+
+    public void setKlant(Klant klant) {
+        this.klant = klant;
+    }
+
+    public String getPlaats() { return plaats; }
 }

@@ -28,7 +28,16 @@ public class AccountService {
     public Account getAccountById(Long id){
         return accountRepository.findById(id).orElseThrow(()-> new AccountNotFoundException(id));
     }
-    public Account saveAccount(Account account){return accountRepository.save(account);}
+
+    public void saveAccount(Account account, Klant klant, Adres adres){
+        account.setKlant(klant);
+        adres.setKlant(klant);
+        accountRepository.save(account);
+        adresRepository.save(adres);
+        klant.setAccount(account);
+        klant.setAdres(adres);
+        klantRepository.save(klant);
+    }
 
 
     public void deleteAccount(Account account) {
