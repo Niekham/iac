@@ -28,7 +28,7 @@ public class AccountController {
     }
 
     @PostMapping
-    public Account addAccount(@RequestBody AccountKlantDTO accountKlantDTO){
+    public void addAccount(@RequestBody AccountKlantDTO accountKlantDTO){
             Account account = new Account();
             Klant klant = new Klant();
             Adres adres = new Adres();
@@ -37,14 +37,14 @@ public class AccountController {
             account.setOpenDatum(accountKlantDTO.getAccountOpenDatum());
 
             adres.setStraat(accountKlantDTO.getAdresStraat());
-            adres.setStraatNummer(accountKlantDTO.getAdresStraatNummer());
+            adres.setPostcode(accountKlantDTO.getAdresPostcode());
+            adres.setPlaats(accountKlantDTO.getAdresStraat());
 
             klant.setNaam(accountKlantDTO.getKlantNaam());
             klant.setAfbeelding(accountKlantDTO.getKlantAfbeelding());
-            klant.setAdres(adres);
+            klant.setEmail(accountKlantDTO.getKlantEmail());
 
-            account.setKlant(klant);
-            return accountService.saveAccount(account);
+            accountService.saveAccount(account, klant, adres);
     }
 //    @PostMapping("/{id}/update")
 //    public Account updateAccount(@PathVariable Long id, @RequestBody AccountKlantDTO accountKlantDTO){

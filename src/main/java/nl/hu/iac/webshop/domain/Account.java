@@ -3,9 +3,11 @@ package nl.hu.iac.webshop.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import java.util.ArrayList;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 @Entity
 public class Account {
@@ -16,9 +18,8 @@ public class Account {
     private String username;
     private String password;
     private Date openDatum;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "klant_id")
-    public Klant klant;
+    @OneToOne(mappedBy = "account", cascade = CascadeType.ALL)
+    private Klant klant;
     @JsonIgnore
     @OneToMany(mappedBy = "account")
     private List<Bestelling> bestellingen;
@@ -58,8 +59,15 @@ public class Account {
         return openDatum;
     }
 
-    public void setOpenDatum(Date openDatum) {
-        this.openDatum = openDatum;
+    public void setOpenDatum(String openDatum) {
+        TimeZone zone = TimeZone.getTimeZone("UTC");
+        SimpleDateFormat formatter1 = new SimpleDateFormat("d-M-yyyy");
+        formatter1.setTimeZone(zone);
+        try {
+            this.openDatum = formatter1.parse(openDatum);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 
     public Klant getKlant() {

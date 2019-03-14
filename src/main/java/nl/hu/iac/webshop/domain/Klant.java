@@ -11,23 +11,25 @@ public class Klant {
     private Long id;
     private String naam;
     private String afbeelding;
-    @OneToOne(mappedBy = "klant",cascade = CascadeType.ALL)
+    private String email;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "account_id")
     public Account account;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "adres_id")
-    public Adres adres;
+    private Adres adres;
 
     public Klant(){
 
     }
 
-    public Klant(String naam, String afbeelding, Account account, Adres adres) {
+    public Klant(String naam, String afbeelding, String email, Account account, Adres adres) {
         this.naam = naam;
         this.afbeelding = afbeelding;
+        this.email = email;
         this.account = account;
         this.adres = adres;
     }
-
 
     public Long getId() {
         return id;
@@ -36,6 +38,14 @@ public class Klant {
 
     public String getNaam() {
         return naam;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public Account getAccount() {
+        return account;
     }
 
     public void setNaam(String naam) {
@@ -56,5 +66,13 @@ public class Klant {
 
     public Adres getAdres() {
         return adres;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
     }
 }
