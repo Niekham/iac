@@ -59,17 +59,6 @@ public class Account {
         return openDatum;
     }
 
-    public void setOpenDatum(String openDatum) {
-        TimeZone zone = TimeZone.getTimeZone("UTC");
-        SimpleDateFormat formatter1 = new SimpleDateFormat("d-M-yyyy");
-        formatter1.setTimeZone(zone);
-        try {
-            this.openDatum = formatter1.parse(openDatum);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-    }
-
     public Klant getKlant() {
         return klant;
     }

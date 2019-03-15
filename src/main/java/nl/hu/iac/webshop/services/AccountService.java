@@ -48,7 +48,11 @@ public class AccountService {
         return klantRepository.findById(id).orElseThrow(()-> new KlantNotFoundException(id));
     }
 
-    public Adres getAdresById(Long id){
-        return adresRepository.findById(id).orElseThrow(()-> new AdresNotFoundException(id));
+    public Adres getAdresById(Long id) {
+        return adresRepository.findById(id).orElseThrow(() -> new AdresNotFoundException(id));
+    }
+
+    public Long getIdFromAccount(String username, String password){
+        return accountRepository.findIdByUsernameAndPassword(username, password);
     }
  }

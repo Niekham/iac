@@ -2,55 +2,61 @@ package nl.hu.iac.webshop.DTO;
 
 
 public class AccountKlantDTO {
-    private String accountUsername;
-    private String accountPassword;
-    private String accountOpenDatum;
-    private String klantNaam;
-    private String klantEmail;
-    private String klantAfbeelding;
-    private String adresPlaats;
-    private String adresStraat;
-    private String adresPostcode;
+    private String email;
+    private String username;
+    private String password;
+    private String naam;
+    private String tussenvoegsel;
+    private String achternaam;
+    private String plaats;
+    private String postcode;
+    private String straat;
 
-    public AccountKlantDTO(String accountUsername, String accountPassword, String accountOpenDatum, String klantNaam, String klantEmail, String klantAfbeelding, String adresPlaats, String adresStraat, String adresPostcode) {
-        this.accountUsername = accountUsername;
-        this.accountPassword = accountPassword;
-        this.accountOpenDatum = accountOpenDatum;
-        this.klantNaam = klantNaam;
-        this.klantEmail = klantEmail;
-        this.klantAfbeelding = klantAfbeelding;
-        this.adresPlaats = adresPlaats;
-        this.adresStraat = adresStraat;
-        this.adresPostcode = adresPostcode;
+    public AccountKlantDTO(String username, String password, String naam, String tussenvoegsel, String achternaam, String email, String plaats, String straat, String postcode) {
+        this.username = username;
+        this.password = password;
+        this.naam = naam;
+        this.tussenvoegsel = tussenvoegsel;
+        this.achternaam = achternaam;
+        this.email = email;
+        this.plaats = plaats;
+        this.straat = straat;
+        this.postcode = postcode;
     }
 
-    public String getAccountUsername() {
-        return accountUsername;
+    public String getUsername() {
+        return username;
     }
 
-    public String getAccountPassword() {
-        return accountPassword;
+    public String getPassword() {
+        return password;
     }
 
-    public String getAccountOpenDatum() {
-        return accountOpenDatum;
+    public String getNaam() {
+        return naam;
     }
 
-    public String getKlantNaam() {
-        return klantNaam;
+    public String getTussenvoegsel() {
+        return tussenvoegsel;
     }
 
-    public String getKlantAfbeelding() {
-        return klantAfbeelding;
+    public String getAchternaam() {
+        return achternaam;
     }
 
-    public String getAdresStraat() {
-        return adresStraat;
+    public String getEmail() {
+        return email;
     }
 
-    public String getAdresPlaats() { return adresPlaats; }
+    public String getPlaats() {
+        return plaats;
+    }
 
-    public String getAdresPostcode() { return adresPostcode; }
+    public String getStraat() {
+        return straat;
+    }
 
-    public String getKlantEmail() { return klantEmail; }
+    public String getPostcode() {
+        return postcode;
+    }
 }

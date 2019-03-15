@@ -6,8 +6,7 @@
     <link rel="stylesheet" type="text/css" href="css/login.css">
 </head>
 <script type="text/javascript" src="/js/login.js"></script>
-
-<body>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script><body>
 <div class="loginContainer">
     <h2>Login</h2>
     <h4>Bestaande klanten.</h4>
@@ -34,15 +33,15 @@
 
         <h4>NAW gegevens</h4>
         <hr>
-        <input name="name" placeholder="Naam" type="text" class="input"><br>
+        <input name="naam" placeholder="Naam" type="text" class="input"><br>
         <input name="tussenvoegsel" placeholder="Tussenvoegsel" type="text" class="input"><br>
         <input name="achternaam" placeholder="Achternaam" type="text" class="input"><br>
         <input name="plaats" placeholder="Plaats" type="text" class="input"><br>
         <input name="postcode" placeholder="Postcode" type="text" class="input"><br>
         <input name="straat" placeholder="Straat" type="text" class="input"><br>
-        <input type="submit" class="registrerenButton" value="Maak account aan"><br>
-        <input type="button" onclick="hideCreate()" value="Login">
     </form>
+    <input onclick="createAccount()" type="submit" class="registrerenButton" value="Maak account aan"><br>
+    <input type="button" onclick="hideCreate()" value="Login">
 </div>
 </body>
 </html>

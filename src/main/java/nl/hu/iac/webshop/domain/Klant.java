@@ -10,7 +10,6 @@ public class Klant {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "klant_id_generator")
     private Long id;
     private String naam;
-    private String afbeelding;
     private String email;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "account_id")
@@ -23,9 +22,8 @@ public class Klant {
 
     }
 
-    public Klant(String naam, String afbeelding, String email, Account account, Adres adres) {
+    public Klant(String naam, String email, Account account, Adres adres) {
         this.naam = naam;
-        this.afbeelding = afbeelding;
         this.email = email;
         this.account = account;
         this.adres = adres;
@@ -50,14 +48,6 @@ public class Klant {
 
     public void setNaam(String naam) {
         this.naam = naam;
-    }
-
-    public String getAfbeelding() {
-        return afbeelding;
-    }
-
-    public void setAfbeelding(String afbeelding) {
-        this.afbeelding = afbeelding;
     }
 
     public void setAdres(Adres adres) {

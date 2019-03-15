@@ -4,7 +4,6 @@ package nl.hu.iac.webshop.controllers;
         import nl.hu.iac.webshop.services.AccountService;
         import org.springframework.web.bind.annotation.*;
 
-        import javax.ws.rs.PathParam;
 
 @RestController
 @RequestMapping(AccountController.BASE_URL)
@@ -32,20 +31,25 @@ public class AccountController {
             Account account = new Account();
             Klant klant = new Klant();
             Adres adres = new Adres();
-            account.setUsername(accountKlantDTO.getAccountUsername());
-            account.setPassword(accountKlantDTO.getAccountPassword());
-            account.setOpenDatum(accountKlantDTO.getAccountOpenDatum());
+            account.setUsername(accountKlantDTO.getUsername());
+            account.setPassword(accountKlantDTO.getPassword());
 
-            adres.setStraat(accountKlantDTO.getAdresStraat());
-            adres.setPostcode(accountKlantDTO.getAdresPostcode());
-            adres.setPlaats(accountKlantDTO.getAdresStraat());
+            adres.setStraat(accountKlantDTO.getStraat());
+            adres.setPostcode(accountKlantDTO.getPostcode());
+            adres.setPlaats(accountKlantDTO.getPlaats());
 
-            klant.setNaam(accountKlantDTO.getKlantNaam());
-            klant.setAfbeelding(accountKlantDTO.getKlantAfbeelding());
-            klant.setEmail(accountKlantDTO.getKlantEmail());
+            klant.setNaam(accountKlantDTO.getNaam());
+            klant.setEmail(accountKlantDTO.getEmail());
 
             accountService.saveAccount(account, klant, adres);
     }
+
+    @GetMapping("/login")
+    public Long accountLogin(@PathVariable String user, @PathVariable String pass){
+        System.out.println(user + pass);
+        return accountService.getIdFromAccount(user, pass);
+    }
+
 //    @PostMapping("/{id}/update")
 //    public Account updateAccount(@PathVariable Long id, @RequestBody AccountKlantDTO accountKlantDTO){
 //        Account account = accountService.getAccountById(id);
