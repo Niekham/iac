@@ -8,6 +8,7 @@
     <title>Home</title>
 </head>
 <script type="text/javascript" src="/js/aanbiedingRest.js"></script>
+<script type="text/javascript" src="/js/login.js"></script>
 <script type="text/javascript" src="/js/aanbieding.js"></script>
 <script type="text/javascript" src="/js/navigatie.js"></script>
 
@@ -15,10 +16,12 @@
 <div class="topbar">
     <h2 onclick="window.location.href='index.html'">IAC</h2>
     <a href="login.html">Inloggen</a>
+    <a onclick="logout()" href="Index.html">Uitloggen</a>
 </div>
 <nav class="navigatie">
     <a href="Index.html">Home</a>
     <a onclick="emptySessionStorage()" href="products.html">Alle</a>
+
 </nav>
 
 <div class="container">

@@ -41,10 +41,15 @@ function login() {
             'type': 'POST',
             'contentType': 'application/json',
             'success' : function(data,response){
+                //sessionStorage.setItem("myJWT", JWT);
                 sessionStorage.setItem("UserID", data);
                 document.location.href = "Index.html";
             }
         });
-    });
+    })
 
+}
+
+function logout() {
+    sessionStorage.removeItem("UserID")
 }
