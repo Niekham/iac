@@ -1,3 +1,4 @@
+//kijkt of er een categorie of aanbieding is aangeklikt
 function checkLoad(){
     if (sessionStorage.getItem("Aanbieding") != null){
         getProductByAanbieding(sessionStorage.getItem("Aanbieding"));
@@ -8,6 +9,7 @@ function checkLoad(){
     }
 }
 
+//haalt alle producten op
 function getAllProducts() {
     fetch("http://localhost:8081/api/products")
         .then(function(response){
@@ -16,12 +18,12 @@ function getAllProducts() {
         .then(function(myJson){
             let i;
             for (i = 0; i < myJson.length; i++){
-                console.log(myJson[i])
-                verwerkGetProductByAanbieding(myJson[i])
+                loadProducts(myJson[i])
             }
         });
 }
 
+//haalt producten op bij gekozen aanbieding
 function getProductByAanbieding(id) {
     fetch("http://localhost:8081/api/products/aanbieding/" + id)
         .then(function(response){
@@ -30,12 +32,12 @@ function getProductByAanbieding(id) {
         .then(function(myJson){
             let i;
             for (i = 0; i < myJson.length; i++){
-                console.log(myJson[i])
-                verwerkGetProductByAanbieding(myJson[i])
+                loadProducts(myJson[i])
             }
         });
 }
 
+//haalt producten op bij gekozen categorie
 function getProductByCategorie(id) {
     fetch("http://localhost:8081/api/products/categorie/" + id)
         .then(function(response){
@@ -44,8 +46,7 @@ function getProductByCategorie(id) {
         .then(function(myJson){
             let i;
             for (i = 0; i < myJson.length; i++){
-                console.log(myJson[i])
-                verwerkGetProductByAanbieding(myJson[i])
+                loadProducts(myJson[i])
             }
         });
 }

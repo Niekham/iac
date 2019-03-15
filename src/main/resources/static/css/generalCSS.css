@@ -33,6 +33,15 @@ body{
     border-radius: 5px;
 }
 
+.addButton {
+    width: 80px;
+    height: 30px;
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    border-radius: 5px;
+}
+
 .aanbiedingId, .productId{
     display: none;
 }

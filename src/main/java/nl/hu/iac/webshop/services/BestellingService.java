@@ -19,28 +19,31 @@ public class BestellingService {
         this.bestellingRegelRepository = bestellingRegelRepository;
     }
 
-    public void saveBestelling(Account account, Bestellingsregel bestellingsregel){
+    public void saveBestelling(Account account, List<Bestellingsregel> bestellingsregels){
         List<Bestelling> bestellingen = account.getBestellingen();
         if (!bestellingen.isEmpty()){
             for(Bestelling bestelling : bestellingen) {
                 if (bestelling.getStatus().equals("open")) {
-                    bestellingsregel.setBestelling(bestelling);
-                    bestellingRegelRepository.save(bestellingsregel);
+                    for (Bestellingsregel regel : bestellingsregels) {
+                        regel.setBestelling(bestelling);
+                        bestellingRegelRepository.save(regel);
+                    }
                 }else if (!bestelling.getStatus().equals("open")){
-                    nieuweBestelling(account, bestellingsregel);
+                    nieuweBestelling(account, bestellingsregels);
                 }
             }
         }else {
-            nieuweBestelling(account, bestellingsregel);
+            nieuweBestelling(account, bestellingsregels);
         }
     }
 
-    private void nieuweBestelling(Account account, Bestellingsregel bestellingsregel) {
-        List<Bestellingsregel> bestellingsregels = new ArrayList<>();
-        bestellingsregels.add(bestellingsregel);
+    private void nieuweBestelling(Account account, List<Bestellingsregel> bestellingsregels) {
         Bestelling newBestelling = new Bestelling("open", account, bestellingsregels);
-        bestellingsregel.setBestelling(newBestelling);
+        for(Bestellingsregel regel : bestellingsregels){
+            regel.setBestelling(newBestelling);
+        }
         bestellingRepository.save(newBestelling);
-        bestellingRegelRepository.save(bestellingsregel);
+        for(Bestellingsregel regel : bestellingsregels)
+        bestellingRegelRepository.save(regel);
     }
 }

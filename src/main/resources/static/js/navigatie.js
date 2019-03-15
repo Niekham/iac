@@ -1,4 +1,4 @@
-//Rest call to fetch all categories
+//get request voor het ophalen van alle categorieen
 function getCategories() {
     fetch("http://localhost:8081/api/categories")
         .then(function(response){
@@ -12,13 +12,13 @@ function getCategories() {
         });
 }
 
-//Adds all categories to navigation bar
+//voegt alle categorieen te aan de pagina
 function verwerkGetCategories(data) {
     var navigatie = document.querySelector(".navigatie");
     var categorie = document.createElement("a");
     categorie.innerText = data.naam;
     categorie.name=data.id;
-    categorie.href="products.html"
+    categorie.href="products.html";
     navigatie.appendChild(categorie);
 
     categorie.addEventListener("click", function () {

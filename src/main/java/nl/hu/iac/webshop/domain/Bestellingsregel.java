@@ -46,7 +46,7 @@ public class Bestellingsregel {
     }
 
     public void setPrijs(double prijs) {
-        this.prijs = prijs;
+        this.prijs = prijs * this.aantal;
     }
 
     public void setProduct(Product product) {

@@ -1,3 +1,4 @@
+//haalt alle aanbiedingen op
 function getAanbiedingen(){
     fetch("http://localhost:8081/api/aanbieding")
         .then(function(response){

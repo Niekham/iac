@@ -7,10 +7,10 @@ import nl.hu.iac.webshop.domain.Product;
 import nl.hu.iac.webshop.services.AccountService;
 import nl.hu.iac.webshop.services.BestellingService;
 import nl.hu.iac.webshop.services.ProductService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping(BestellingController.BASE_URL)
@@ -27,14 +27,23 @@ public class BestellingController {
         this.productService = productService;
     }
 
-    @PostMapping("/add")
-    public void newOrder(@RequestBody BestellingDTO bestellingDTO){
-        Account account = accountService.getAccountById(bestellingDTO.getAccount_id());
-        Product product = productService.findById(bestellingDTO.getProduct_id());
-        Bestellingsregel bestellingsregel = new Bestellingsregel();
-        bestellingsregel.setPrijs(bestellingDTO.getPrijs());
-        bestellingsregel.setAantal(bestellingDTO.getAantal());
-        bestellingsregel.setProduct(product);
-        bestellingService.saveBestelling(account, bestellingsregel);
+    @PostMapping("/add/{id}")
+    public void newOrder(@RequestBody List<BestellingDTO> bestellingDTO, @PathVariable Long id){
+        Account account = accountService.getAccountById(id);
+        List<Bestellingsregel> regels = new ArrayList<>();
+        for (BestellingDTO dto : bestellingDTO) {
+            Product product = (productService.findById(dto.getProduct_id()));
+            Bestellingsregel regel = new Bestellingsregel();
+            regel.setAantal(dto.getAantal());
+
+            if (product.getAanbiedingprijs() == null) {
+                regel.setPrijs(product.getPrijs());
+            }else{
+                regel.setPrijs(Double.parseDouble(product.getAanbiedingprijs()));
+            }
+            regel.setProduct(product);
+            regels.add(regel);
+        }
+        bestellingService.saveBestelling(account, regels);
     }
 }

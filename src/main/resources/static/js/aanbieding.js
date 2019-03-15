@@ -1,16 +1,17 @@
+//pakt data van aanbiedingen maakt elementen aan voor elk deel van de data
 function verwerkGetAanbiedingen(data) {
-    var div = document.createElement("div");
+    let div = document.createElement("div");
     div.setAttribute("class", "aanbiedingLijst");
 
-    var korting = document.createElement("label");
+    let korting = document.createElement("label");
     korting.innerText = data.percentage + "% korting";
 
-    var aanbiedingId = document.createElement("label");
-    aanbiedingId.setAttribute("class", "aanbiedingId")
+    let aanbiedingId = document.createElement("label");
+    aanbiedingId.setAttribute("class", "aanbiedingId");
     aanbiedingId.innerText = data.id;
     aanbiedingId.hidden;
 
-    var button = document.createElement("input");
+    let button = document.createElement("input");
     button.setAttribute("type", "button");
     button.setAttribute("class", "aanbiedingButton");
     button.setAttribute("value", "Bekijk");
@@ -21,8 +22,8 @@ function verwerkGetAanbiedingen(data) {
     document.querySelector(".container").appendChild(div);
 
     button.addEventListener("click", function () {
-        sessionStorage.removeItem("Categorie")
-        sessionStorage.setItem("Aanbieding", data.id)
-        window.location.href="/products.html"
-    })
+        sessionStorage.removeItem("Categorie");
+        sessionStorage.setItem("Aanbieding", data.id);
+        window.location.href="/products.html";
+    });
 }
