@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <title>Login</title>
     <link rel="stylesheet" type="text/css" href="css/login.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
 <script type="text/javascript" src="/js/login.js"></script>
-<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script><body>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+<body onload="login()">
 <div class="loginContainer">
     <h2>Login</h2>
     <h4>Bestaande klanten.</h4>
     <form class="loginForm" method="post">
         <input placeholder="Username" name="username" type="text"><br>
         <input placeholder="Wachtwoord" name="password" type="password"><br>
-        <input value="Login" type="submit"><br><hr>
+        <input id="Login" value="Login" type="button"><br><hr>
     </form>
     <h2>Nieuw in onze webshop?</h2>
     <h4>Maak gemakkelijk een account aan.</h4>

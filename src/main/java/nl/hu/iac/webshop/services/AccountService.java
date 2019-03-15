@@ -1,5 +1,6 @@
 package nl.hu.iac.webshop.services;
 
+import nl.hu.iac.webshop.DTO.InlogDTO;
 import nl.hu.iac.webshop.domain.Account;
 import nl.hu.iac.webshop.domain.Adres;
 import nl.hu.iac.webshop.domain.Klant;
@@ -52,7 +53,8 @@ public class AccountService {
         return adresRepository.findById(id).orElseThrow(() -> new AdresNotFoundException(id));
     }
 
-    public Long getIdFromAccount(String username, String password){
-        return accountRepository.findIdByUsernameAndPassword(username, password);
+    public Account getAccount(String username, String password){
+        return accountRepository.findAccountByUsernameAndPassword(username, password);
     }
+
  }

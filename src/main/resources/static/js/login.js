@@ -28,3 +28,23 @@ function createAccount(){
         'contentType': 'application/json'
     });
 }
+
+function login() {
+    //Aan de button inloggen wordt een event listener toegevoegd.
+    var button = document.getElementById("Login");
+    button.addEventListener('click', function () {
+        let json = JSON.parse(JSON.stringify(jQuery('.loginForm').serializeArray()));
+        let obj = formToJson(json);
+        $.ajax({
+            'url': 'http://localhost:8081/api/account/login',
+            'data': JSON.stringify(obj),
+            'type': 'POST',
+            'contentType': 'application/json',
+            'success' : function(data,response){
+                sessionStorage.setItem("UserID", data);
+                document.location.href = "Index.html";
+            }
+        });
+    });
+
+}

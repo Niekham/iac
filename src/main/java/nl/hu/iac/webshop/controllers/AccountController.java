@@ -1,5 +1,6 @@
 package nl.hu.iac.webshop.controllers;
         import nl.hu.iac.webshop.DTO.AccountKlantDTO;
+        import nl.hu.iac.webshop.DTO.InlogDTO;
         import nl.hu.iac.webshop.domain.*;
         import nl.hu.iac.webshop.services.AccountService;
         import org.springframework.web.bind.annotation.*;
@@ -44,31 +45,12 @@ public class AccountController {
             accountService.saveAccount(account, klant, adres);
     }
 
-    @GetMapping("/login")
-    public Long accountLogin(@PathVariable String user, @PathVariable String pass){
-        System.out.println(user + pass);
-        return accountService.getIdFromAccount(user, pass);
+    @PostMapping("/login")
+    public Long accountLogin(@RequestBody InlogDTO inlogDTO){
+        Account account = accountService.getAccount(inlogDTO.getUsername(), inlogDTO.getPassword());
+        return account.getId();
     }
 
-//    @PostMapping("/{id}/update")
-//    public Account updateAccount(@PathVariable Long id, @RequestBody AccountKlantDTO accountKlantDTO){
-//        Account account = accountService.getAccountById(id);
-//        Klant klant = account.getKlant();
-//        Adres adres = klant.getAdres();
-//        account.setUsername(accountKlantDTO.getAccountUsername());
-//        account.setPassword(accountKlantDTO.getAccountPassword());
-//        account.setOpenDatum(accountKlantDTO.getAccountOpenDatum());
-//
-//        adres.setStraat(accountKlantDTO.getAdresStraat());
-//        adres.setStraatNummer(accountKlantDTO.getAdresStraatNummer());
-//
-//        klant.setNaam(accountKlantDTO.getKlantNaam());
-//        klant.setAfbeelding(accountKlantDTO.getKlantAfbeelding());
-//        klant.setAdres(adres);
-//
-//        account.setKlant(klant);
-//        return accountService.saveAccount(account);
-//    }
 
     @GetMapping("/delete/{id}")
     public void deleteAccount(@PathVariable Long id) {
