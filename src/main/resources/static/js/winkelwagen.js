@@ -28,9 +28,9 @@ function showWinkelwagen(){
 
 function winkelWagenContent(){
     if (sessionStorage.getItem("bestellingregel") == null){
-        let label =  document.createElement("label");
-        label.innerText = "U heeft nog geen producten in uw winkelwagen";
-
-        document.querySelector(".winkelwagen-body").appendChild(label);
+        document.querySelector(".geenItem").style.display = "block";
+    }else {
+        document.querySelector(".geenItem").style.display = "hidden";
+        // let div = document.querySelector(".winkelwagen-body");
     }
 }
