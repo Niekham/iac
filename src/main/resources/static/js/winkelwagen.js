@@ -27,5 +27,10 @@ function showWinkelwagen(){
 
 
 function winkelWagenContent(){
-    console.log(sessionStorage.getItem("product"))
+    if (sessionStorage.getItem("bestellingregel") == null){
+        let label =  document.createElement("label");
+        label.innerText = "U heeft nog geen producten in uw winkelwagen";
+
+        document.querySelector(".winkelwagen-body").appendChild(label);
+    }
 }
