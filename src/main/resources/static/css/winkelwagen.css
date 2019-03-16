@@ -63,3 +63,24 @@
 .geenItem{
     display: none;
 }
+
+.productInWinkelwagen{
+    width: 90%;
+    height: 50px;
+    margin: 5px auto;
+    border: solid #888888 1px;
+}
+
+
+.aantalProductInWinkelwagen{
+    float: right;
+    margin: 5px;
+    width: 40px;
+    height: 35px;
+    border-radius: 5px;
+}
+
+.prijsProductInWinkelwagen{
+    margin-left: 40%;
+    margin-right: 5px;
+}

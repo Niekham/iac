@@ -49,5 +49,6 @@ function loadProducts(data) {
     addButton.addEventListener("click", function () {
         let json = {"id":data.id, "naam":data.naam, "prijs":data.prijs, "aanbiedingprijs":parseFloat(data.aanbiedingprijs), "aantal":1};
         addToCart(json);
+        location.reload();
     });
 }

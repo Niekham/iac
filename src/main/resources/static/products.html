@@ -18,12 +18,12 @@
 <script type="text/javascript" src="/js/login.js"></script>
 
 
-<body onload="checkLoad(); checkLogin(); getCategories()">
+<body onload="checkLoad(); checkLogin(); getCategories(); winkelWagenContent();">
 <!--div voor header en navigatie-->
 <div class="header">
     <div class="topbar">
         <a class="logo" href='index.html'>IAC</a>
-        <i onclick="winkelWagenContent(); showWinkelwagen()" class="fa fa-shopping-cart fa-2x"></i>
+        <i onclick="showWinkelwagen()" class="fa fa-shopping-cart fa-2x"></i>
         <a id="inlog" class="login" href="login.html">Inloggen</a>
         <a id="uitlog" class="loguit hidden" onclick="logout()" href="Index.html">Uitloggen</a>
     </div>
