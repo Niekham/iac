@@ -52,10 +52,10 @@ public class Aanbieding {
 
     public void setTotDatum(String totDatum) {
         TimeZone zone = TimeZone.getTimeZone("UTC");
-        SimpleDateFormat formatter2 = new SimpleDateFormat("d-M-yyyy");
+        SimpleDateFormat formatter2 = new SimpleDateFormat("d-M-yyyy HH-mm-ss");
         formatter2.setTimeZone(zone);
         try {
-            this.totDatum = formatter2.parse(totDatum);
+            this.totDatum = formatter2.parse(totDatum + " 22-59-00");
         } catch (ParseException e) {
             e.printStackTrace();
         }
