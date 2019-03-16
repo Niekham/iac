@@ -4,7 +4,9 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" type="text/css" href="css/generalCSS.css">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <title>Home</title>
 </head>
 <script type="text/javascript" src="/js/aanbiedingRest.js"></script>
@@ -12,11 +14,12 @@
 <script type="text/javascript" src="/js/aanbieding.js"></script>
 <script type="text/javascript" src="/js/navigatie.js"></script>
 
-<body onload="getAanbiedingen(); getCategories()">
+<body onload="getAanbiedingen(); getCategories(); checkLogin()">
 <div class="topbar">
     <h2 onclick="window.location.href='index.html'">IAC</h2>
-    <a href="login.html">Inloggen</a>
-    <a onclick="logout()" href="Index.html">Uitloggen</a>
+    <i class="fa fa-shopping-cart fa-2x"></i>
+    <a class="login" href="login.html">Inloggen</a>
+    <a class="loguit hidden" onclick="logout()" href="Index.html">Uitloggen</a>
 </div>
 <nav class="navigatie">
     <a href="Index.html">Home</a>

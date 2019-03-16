@@ -10,12 +10,10 @@ import java.util.List;
 @Service
 public class ProductService {
     private final ProductRepository productRepository;
-    private final CategorieRepository categorieRepository;
 
 
-    public ProductService(ProductRepository productRepository, CategorieRepository categorieRepository) {
+    public ProductService(ProductRepository productRepository) {
         this.productRepository = productRepository;
-        this.categorieRepository = categorieRepository;
     }
 
     public List<Product> findAllProducts(){

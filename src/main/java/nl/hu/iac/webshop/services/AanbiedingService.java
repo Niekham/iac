@@ -26,7 +26,6 @@ public class AanbiedingService {
         Date date = new Date();
         dateFormat.format(date);
         for (Aanbieding aanbieding : aanbiedingen){
-            System.out.println(aanbieding.getProducts());
             if (date.after(aanbieding.getVanDatum()) && date.before(aanbieding.getTotDatum()) && !aanbieding.getProducts().isEmpty()){
                 newList.add(aanbieding);
             }

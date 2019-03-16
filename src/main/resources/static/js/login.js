@@ -64,5 +64,18 @@ function login() {
 }
 
 function logout() {
-    sessionStorage.removeItem("UserID")
+    sessionStorage.removeItem("UserID");
+    document.querySelector(".login").setAttribute("class", "login show");
+    document.querySelector(".loguit").setAttribute("class", "login hidden");
+}
+
+
+function checkLogin() {
+    if(sessionStorage.getItem("UserID") == null){
+        document.querySelector(".login").setAttribute("class", "login show");
+        document.querySelector(".loguit").setAttribute("class", "loguit hidden");
+    }else {
+        document.querySelector(".login").setAttribute("class", "login hidden");
+        document.querySelector(".loguit").setAttribute("class", "loguit show");
+    }
 }
