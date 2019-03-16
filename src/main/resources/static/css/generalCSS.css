@@ -2,6 +2,8 @@ body{
     padding: 0;
     margin: 0;
     font-family: Roboto;
+    width: 100%;
+    height: 100%;
 }
 .container{
     opacity: 30%;
@@ -50,53 +52,6 @@ body{
     display: block;
 }
 
-.topbar{
-    background-color: #333;
-    width: 100%;
-    height: 30px;
-    padding: 10px;
-}
-.fa-shopping-cart{
-    color: white;
-    margin-right: 30px;
-    float: right;
-}
-
-/*snap niks van dit hoeren ding*/
-.topbar h2  {
-    color: white;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-}
-
-.topbar a{
-    text-decoration: none;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    font-size: 17px;
-    float: right;
-}
-
-
-.navigatie {
-    overflow: hidden;
-    width: 100%;
-    margin-bottom: 50px;
-    border: lightgray solid 1px;
-}
-
-
-/* Style the links inside the navigation bar */
-.navigatie a {
-    float: left;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-}
 .input{
     font-size: 16px;
 }
