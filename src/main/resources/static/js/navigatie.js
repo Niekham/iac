@@ -31,8 +31,8 @@ function categorieSession(id){
     sessionStorage.setItem("Categorie", id)
 }
 
-//Verwijderen van session storage om alle producten te laden
-function emptySessionStorage() {
+//Verwijderen van session storage categorie / aanbieding om alle producten te laden
+function emptyProductFilter() {
     sessionStorage.removeItem("Aanbieding");
     sessionStorage.removeItem("Categorie")
 }
