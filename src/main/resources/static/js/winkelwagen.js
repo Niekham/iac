@@ -19,7 +19,7 @@ function showWinkelwagen(){
         document.querySelector(".winkelwagen").style.display = "none";
     });
     window.addEventListener("click", function () {
-        if (event.target = modal) {
+        if (event.target == modal) {
             modal.style.display = "none";
         }
     });
@@ -84,7 +84,7 @@ function printContentToWinkelwagen(item) {
 function changeAantal(selected, productid) {
     let jsonObject = JSON.parse(sessionStorage.getItem("bestellingregel"));
     for (const item of jsonObject['product']){
-           if (item.id = productid){
+           if (item.id == productid){
                item.aantal = selected;
            }
         }
