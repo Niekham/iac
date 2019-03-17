@@ -37,6 +37,13 @@
     to {top:0; opacity:1}
 }
 
+.closeButton{
+    color: firebrick;
+    float: right;
+    font-size: 25px;
+    font-weight: bold;
+}
+
 .close {
     color: white;
     float: right;
@@ -45,7 +52,7 @@
 }
 
 .close:hover,
-.close:focus {
+.close:focus, .closeButton:hover, .closeButton:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
@@ -83,4 +90,9 @@
 .prijsProductInWinkelwagen{
     margin-left: 40%;
     margin-right: 5px;
+}
+
+.bestelButton{
+    position: absolute;
+    bottom: 15px;
 }

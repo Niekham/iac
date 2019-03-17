@@ -1,3 +1,10 @@
+function verwerkProduct(data) {
+    let item = data.split(',');
+    let json ={"id":parseInt(item[0]), "naam":item[1], "prijs":parseFloat(item[2]), "aanbiedingprijs":parseFloat(item[3]), "aantal":1};
+    addToCart(json);
+    location.reload();
+}
+
 function addToCart(data) {
     let myJson = {"product":[]};
     if (sessionStorage.getItem("bestellingregel") == null){
@@ -5,8 +12,19 @@ function addToCart(data) {
         sessionStorage.setItem("bestellingregel", JSON.stringify(myJson));
     }else{
         let jsonStorage = JSON.parse(sessionStorage.getItem("bestellingregel"));
-        jsonStorage["product"].push(data);
-        sessionStorage.setItem("bestellingregel", JSON.stringify(jsonStorage));
+        let add=0;
+        for (const item of jsonStorage['product']){
+            if (data.id === item.id){
+                item.aantal += 1;
+                add +=1;
+                sessionStorage.setItem("bestellingregel", JSON.stringify(jsonStorage));
+            }
+        }
+        if(add === 0) {
+            jsonStorage["product"].push(data);
+            sessionStorage.setItem("bestellingregel", JSON.stringify(jsonStorage));
+            console.log("zit er nog niet in");
+        }
     }
 }
 
@@ -19,7 +37,7 @@ function showWinkelwagen(){
         document.querySelector(".winkelwagen").style.display = "none";
     });
     window.addEventListener("click", function () {
-        if (event.target == modal) {
+        if (event.target === modal) {
             modal.style.display = "none";
         }
     });
@@ -71,22 +89,44 @@ function printContentToWinkelwagen(item) {
         aantal.appendChild(option);
     }
 
+    let del = document.createElement("input");
+    del.setAttribute("class", "closeButton");
+    del.type="button";
+    del.value="x";
     newDiv.appendChild(naam);
     newDiv.appendChild(prijs);
+    newDiv.append(del);
     newDiv.appendChild(aantal);
     div.appendChild(newDiv);
 
     aantal.addEventListener("change", function () {
         changeAantal((aantal.selectedIndex + 1), item.id);
-    })
+    });
+
+    del.addEventListener("click", function () {
+        deleteFromCart(item.id);
+    });
 }
 
 function changeAantal(selected, productid) {
     let jsonObject = JSON.parse(sessionStorage.getItem("bestellingregel"));
     for (const item of jsonObject['product']){
-           if (item.id == productid){
+           if (item.id === productid){
                item.aantal = selected;
            }
         }
     sessionStorage.setItem("bestellingregel", JSON.stringify(jsonObject));
+}
+
+function deleteFromCart(productid) {
+    let jsonObject = JSON.parse(sessionStorage.getItem("bestellingregel"));
+    let myJson = {"product":[]};
+
+   for (const item of jsonObject['product']){
+       if(item.id !== productid) {
+           myJson['product'].push(item);
+       }
+   }
+   sessionStorage.setItem("bestellingregel", JSON.stringify(myJson));
+   location.reload();
 }

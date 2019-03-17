@@ -4,37 +4,44 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>Products</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/generalCSS.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/winkelwagen.css}">
+    <link rel="stylesheet" type="text/css" src="../css/generalCSS.css" th:href="@{/css/generalCSS.css}">
+    <link rel="stylesheet" type="text/css" src="../css/header.css" th:href="@{/css/header.css}">
+    <link rel="stylesheet" type="text/css" src="../css/login.css" th:href="@{/css/login.css}">
+    <link rel="stylesheet" type="text/css" src="../css/winkelwagen.css" th:href="@{/css/winkelwagen.css}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
-<script type="text/javascript" th:src="@{/js/productRest.js}"></script>
-<script type="text/javascript" th:src="@{/js/products.js}"></script>
-<script type="text/javascript" th:src="@{/js/navigatie.js}"></script>
-<script type="text/javascript" th:src="@{/js/winkelwagen.js}"></script>
-<script type="text/javascript" th:src="@{/js/login.js}"></script>
+<script type="text/javascript" src="../js/navigatie.js" th:src="@{/js/navigatie.js}"></script>
+<script type="text/javascript" src="../js/winkelwagen.js" th:src="@{/js/winkelwagen.js}"></script>
+<script type="text/javascript" src="../js/login.js" th:src="@{/js/login.js}"></script>
 
 
-<body onload="checkLoad(); checkLogin(); getCategories(); winkelWagenContent();">
+<body onload="checkLogin(); getCategories(); winkelWagenContent();">
 <!--div voor header en navigatie-->
 <div class="header">
     <div class="topbar">
-        <a class="logo" href='index.html'>IAC</a>
+        <a class="logo" href='/'>IAC</a>
         <i onclick="showWinkelwagen()" class="fa fa-shopping-cart fa-2x"></i>
         <a id="inlog" class="login" href="login.html">Inloggen</a>
-        <a id="uitlog" class="loguit hidden" onclick="logout()" href="Index.html">Uitloggen</a>
+        <a id="uitlog" class="loguit hidden" onclick="logout()" href="/">Uitloggen</a>
     </div>
 
     <nav class="navigatie">
-        <a href="Index.html">Home</a>
-        <a onclick="emptyProductFilter()" href="products.html">Alle</a>
+        <a th:href="@{'/'}">Home</a>
+        <a th:href="@{'/products'}">Alle</a>
 
     </nav>
 </div>
+
 <div class="container">
+    <div th:each="product: ${products}" class="productLijst">
+        <label th:text="${product.id}" class="productId"></label>
+        <label th:text="${product.naam}" class="text"></label>
+        Prijs: <label th:text="${product.prijs}" class="text">Prijs</label>
+        Aanbiedingprijs: <label th:text="${product.aanbiedingprijs}" class="text">Aanbiedingsprijs: </label>
+        <input type="button" value="Bekijken" class="productButton">
+        <input type="button" value="Voeg toe" class="addButton" th:name="${product.id+','+product.naam+','+product.prijs+','+product.aanbiedingprijs}"  onclick="verwerkProduct(this.name)">
+    </div>
     <!--div voor het de winkelwagen-->
     <div class="winkelwagen">
         <div class="winkelwagen-content">
@@ -44,9 +51,10 @@
             </div>
             <div class="winkelwagen-body">
                 <label class="geenItem">Uw winkelwagen is leeg!</label>
+                <input class="bestelButton" type="button" value="Bestellen">
             </div>
         </div>
-</div>
+    </div>
 </div>
 </body>
 </html>

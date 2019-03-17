@@ -35,8 +35,7 @@ public class Aanbieding {
         return id;
     }
 
-    public Date getVanDatum() {
-        return vanDatum;
+    public Date getVanDatum() { return vanDatum;
     }
 
     public void setVanDatum(String vanDatum) {

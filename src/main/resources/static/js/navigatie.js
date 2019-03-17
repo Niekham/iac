@@ -1,6 +1,6 @@
 //get request voor het ophalen van alle categorieen
 function getCategories() {
-    fetch("http://localhost:8081/api/categories")
+    fetch("http://localhost:8081/categories")
         .then(function(response){
             return response.json();
         })
@@ -17,22 +17,7 @@ function verwerkGetCategories(data) {
     var navigatie = document.querySelector(".navigatie");
     var categorie = document.createElement("a");
     categorie.innerText = data.naam;
-    categorie.name=data.id;
-    categorie.href="products.html";
+    categorie.href="/products/categorie/" +data.id;
     navigatie.appendChild(categorie);
-
-    categorie.addEventListener("click", function () {
-        categorieSession(categorie.name.valueOf());
-    });
 }
 
-function categorieSession(id){
-    sessionStorage.removeItem("Aanbieding");
-    sessionStorage.setItem("Categorie", id)
-}
-
-//Verwijderen van session storage categorie / aanbieding om alle producten te laden
-function emptyProductFilter() {
-    sessionStorage.removeItem("Aanbieding");
-    sessionStorage.removeItem("Categorie")
-}

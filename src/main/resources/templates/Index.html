@@ -14,7 +14,6 @@
 
 </head>
 
-<script type="text/javascript" src="/js/aanbiedingRest.js"></script>
 <script type="text/javascript" src="/js/login.js"></script>
 <script type="text/javascript" src="/js/aanbieding.js"></script>
 <script type="text/javascript" src="/js/navigatie.js"></script>
@@ -24,16 +23,15 @@
 <!--div voor header en navigatie-->
 <div class="header">
     <div class="topbar">
-        <a class="logo" href='index.html'>IAC</a>
+        <a class="logo" href='/'>IAC</a>
         <i onclick="showWinkelwagen()" class="fa fa-shopping-cart fa-2x"></i>
         <a id="inlog" class="login" href="login.html">Inloggen</a>
-        <a id="uitlog" class="loguit hidden" onclick="logout()" href="Index.html">Uitloggen</a>
+        <a id="uitlog" class="loguit hidden" onclick="logout()" href="/">Uitloggen</a>
     </div>
 
     <nav class="navigatie">
-        <a href="Index.html">Home</a>
-        <a onclick="emptyProductFilter()" href="products.html">Alle</a>
-
+        <a th:href="@{'/'}">Home</a>
+        <a th:href="@{'/products'}">Alle</a>
     </nav>
 </div>
 
@@ -47,6 +45,7 @@
             </div>
             <div class="winkelwagen-body">
                 <label class="geenItem">Uw winkelwagen is leeg!</label>
+                <input class="bestelButton" type="button" value="Bestellen">
             </div>
         </div>
     </div>
