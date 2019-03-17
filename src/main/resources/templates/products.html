@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <!--suppress HtmlUnknownTarget -->
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>Products</title>
-    <link rel="stylesheet" type="text/css" href="css/generalCSS.css">
-    <link rel="stylesheet" type="text/css" href="css/header.css">
-    <link rel="stylesheet" type="text/css" href="css/login.css">
-    <link rel="stylesheet" type="text/css" href="css/winkelwagen.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/generalCSS.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/winkelwagen.css}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
-<script type="text/javascript" src="/js/productRest.js"></script>
-<script type="text/javascript" src="/js/products.js"></script>
-<script type="text/javascript" src="/js/navigatie.js"></script>
-<script type="text/javascript" src="/js/winkelwagen.js"></script>
-<script type="text/javascript" src="/js/login.js"></script>
+<script type="text/javascript" th:src="@{/js/productRest.js}"></script>
+<script type="text/javascript" th:src="@{/js/products.js}"></script>
+<script type="text/javascript" th:src="@{/js/navigatie.js}"></script>
+<script type="text/javascript" th:src="@{/js/winkelwagen.js}"></script>
+<script type="text/javascript" th:src="@{/js/login.js}"></script>
 
 
 <body onload="checkLoad(); checkLogin(); getCategories(); winkelWagenContent();">
@@ -24,12 +24,12 @@
     <div class="topbar">
         <a class="logo" href='index.html'>IAC</a>
         <i onclick="showWinkelwagen()" class="fa fa-shopping-cart fa-2x"></i>
-        <a id="inlog" class="login" href="login.html">Inloggen</a>
-        <a id="uitlog" class="loguit hidden" onclick="logout()" href="Index.html">Uitloggen</a>
+        <a id="inlog" class="login" href="../static/login.html">Inloggen</a>
+        <a id="uitlog" class="loguit hidden" onclick="logout()" href="../static/Index.html">Uitloggen</a>
     </div>
 
     <nav class="navigatie">
-        <a href="Index.html">Home</a>
+        <a href="../static/Index.html">Home</a>
         <a onclick="emptyProductFilter()" href="products.html">Alle</a>
 
     </nav>

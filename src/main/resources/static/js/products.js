@@ -45,6 +45,11 @@ function loadProducts(data) {
     div.appendChild(addButton);
     document.querySelector(".container").appendChild(div);
 
+    //Zorgt voor de actie van de knop: bekijk
+    button.addEventListener("click", function () {
+        document.location.href = '/api/products/' + data.id;
+        });
+
     //Zorgt ervoor dat alle informatie per product verzonden wordt naar addToCart functie
     addButton.addEventListener("click", function () {
         let json = {"id":data.id, "naam":data.naam, "prijs":data.prijs, "aanbiedingprijs":parseFloat(data.aanbiedingprijs), "aantal":1};

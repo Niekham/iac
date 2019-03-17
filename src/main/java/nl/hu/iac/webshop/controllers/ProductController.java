@@ -1,7 +1,9 @@
 package nl.hu.iac.webshop.controllers;
 
-import com.sun.jdi.LongValue;
-import nl.hu.iac.webshop.domain.Categorie;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import nl.hu.iac.webshop.domain.Product;
 import nl.hu.iac.webshop.services.CategorieService;
 import nl.hu.iac.webshop.services.ProductService;
@@ -10,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
-@RestController
+@Controller
 @RequestMapping(ProductController.BASE_URL)
 public class ProductController{
     static final String BASE_URL = "/api/products";
@@ -22,12 +24,20 @@ public class ProductController{
     }
 
     @GetMapping
-    public List<Product> getAllProducts(){return productService.findAllProducts();}
+    public String getAllProducts() {
+        return "products";
+    }
 
-
+    @GetMapping("/test")
+    public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
+        model.addAttribute("name", name);
+        return "greeting.html";
+    }
 
     @GetMapping("/{id}")
-    public Product getProductById(@PathVariable Long id){return productService.findById(id);}
+    public String handleGetRequest() {
+        return "productDetail";
+    }
 
     @GetMapping("/categorie/{id}")
     public List<Product> getProductByCategorie(@PathVariable Long id){
