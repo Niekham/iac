@@ -17,7 +17,7 @@ function verwerkGetCategories(data) {
     var navigatie = document.querySelector(".navigatie");
     var categorie = document.createElement("a");
     categorie.innerText = data.naam;
-    categorie.href="/products/categorie/" +data.id;
+    categorie.href="/categorie/" +data.id;
     navigatie.appendChild(categorie);
 }
 
