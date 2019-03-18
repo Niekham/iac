@@ -120,6 +120,7 @@ function showTotal() {
                 total += item.prijs * item.aantal;
             }
         }
+    total = parseFloat(Math.round(total * 100) / 100).toFixed(2);
     document.querySelector(".total").innerHTML="Total: $"+total.toString();
 }
 
@@ -131,6 +132,7 @@ function changeAantal(selected, productid) {
            }
         }
     sessionStorage.setItem("bestellingregel", JSON.stringify(jsonObject));
+    showTotal();
 }
 
 function deleteFromCart(productid) {
