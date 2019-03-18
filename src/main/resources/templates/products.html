@@ -4,10 +4,10 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>Products</title>
-    <link rel="stylesheet" type="text/css" src="../css/generalCSS.css" th:href="@{/css/generalCSS.css}">
-    <link rel="stylesheet" type="text/css" src="../css/header.css" th:href="@{/css/header.css}">
-    <link rel="stylesheet" type="text/css" src="../css/login.css" th:href="@{/css/login.css}">
-    <link rel="stylesheet" type="text/css" src="../css/winkelwagen.css" th:href="@{/css/winkelwagen.css}">
+    <link rel="stylesheet" type="text/css"  th:href="@{/css/generalCSS.css}">
+    <link rel="stylesheet" type="text/css"  th:href="@{/css/header.css}">
+    <link rel="stylesheet" type="text/css"  th:href="@{/css/login.css}">
+    <link rel="stylesheet" type="text/css"  th:href="@{/css/winkelwagen.css}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
@@ -38,7 +38,8 @@
         <label th:text="${product.id}" class="productId"></label>
         <label th:text="${product.naam}" class="text"></label>
         Prijs: <label th:text="${product.prijs}" class="text">Prijs</label>
-        Aanbiedingprijs: <label th:text="${product.aanbiedingprijs}" class="text">Aanbiedingsprijs: </label>
+        <label th:unless="${product.aanbiedingprijs} == null">Aanbiedingsprijs: </label>
+        <label th:unless="${product.aanbiedingprijs} == null" th:text="${product.aanbiedingprijs}" class="text"></label>
         <input type="button" value="Bekijken" class="productButton">
         <input type="button" value="Voeg toe" class="addButton" th:name="${product.id+','+product.naam+','+product.prijs+','+product.aanbiedingprijs}"  onclick="verwerkProduct(this.name)">
     </div>
@@ -52,6 +53,7 @@
             <div class="winkelwagen-body">
                 <label class="geenItem">Uw winkelwagen is leeg!</label>
                 <input class="bestelButton" type="button" value="Bestellen">
+                <label class="total"></label>
             </div>
         </div>
     </div>

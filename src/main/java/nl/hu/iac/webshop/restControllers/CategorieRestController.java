@@ -1,29 +1,30 @@
-package nl.hu.iac.webshop.controllers;
+package nl.hu.iac.webshop.restControllers;
 
 import nl.hu.iac.webshop.domain.Categorie;
 import nl.hu.iac.webshop.services.CategorieService;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-public class CategorieController {
+@RequestMapping(CategorieRestController.BASE_URL)
+public class CategorieRestController {
+    static final String BASE_URL="/api/categories";
 
     private final CategorieService categorieService;
 
-    public CategorieController(CategorieService categorieService) {
+    public CategorieRestController(CategorieService categorieService) {
         this.categorieService = categorieService;
     }
 
-    @GetMapping("/categories")
+    @GetMapping
     public List<Categorie> getAllCategories(){
         return categorieService.findAllCategories();
     }
 
-    @GetMapping("/categories/{id}")
+    @GetMapping("/{id}")
     public Categorie getCategorieById(@PathVariable Long id){return categorieService.findById(id);}
 
-    @PostMapping("categories")
+    @PostMapping
     public Categorie saveCategorie(@RequestBody Categorie categorie){return categorieService.saveCategorie(categorie);}
 }

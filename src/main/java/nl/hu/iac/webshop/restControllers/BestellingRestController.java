@@ -1,4 +1,4 @@
-package nl.hu.iac.webshop.controllers;
+package nl.hu.iac.webshop.restControllers;
 
 import nl.hu.iac.webshop.DTO.BestellingDTO;
 import nl.hu.iac.webshop.domain.Account;
@@ -13,15 +13,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping(BestellingController.BASE_URL)
-public class BestellingController {
+@RequestMapping(BestellingRestController.BASE_URL)
+public class BestellingRestController {
     static final String BASE_URL = "/api/bestelling";
 
     private final BestellingService bestellingService;
     private final AccountService accountService;
     private final ProductService productService;
 
-    public BestellingController(BestellingService bestellingService, AccountService accountService, ProductService productService) {
+    public BestellingRestController(BestellingService bestellingService, AccountService accountService, ProductService productService) {
         this.bestellingService = bestellingService;
         this.accountService = accountService;
         this.productService = productService;

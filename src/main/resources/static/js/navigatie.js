@@ -1,6 +1,6 @@
 //get request voor het ophalen van alle categorieen
 function getCategories() {
-    fetch("http://localhost:8081/categories")
+    fetch("http://localhost:8081/api/categories")
         .then(function(response){
             return response.json();
         })

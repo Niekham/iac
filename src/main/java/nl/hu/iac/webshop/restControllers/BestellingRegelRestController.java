@@ -1,4 +1,4 @@
-package nl.hu.iac.webshop.controllers;
+package nl.hu.iac.webshop.restControllers;
 
 import nl.hu.iac.webshop.domain.Bestellingsregel;
 import nl.hu.iac.webshop.services.BestellingRegelService;
@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(BestellingRegelController.BASE_URL)
-public class BestellingRegelController {
-    static final String BASE_URL = "/api/regel";
+@RequestMapping(BestellingRegelRestController.BASE_URL)
+public class BestellingRegelRestController {
+    static final String BASE_URL = "/api/bestellingregel";
 
     private final BestellingRegelService bestellingRegelService;
 
-    public BestellingRegelController(BestellingRegelService bestellingRegelService) {
+    public BestellingRegelRestController(BestellingRegelService bestellingRegelService) {
         this.bestellingRegelService = bestellingRegelService;
     }
 

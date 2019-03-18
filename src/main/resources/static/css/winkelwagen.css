@@ -96,3 +96,9 @@
     position: absolute;
     bottom: 15px;
 }
+
+.total{
+    position: absolute;
+    bottom: 15px;
+    right: 10px;
+}

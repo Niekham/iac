@@ -80,6 +80,7 @@ function printContentToWinkelwagen(item) {
     let aantal = document.createElement("select");
     aantal.setAttribute("class", "aantalProductInWinkelwagen");
 
+
     let i;
     for (i = 1; i < 10; i++){
         let option = document.createElement("option");
@@ -106,6 +107,20 @@ function printContentToWinkelwagen(item) {
     del.addEventListener("click", function () {
         deleteFromCart(item.id);
     });
+    showTotal();
+}
+
+function showTotal() {
+    let jsonObject = JSON.parse(sessionStorage.getItem("bestellingregel"));
+    let total = 0;
+    for (const item of jsonObject['product']){
+            if (item.aanbiedingprijs !== null){
+                total += item.aanbiedingprijs * item.aantal;
+            } else {
+                total += item.prijs * item.aantal;
+            }
+        }
+    document.querySelector(".total").innerHTML="Total: $"+total.toString();
 }
 
 function changeAantal(selected, productid) {

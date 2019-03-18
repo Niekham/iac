@@ -1,4 +1,4 @@
-package nl.hu.iac.webshop.controllers;
+package nl.hu.iac.webshop.restControllers;
         import nl.hu.iac.webshop.DTO.AccountKlantDTO;
         import nl.hu.iac.webshop.DTO.InlogDTO;
         import nl.hu.iac.webshop.domain.*;
@@ -7,21 +7,16 @@ package nl.hu.iac.webshop.controllers;
 
 
 @RestController
-@RequestMapping(AccountController.BASE_URL)
-public class AccountController {
+@RequestMapping(AccountRestController.BASE_URL)
+public class AccountRestController {
     static final String BASE_URL = "/api/account";
     private final AccountService accountService;
 
 
-    public AccountController(AccountService accountService) {
+    public AccountRestController(AccountService accountService) {
         this.accountService = accountService;
     }
 
-// yo niek ik weet niet wat hier mee moet gebeuren dan want deze shit is niet zzoals die getmapping
-//    public Klant getKlant( Long id){
-//        Account account = accountService.getAccountById(id);
-//        return account.getKlant();
-//    }
     @GetMapping("/{id}")
     public Account getAccount(@PathVariable Long id){
         return accountService.getAccountById(id);
