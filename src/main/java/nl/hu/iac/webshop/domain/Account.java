@@ -19,12 +19,12 @@ public class Account {
     @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
-            name = "account_rol",
+            name = "account_role",
             joinColumns = @JoinColumn(
                     name = "account_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(
-                    name = "rol_id", referencedColumnName = "id"))
-    private Collection< Rol > rollen;
+                    name = "role_id", referencedColumnName = "id"))
+    private Collection< Role > rollen;
 
     @OneToOne(mappedBy = "account", cascade = CascadeType.ALL)
     private Klant klant;
@@ -36,15 +36,15 @@ public class Account {
     public Account() {
     }
 
-    public Collection<Rol> getRollen() {
+    public Collection<Role> getRollen() {
         return rollen;
     }
 
-    public void setRollen(Collection<Rol> rollen) {
+    public void setRollen(Collection<Role> rollen) {
         this.rollen = rollen;
     }
 
-    public Account(String username, String password, Date openDatum, Collection<Rol> rollen, Klant klant, List<Bestelling> bestellingen) {
+    public Account(String username, String password, Date openDatum, Collection<Role> rollen, Klant klant, List<Bestelling> bestellingen) {
         this.username = username;
         this.password = password;
         this.openDatum = openDatum;

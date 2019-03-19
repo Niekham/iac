@@ -24,20 +24,17 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers(
-                        "/resources/static/js**",
-                        "respirces/static/css**").hasRole("ROL_ADMIN")
-                .antMatchers(
-                        "/registreren**",
-                        "/**",
+                .antMatchers("/api**").hasRole("ADMIN")
+                .antMatchers("/**",
                         "/products**",
-                        "/afrekenen**",
-                        "/login**").permitAll()
+                        "/registreren**",
+                        "/login**",
+                        "/afrekenen**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/login?success", true)
+                .defaultSuccessUrl("/?success", true)
                 .failureUrl("/login?error")
                 .permitAll()
                 .and()

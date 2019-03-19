@@ -1,10 +1,7 @@
 package nl.hu.iac.webshop.user;
 
 import nl.hu.iac.webshop.DTO.RegistreerDTO;
-import nl.hu.iac.webshop.domain.Account;
-import nl.hu.iac.webshop.domain.Adres;
-import nl.hu.iac.webshop.domain.Klant;
-import nl.hu.iac.webshop.domain.Rol;
+import nl.hu.iac.webshop.domain.*;
 import nl.hu.iac.webshop.repositories.AccountRepository;
 import nl.hu.iac.webshop.repositories.AdresRepository;
 import nl.hu.iac.webshop.repositories.KlantRepository;
@@ -49,7 +46,7 @@ public class UserService implements UserServiceInterface {
 
         account.setUsername(registreerDTO.getUsername());
         account.setPassword(passwordEncoder.encode(registreerDTO.getPassword()));
-        account.setRollen(Arrays.asList(new Rol("ROL_USER")));
+        account.setRollen(Arrays.asList(new Role("ROLE_USER")));
 
         adres.setPlaats(registreerDTO.getPlaats());
         adres.setPostcode(registreerDTO.getPostcode());
@@ -78,9 +75,9 @@ public class UserService implements UserServiceInterface {
                 mapRolesToAuthorities(account.getRollen()));
     }
 
-    private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Rol> rollen) {
+    private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> rollen) {
         return rollen.stream()
-                .map(rol -> new SimpleGrantedAuthority(rol.getName()))
+                .map(Role -> new SimpleGrantedAuthority(Role.getName()))
                         .collect(Collectors.toList());
     }
 
