@@ -66,26 +66,26 @@ function formToJson(tojson){
 }
 
 function toevoegen_aanbieding(){
-    // let van_datum = document.getElementById("input2").value;
-    // let tot_datum = document.getElementById("input3").value;
-    // var dt = new Date(van_datum);
-    // var dt2 = new Date(tot_datum);
+    let van_datum = document.getElementById("input2").value;
+    let tot_datum = document.getElementById("input3").value;
+    var dt = new Date(van_datum);
+    var dt2 = new Date(tot_datum);
     let json = JSON.parse(JSON.stringify(jQuery('.aanbieding_form').serializeArray()));
     let obj = formToJson(json);
     console.log(obj)
-    // $.ajax({
-    //     'url': 'http://localhost:8081/api/aanbieding/add',
-    //     'data': JSON.stringify(obj),
-    //     'type': 'POST',
-    //     'contentType': 'application/json',
-    //     'success' : function(){
-    //         alert("Aanbieding is toegevoegd")
-    //         location.reload();
-    //     },
-    //     'erorr' : function(){
-    //         alert("Aanbieding is niet toegevoegd")
-    //     }
-    // });
+    $.ajax({
+        'url': 'http://localhost:8081/api/aanbieding/add',
+        'data': JSON.stringify(obj),
+        'type': 'POST',
+        'contentType': 'application/json',
+        'success' : function(){
+            alert("Aanbieding is toegevoegd")
+            location.reload();
+        },
+        'erorr' : function(){
+            alert("Aanbieding is niet toegevoegd")
+        }
+    });
 
 }
 
