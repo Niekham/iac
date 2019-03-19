@@ -28,6 +28,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/registreren**",
                         "/**",
                         "/products**",
+                        "/afrekenen**",
                         "/login**").permitAll()
                 .anyRequest().authenticated()
                 .and()
