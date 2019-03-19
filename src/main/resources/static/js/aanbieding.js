@@ -51,6 +51,6 @@ function verwerkGetAanbiedingen(data) {
     button.addEventListener("click", function () {
         sessionStorage.removeItem("Categorie");
         sessionStorage.setItem("Aanbieding", data.id);
-        window.location.href="/products/aanbieding/" + data.id;
+        window.location.href="/aanbieding/" + data.id;
     });
 }
