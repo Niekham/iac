@@ -41,16 +41,21 @@ input{
     margin: 5px;
 }
 
-.hidden{
-    display: none;
-}
+/*.hidden{*/
+    /*display: none;*/
+/*}*/
 
-.show{
-    display: block;
-}
+/*.show{*/
+    /*display: block;*/
+/*}*/
 
 .errorLabel{
     color: firebrick;
+    margin-left: 5px;
+}
+
+.successLabel{
+    color: #4CAF50;
     margin-left: 5px;
 }
 
@@ -58,9 +63,6 @@ input{
     color: firebrick;
 }
 
-.register-succes{
-    color: #4CAF50;
-}
 
 .register-exist{
     color: firebrick;

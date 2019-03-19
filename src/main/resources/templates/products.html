@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--suppress HtmlUnknownTarget -->
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>Products</title>
@@ -22,14 +22,13 @@
     <div class="topbar">
         <a class="logo" th:href="${'/'}">IAC</a>
         <i onclick="showWinkelwagen()" class="fa fa-shopping-cart fa-2x"></i>
-        <a id="inlog" class="login" th:href="@{'/login'}">Inloggen</a>
-        <a id="uitlog" class="loguit hidden" onclick="logout()" th:href="${'/'}">Uitloggen</a>
+        <div sec:authorize="isAnonymous()"><a id="inlog" class="login" th:href="@{'/login'}">Inloggen</a></div>
+        <div sec:authorize="isAuthenticated()"><a id="uitlog" class="loguit hidden" th:href="${'/logout'}">Uitloggen</a></div>
     </div>
 
     <nav class="navigatie">
         <a th:href="@{'/'}">Home</a>
         <a th:href="@{'/products'}">Alle</a>
-
     </nav>
 </div>
 
