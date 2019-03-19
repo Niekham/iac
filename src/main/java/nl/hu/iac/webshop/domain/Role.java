@@ -3,16 +3,16 @@ package nl.hu.iac.webshop.domain;
 import javax.persistence.*;
 
 @Entity
-public class Rol {
+public class Role {
     @Id
-    @SequenceGenerator(name = "rol_id_generator", sequenceName = "rol_seq", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "rol_id_generator")
+    @SequenceGenerator(name = "role_id_generator", sequenceName = "role_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "role_id_generator")
     private Long id;
     private String name;
 
-    public Rol() {}
+    public Role() {}
 
-    public Rol(String name) {
+    public Role(String name) {
         this.name = name;
     }
 
