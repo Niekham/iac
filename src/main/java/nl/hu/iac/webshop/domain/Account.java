@@ -3,11 +3,9 @@ package nl.hu.iac.webshop.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
-import java.util.TimeZone;
 
 @Entity
 public class Account {
@@ -18,8 +16,19 @@ public class Account {
     private String username;
     private String password;
     private Date openDatum;
+    @JsonIgnore
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "account_rol",
+            joinColumns = @JoinColumn(
+                    name = "account_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(
+                    name = "rol_id", referencedColumnName = "id"))
+    private Collection< Rol > rollen;
+
     @OneToOne(mappedBy = "account", cascade = CascadeType.ALL)
     private Klant klant;
+
     @JsonIgnore
     @OneToMany(mappedBy = "account")
     private List<Bestelling> bestellingen;
@@ -27,10 +36,19 @@ public class Account {
     public Account() {
     }
 
-    public Account(String username, String password, Date openDatum, Klant klant, List<Bestelling> bestellingen) {
+    public Collection<Rol> getRollen() {
+        return rollen;
+    }
+
+    public void setRollen(Collection<Rol> rollen) {
+        this.rollen = rollen;
+    }
+
+    public Account(String username, String password, Date openDatum, Collection<Rol> rollen, Klant klant, List<Bestelling> bestellingen) {
         this.username = username;
         this.password = password;
         this.openDatum = openDatum;
+        this.rollen = rollen;
         this.klant = klant;
         this.bestellingen = bestellingen;
     }

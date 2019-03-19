@@ -1,7 +1,6 @@
 package nl.hu.iac.webshop.controllers;
 
 
-import nl.hu.iac.webshop.services.CategorieService;
 import nl.hu.iac.webshop.services.ProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

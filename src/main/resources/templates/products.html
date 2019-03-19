@@ -16,14 +16,14 @@
 <script type="text/javascript" src="../js/login.js" th:src="@{/js/login.js}"></script>
 
 
-<body onload="checkLogin(); getCategories(); winkelWagenContent();">
+<body onload="getCategories(); winkelWagenContent();">
 <!--div voor header en navigatie-->
 <div class="header">
     <div class="topbar">
-        <a class="logo" href='/'>IAC</a>
+        <a class="logo" th:href="${'/'}">IAC</a>
         <i onclick="showWinkelwagen()" class="fa fa-shopping-cart fa-2x"></i>
-        <a id="inlog" class="login" href="login.html">Inloggen</a>
-        <a id="uitlog" class="loguit hidden" onclick="logout()" href="/">Uitloggen</a>
+        <a id="inlog" class="login" th:href="@{'/login'}">Inloggen</a>
+        <a id="uitlog" class="loguit hidden" onclick="logout()" th:href="${'/'}">Uitloggen</a>
     </div>
 
     <nav class="navigatie">

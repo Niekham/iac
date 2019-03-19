@@ -1,6 +1,5 @@
 package nl.hu.iac.webshop.services;
 
-import nl.hu.iac.webshop.DTO.InlogDTO;
 import nl.hu.iac.webshop.domain.Account;
 import nl.hu.iac.webshop.domain.Adres;
 import nl.hu.iac.webshop.domain.Klant;
@@ -30,15 +29,15 @@ public class AccountService {
         return accountRepository.findById(id).orElseThrow(()-> new AccountNotFoundException(id));
     }
 
-    public void saveAccount(Account account, Klant klant, Adres adres){
-        account.setKlant(klant);
-        adres.setKlant(klant);
-        accountRepository.save(account);
-        adresRepository.save(adres);
-        klant.setAccount(account);
-        klant.setAdres(adres);
-        klantRepository.save(klant);
-    }
+//    public void saveAccount(Account account, Klant klant, Adres adres){
+//        account.setKlant(klant);
+//        adres.setKlant(klant);
+//        accountRepository.save(account);
+//        adresRepository.save(adres);
+//        klant.setAccount(account);
+//        klant.setAdres(adres);
+//        klantRepository.save(klant);
+//    }
 
 
     public void deleteAccount(Account account) {
@@ -57,4 +56,4 @@ public class AccountService {
         return accountRepository.findAccountByUsernameAndPassword(username, password);
     }
 
- }
+}

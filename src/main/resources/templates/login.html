@@ -1,50 +1,39 @@
 <!DOCTYPE html>
 <!--suppress HtmlUnknownTarget -->
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:c="http://www.w3.org/1999/XSL/Transform">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>Login</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}">
+    <link rel="stylesheet" type="text/css"  th:href="@{/css/header.css}">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
 <script type="text/javascript" src="/js/login.js"></script>
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-<body onload="login()">
+<body>
+<div class="header">
+    <div class="topbar">
+        <a class="logo" th:href="${'/'}">IAC</a>
+    </div>
+    <nav class="navigatie">
+        <a th:href="@{'/'}">Home</a>
+    </nav>
+</div>
+
 <div class="loginContainer">
     <h2>Login</h2>
     <h4>Bestaande klanten.</h4>
-    <form class="loginForm" method="post">
-        <input placeholder="Username" name="username" type="text"><br>
-        <input placeholder="Wachtwoord" name="password" type="password"><br>
-        <input id="Login" value="Login" type="button"><br><hr>
+    <form name="loginform" action="/login" class="loginForm" method="post">
+        <!--<label class="errorLabel" th:if="${#httpServletRequest.getParameter('error') != null}">Uw gegevens zijn onjuist!</label>-->
+        <input placeholder="Username" name="username" type="text" required><br>
+        <input placeholder="Wachtwoord" name="password" type="password" required><br>
+        <input id="Login" value="Login" type="submit"><br>
     </form>
+    <hr>
     <h2>Nieuw in onze webshop?</h2>
     <h4>Maak gemakkelijk een account aan.</h4>
-    <button onclick="hideLogin()">Maak een account aan</button>
+    <input type="button" onclick="window.location.href='/registreren'" value="Maak een account aan">
 </div>
 
-<div class="createContainer hidden">
-    <h2>Hier kunt u een account aanmaken voor onze webshop!</h2>
-
-    <h4>Vul uw gegevens hier in</h4>
-    <form class="createAccount" method="post">
-        <h3>Inlog gegevens</h3>
-        <hr>
-        <input name="email" placeholder="Email" type="text" class="input"><br>
-        <input name="username" placeholder="Username" type="text" class="input"><br>
-        <input name="password" placeholder="Wachtwoord" type="password" class="input"><br>
-
-        <h4>NAW gegevens</h4>
-        <hr>
-        <input name="naam" placeholder="Naam" type="text" class="input"><br>
-        <input name="tussenvoegsel" placeholder="Tussenvoegsel" type="text" class="input"><br>
-        <input name="achternaam" placeholder="Achternaam" type="text" class="input"><br>
-        <input name="plaats" placeholder="Plaats" type="text" class="input"><br>
-        <input name="postcode" placeholder="Postcode" type="text" class="input"><br>
-        <input name="straat" placeholder="Straat" type="text" class="input"><br>
-    </form>
-    <input onclick="createAccount()" type="submit" class="registrerenButton" value="Maak account aan"><br>
-    <input type="button" onclick="hideCreate()" value="Login">
-</div>
 </body>
 </html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:c="http://www.w3.org/1999/XSL/Transform">
+<head>
+    <meta charset="UTF-8">
+    <title>Registreren</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}">
+    <link rel="stylesheet" type="text/css"  th:href="@{/css/header.css}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+<script type="text/javascript" src="/js/login.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+<body>
+<div class="header">
+    <div class="topbar">
+        <a class="logo" th:href="${'/'}">IAC</a>
+    </div>
+    <nav class="navigatie">
+        <a th:href="@{'/'}">Home</a>
+    </nav>
+</div>
+
+
+<div class="createContainer">
+    <div th:if="${param.success}">
+        <div class="register-succes">U bent geregistreerd!</div>
+    </div>
+
+    <div th:if="${param.error}">
+        <div class="register-error">Sorry, er is iets misgegaan</div>
+    </div>
+
+    <h4>Hier kunt u een account aanmaken voor onze webshop!</h4>
+
+    <h4>Vul uw gegevens hier in</h4>
+    <form th:action="@{'/registreren'}" th:object="${registratie}" class="createAccount" id="register" method="post">
+        <h4>Inlog gegevens</h4>
+        <hr>
+        <input th:field="*{email}" name="email" placeholder="* Email" type="text" class="input"><br>
+        <input th:field="*{username}"  placeholder="* Username" type="text" class="input" required><p th:if="${param.exists}"class="register-exist">Username is al in gebruik</p>
+        <br>
+        <input th:field="*{password}" id="pass" placeholder="* Wachtwoord" type="password" class="input" required><br>
+        <input id="confirm" placeholder="* Valideer wachtwoord" type="password" class="input" oninput="check(this)" required><p class="ongelijk">niet gelijk!</p><br>
+
+        <h4>NAW gegevens</h4>
+        <hr>
+        <input th:field="*{naam}" name="naam" placeholder="* Naam" type="text" class="input" required><br>
+        <input th:field="*{tussenvoegsel}" name="tussenvoegsel" placeholder="Tussenvoegsel" type="text" class="input"><br>
+        <input th:field="*{achternaam}" name="achternaam" placeholder="* Achternaam" type="text" class="input" required><br>
+        <input th:field="*{plaats}" name="plaats" placeholder="* Plaats" type="text" class="input" required><br>
+        <input th:field="*{postcode}" name="postcode" placeholder="* Postcode" type="text" class="input" required><br>
+        <input th:field="*{straat}" name="straat" placeholder="* Straat" type="text" class="input" required><br>
+        <input type="submit" class="registrerenButton" value="Maak account aan"><br>
+    </form>
+    <input id="submit" type="button" onclick="window.location.href='/login'" value="Login">
+</div>
+<script>
+    $('#register').submit(function(){
+        return document.getElementById('confirm').value === document.getElementById('pass').value;
+    });
+</script>
+</body>
+</html>

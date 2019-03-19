@@ -1,9 +1,10 @@
 package nl.hu.iac.webshop.restControllers;
-        import nl.hu.iac.webshop.DTO.AccountKlantDTO;
         import nl.hu.iac.webshop.DTO.InlogDTO;
-        import nl.hu.iac.webshop.domain.*;
-        import nl.hu.iac.webshop.services.AccountService;
-        import org.springframework.web.bind.annotation.*;
+import nl.hu.iac.webshop.domain.Account;
+import nl.hu.iac.webshop.domain.Adres;
+import nl.hu.iac.webshop.domain.Klant;
+import nl.hu.iac.webshop.services.AccountService;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -22,23 +23,6 @@ public class AccountRestController {
         return accountService.getAccountById(id);
     }
 
-    @PostMapping
-    public void addAccount(@RequestBody AccountKlantDTO accountKlantDTO){
-            Account account = new Account();
-            Klant klant = new Klant();
-            Adres adres = new Adres();
-            account.setUsername(accountKlantDTO.getUsername());
-            account.setPassword(accountKlantDTO.getPassword());
-
-            adres.setStraat(accountKlantDTO.getStraat());
-            adres.setPostcode(accountKlantDTO.getPostcode());
-            adres.setPlaats(accountKlantDTO.getPlaats());
-
-            klant.setNaam(accountKlantDTO.getNaam());
-            klant.setEmail(accountKlantDTO.getEmail());
-
-            accountService.saveAccount(account, klant, adres);
-    }
 
     @PostMapping("/login")
     public Long accountLogin(@RequestBody InlogDTO inlogDTO){
