@@ -1,5 +1,7 @@
 package nl.hu.iac.webshop.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,6 +13,7 @@ public class Klant {
     private Long id;
     private String naam;
     private String email;
+    @JsonIgnore
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "account_id")
     public Account account;

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--suppress HtmlUnknownTarget -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Afrekenen</title>
+    <link rel="stylesheet" type="text/css"  th:href="@{/css/generalCSS.css}">
+    <link rel="stylesheet" type="text/css"  th:href="@{/css/header.css}">
+    <link rel="stylesheet" type="text/css"  th:href="@{/css/login.css}">
+    <link rel="stylesheet" type="text/css"  th:href="@{/css/winkelwagen.css}">
+    <link rel="stylesheet" href="text/css"  th:href="@{/css/afrekenen.css}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+<script type="text/javascript" src="../js/navigatie.js" th:src="@{/js/navigatie.js}"></script>
+<script type="text/javascript" src="../js/winkelwagen.js" th:src="@{/js/winkelwagen.js}"></script>
+<script type="text/javascript" src="../js/login.js" th:src="@{/js/login.js}"></script>
+<script type="text/javascript" src="../js/afrekenen.js" th:src="@{/js/afrekenen.js}"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+
+
+<body onload="afrekenenInit(); checkLogin(); getCategories(); winkelWagenContent();">
+<!--div voor header en navigatie-->
+<div class="header">
+    <div class="topbar">
+        <a class="logo" href='/'>IAC</a>
+        <i onclick="showWinkelwagen()" class="fa fa-shopping-cart fa-2x"></i>
+        <a id="inlog" class="login" href="login.html">Inloggen</a>
+        <a id="uitlog" class="loguit hidden" onclick="logout()" href="/">Uitloggen</a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="winkelwagen-header">
+        <h2>Uw Bestelling:</h2>
+    </div>
+    <div class="winkelwagen-body">
+        <label class="geenItem">Uw winkelwagen is leeg!</label>
+        <input id="annuleren" class="homeButton" type="button" value="Annuleren">
+        <input id="akkoord" class="akkoordButton" type="button" value="Akkoord">
+        <label class="total"></label>
+    </div>
+    <div class="adresgegevens">
+        <strong>Accountgegevens:</strong><br>
+        <label>Naam: </label><label id="naam"></label><br>
+        <label>E-mail: </label><label id="email"></label><br><br>
+
+        <strong>Adresgegevens: </strong><br>
+        <label>Straatnaam: </label><label id="straat"></label><br>
+        <label>Postcode: </label><label id="postcode"></label><br>
+        <label>Plaats: </label><label id="plaats"></label><br>
+    </div>
+</div>
+</body>
+</html>

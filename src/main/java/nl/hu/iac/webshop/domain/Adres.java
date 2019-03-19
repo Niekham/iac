@@ -1,5 +1,7 @@
 package nl.hu.iac.webshop.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,6 +13,7 @@ public class Adres {
     private String straat;
     private String postcode;
     private String plaats;
+    @JsonIgnore
     @OneToOne(mappedBy = "adres", cascade = CascadeType.ALL)
     private Klant klant;
 

@@ -54,6 +54,12 @@ function winkelWagenContent(){
             printContentToWinkelwagen(item);
         }
     }
+
+    //bestelknop doorsturen naar de afrekenpagina
+    var bestelknop = document.getElementsByClassName("bestelButton")[0];
+    bestelknop.addEventListener("click", function() {
+        window.location.href = "/afrekenen";
+    });
 }
 
 function printContentToWinkelwagen(item) {
