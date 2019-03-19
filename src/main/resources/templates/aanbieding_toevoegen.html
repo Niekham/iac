@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Aanbieding toevoegen</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/generalCSS.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+</head>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="/js/winkelwagen.js" th:src="@{/js/winkelwagen.js}"></script>
+<script type="text/javascript" src="/js/aanbieding.js" th:src="@{/js/aanbieding.js}"></script>
+
+<body>
+
+
+<div class="header">
+    <div class="topbar">
+        <a class="logo" href='/'>IAC</a>
+        <i onclick="showWinkelwagen()" class="fa fa-shopping-cart fa-2x"></i>
+        <a id="inlog" class="login" href="login.html">Inloggen</a>
+        <a id="uitlog" class="loguit hidden" onclick="logout()" href="/">Uitloggen</a>
+    </div>
+
+    <nav class="navigatie">
+        <a th:href="@{'/'}">Home</a>
+        <a th:href="@{'/products'}">Alle</a>
+    </nav>
+</div>
+
+<div class="container">
+    <h3>Vul deze gegevens in om een aanbieding toe te voegen aan de webshop!</h3>
+    <form class="aanbieding_form"  method="post">
+        <h4>Percentage: <input name="percentage" class="input" type="number"><p></p>
+            Begin aanbieding: <input name="van_datum" class="input" type="date"><p></p>
+            Einde aanbieding: <input name="tot_datum" class="input" type="date"><p></p>
+        </h4>
+    </form>
+    <button onclick="toevoegen_aanbieding()" class="button_product">Voeg aanbieding toe!</button>
+
+</div>
+
+</body>
+</html>

@@ -26,4 +26,8 @@ public class ProductController{
     public String handleGetRequest() {
         return "productDetail";
     }
+
+    @GetMapping("api/product/add")
+    public String add_product(){ return "Product_toevoegen"; }
+
 }

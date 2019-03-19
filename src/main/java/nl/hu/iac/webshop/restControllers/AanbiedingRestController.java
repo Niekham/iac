@@ -23,7 +23,7 @@ public class AanbiedingRestController {
     @GetMapping("/{id}")
     public Aanbieding getAanbiedingById(@PathVariable Long id){return aanbiedingService.getAanbiedingenById(id);}
 
-    @PostMapping
+    @PostMapping("/add")
     public Aanbieding saveAanbieding(@RequestBody AanbiedingDTO aanbiedingDTO){
         Aanbieding aanbieding = new Aanbieding();
         aanbieding.setVanDatum(aanbiedingDTO.getVanDatum());

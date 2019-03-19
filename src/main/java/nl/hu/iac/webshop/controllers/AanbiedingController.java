@@ -21,4 +21,9 @@ public class AanbiedingController {
         return "products";
     }
 
+    @GetMapping("api/aanbieding/add")
+    public String add_aanbieding(){
+        return "aanbieding_toevoegen";
+    }
+
 }

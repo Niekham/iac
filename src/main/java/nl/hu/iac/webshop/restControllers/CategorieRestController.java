@@ -25,6 +25,6 @@ public class CategorieRestController {
     @GetMapping("/{id}")
     public Categorie getCategorieById(@PathVariable Long id){return categorieService.findById(id);}
 
-    @PostMapping
+    @PostMapping("/add")
     public Categorie saveCategorie(@RequestBody Categorie categorie){return categorieService.saveCategorie(categorie);}
 }

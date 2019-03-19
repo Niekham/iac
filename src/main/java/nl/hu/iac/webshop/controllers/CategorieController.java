@@ -18,4 +18,9 @@ public class CategorieController {
         model.addAttribute("products", productService.findByCategory(id));
         return "products";
     }
+
+    @GetMapping("api/categorie/add")
+    public String add_categorie(){
+        return "categorie_toevoegen";
+    }
 }

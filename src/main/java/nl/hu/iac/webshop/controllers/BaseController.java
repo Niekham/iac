@@ -8,10 +8,8 @@ import java.util.List;
 
 @Controller
 public class BaseController{
-
         @GetMapping("/")
         public String homePage() {
             return "Index";
         }
-
 }
