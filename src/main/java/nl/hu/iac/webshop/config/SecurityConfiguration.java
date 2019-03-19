@@ -25,21 +25,28 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers(
+                        "/resources/static/js**",
+                        "respirces/static/css**").hasRole("ROL_ADMIN")
+                .antMatchers(
                         "/registreren**",
                         "/**",
                         "/products**",
+                        "/afrekenen**",
                         "/login**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
+                .defaultSuccessUrl("/login?success", true)
+                .failureUrl("/login?error")
                 .permitAll()
                 .and()
                 .logout()
                 .invalidateHttpSession(true)
                 .clearAuthentication(true)
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/login?logout")
+                .logoutSuccessUrl("/?logout")
+                .deleteCookies("JSESSIONID")
                 .permitAll();
     }
 

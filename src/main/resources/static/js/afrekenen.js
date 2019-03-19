@@ -29,7 +29,7 @@ function akkoord() {
 
 function displayGegevens() {
     $.ajax({
-        'url': 'http://localhost:8081/api/account/1',
+        'url': 'http://localhost:8081/api/account/2',
         'type': 'GET',
         'success' : function(data){
             let klant = data["klant"];

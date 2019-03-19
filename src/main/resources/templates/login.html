@@ -24,7 +24,8 @@
     <h2>Login</h2>
     <h4>Bestaande klanten.</h4>
     <form name="loginform" action="/login" class="loginForm" method="post">
-        <!--<label class="errorLabel" th:if="${#httpServletRequest.getParameter('error') != null}">Uw gegevens zijn onjuist!</label>-->
+        <div th:if="${param.error}"><label class="errorLabel">Uw gegevens zijn onjuist!</label><br></div>
+        <div th:if="${param.success}"><label class="successLabel">U bent ingelogt!</label><br></div>
         <input placeholder="Username" name="username" type="text" required><br>
         <input placeholder="Wachtwoord" name="password" type="password" required><br>
         <input id="Login" value="Login" type="submit"><br>
@@ -34,6 +35,7 @@
     <h4>Maak gemakkelijk een account aan.</h4>
     <input type="button" onclick="window.location.href='/registreren'" value="Maak een account aan">
 </div>
-
+<script>
+</script>
 </body>
 </html>
