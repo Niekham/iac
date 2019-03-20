@@ -40,7 +40,6 @@
         <label th:unless="${product.aanbiedingprijs} == null">Aanbiedingsprijs: </label>
         <label th:unless="${product.aanbiedingprijs} == null" th:text="${product.aanbiedingprijs}" class="text"></label>
         <input type="button" value="Bekijken" class="productButton" th:name="${product.id}" onclick="window.location.href='/products/' + this.name">
-        <input type="button" value="Voeg toe" class="addButton" th:name="${product.id+','+product.naam+','+product.prijs+','+product.aanbiedingprijs}"  onclick="verwerkProduct(this.name)">
     </div>
     <!--div voor het de winkelwagen-->
     <div class="winkelwagen">
