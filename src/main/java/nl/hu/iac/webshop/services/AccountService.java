@@ -29,6 +29,15 @@ public class AccountService {
         return accountRepository.findById(id).orElseThrow(()-> new AccountNotFoundException(id));
     }
 
+    public Account getAccountByUsername(String user) {
+        Account account = accountRepository.findByUsername(user);
+        if(account == null) {
+            throw new AccountNotFoundException(user);
+        }
+        return account;
+
+    }
+
 //    public void saveAccount(Account account, Klant klant, Adres adres){
 //        account.setKlant(klant);
 //        adres.setKlant(klant);

@@ -1,5 +1,6 @@
 package nl.hu.iac.webshop.QueueConsumers;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import nl.hu.iac.webshop.DTO.BankConfirmationDTO;
 import nl.hu.iac.webshop.services.BankConsumerService;
@@ -18,13 +19,14 @@ public class BankConsumer {
     @RabbitListener(queues = "bankConfirmationQueue")
     public void receive(String message) {
 
-        BankConfirmationDTO confirmation = null;
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode jsonNode = null;
         try {
-            ObjectMapper mapper = new ObjectMapper();
-            confirmation = mapper.readValue(message, BankConfirmationDTO.class);
+            jsonNode = mapper.readTree(message);
         } catch (IOException e) {
             e.printStackTrace();
         }
+        BankConfirmationDTO confirmation = new BankConfirmationDTO(jsonNode.get("bestellingId").asLong(), jsonNode.get("accept").asBoolean());
         bankConsumerService.receiveMessage(confirmation);
     }
 }

@@ -57,9 +57,12 @@ function winkelWagenContent(){
 
     //bestelknop doorsturen naar de afrekenpagina
     var bestelknop = document.getElementsByClassName("bestelButton")[0];
-    bestelknop.addEventListener("click", function() {
-        window.location.href = "/afrekenen";
-    });
+
+    if(bestelknop !== undefined) {
+        bestelknop.addEventListener("click", function() {
+            window.location.href = "/afrekenen";
+        });
+    }
 }
 
 function printContentToWinkelwagen(item) {
@@ -152,4 +155,8 @@ function deleteFromCart(productid) {
    }
    sessionStorage.setItem("bestellingregel", JSON.stringify(myJson));
    location.reload();
+}
+
+function emptyCart() {
+    sessionStorage.setItem("bestellingregel", JSON.stringify({"product":[]}));
 }

@@ -23,16 +23,30 @@ function akkoord() {
         regels[i]["product_id"] = regels[i]["id"];
         delete regels[i]["id"];
     }
-    console.log(regels);
+
+    $.ajax({
+       'url': 'http://localhost:8081/api/bestelling/add',
+        'type': 'POST',
+        'data': JSON.stringify(regels),
+        'contentType': 'application/json',
+        'success' : function(data) {
+           if(data === 200) {
+               window.location.href = "/success";
+               emptyCart()
+           } else if (data === 500) {
+               window.location.href = "/login";
+           }
+        }
+    });
 
 }
 
 function displayGegevens() {
+
     $.ajax({
-        'url': 'http://localhost:8081/api/account/2',
+        'url': 'http://localhost:8081/api/account/details',
         'type': 'GET',
-        'success' : function(data){
-            let klant = data["klant"];
+        'success' : function(klant){
             document.getElementById("naam").innerHTML = klant["naam"];
             document.getElementById("email").innerHTML = klant["email"];
 
@@ -40,6 +54,11 @@ function displayGegevens() {
             document.getElementById("straat").innerHTML = adres["straat"];
             document.getElementById("postcode").innerHTML = adres["postcode"];
             document.getElementById("plaats").innerHTML = adres["plaats"];
+        },
+        'error': function (xhr, ajaxOptions, thrownError) {
+            if (xhr['status'] === 500) {
+                window.location.href = "/login";
+            }
         }
     });
 }
