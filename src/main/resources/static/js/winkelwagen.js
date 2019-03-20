@@ -1,8 +1,11 @@
 function verwerkProduct(data) {
     let item = data.split(',');
-    let json ={"id":parseInt(item[0]), "naam":item[1], "prijs":parseFloat(item[2]), "aanbiedingprijs":parseFloat(item[3]), "aantal":1};
+    let selectbox = document.getElementById("aantal");
+    let aantal = selectbox.options[selectbox.selectedIndex].value;
+    let json ={"id":parseInt(item[0]), "naam":item[1], "prijs":parseFloat(item[2]), "aanbiedingprijs":parseFloat(item[3]), "aantal":parseInt(aantal)};
     addToCart(json);
     location.reload();
+
 }
 
 function addToCart(data) {
@@ -15,7 +18,7 @@ function addToCart(data) {
         let add=0;
         for (const item of jsonStorage['product']){
             if (data.id === item.id){
-                item.aantal += 1;
+                item.aantal += data.aantal;
                 add +=1;
                 sessionStorage.setItem("bestellingregel", JSON.stringify(jsonStorage));
             }

@@ -11,7 +11,7 @@ body{
     height: 100%;
     margin: auto;
     padding: 10px;
-    overflow: auto;
+    overflow: hidden;
 }
 
 .aanbiedingLijst, .productLijst{
