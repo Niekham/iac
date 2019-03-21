@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Afrekenen Succesvol</title>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/generalCSS.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/winkelwagen.css}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+</head>
+
+<script type="text/javascript" src="/js/login.js" th:src="@{/js/login.js}"></script>
+<script type="text/javascript" src="/js/aanbieding.js" th:src="@{/js/aanbieding.js}"></script>
+<script type="text/javascript" src="/js/navigatie.js" th:src="@{/js/navigatie.js}"></script>
+<script type="text/javascript" src="/js/winkelwagen.js" th:src="@{/js/winkelwagen.js}"></script>
+
+<body onload="getAanbiedingen(); getCategories(); winkelWagenContent();">
+<!--div voor header en navigatie-->
+<div class="header">
+    <div class="topbar">
+        <a class="logo" th:href="${'/'}">IAC</a>
+        <i onclick="showWinkelwagen()" class="fa fa-shopping-cart fa-2x"></i>
+        <div sec:authorize="isAnonymous()"><a id="inlog" class="login" th:href="@{'/login'}">Inloggen</a></div>
+        <div sec:authorize="isAuthenticated()"><a id="uitlog" class="loguit" th:href="${'/logout'}">Uitloggen</a></div>
+    </div>
+
+    <nav class="navigatie">
+        <a th:href="@{'/'}">Home</a>
+        <a th:href="@{'/products'}">Alle</a>
+    </nav>
+</div>
+
+<h1>Uw bestelling is succesvol verwerkt, klik <a href="/">hier</a> om naar de homepagina te gaan</h1>
+<h3>Uw bestelling is naar de bank gestuurd voor bevestiging</h3>
+
+<div class="container">
+    <!--div voor het de winkelwagen-->
+    <div class="winkelwagen">
+        <div class="winkelwagen-content">
+            <div class="winkelwagen-header">
+                <span class="close">&times;</span>
+                <h2>Winkelwagen</h2>
+            </div>
+            <div class="winkelwagen-body">
+                <label class="geenItem">Uw winkelwagen is leeg!</label>
+                <input class="bestelButton" type="button" value="Bestellen">
+                <label class="total"></label>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

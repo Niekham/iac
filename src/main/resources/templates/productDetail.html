@@ -1,11 +1,120 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<!--suppress HtmlUnknownTarget -->
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Products</title>
+    <link rel="stylesheet" type="text/css"  th:href="@{/css/generalCSS.css}">
+    <link rel="stylesheet" type="text/css"  th:href="@{/css/notification.css}">
+    <link rel="stylesheet" type="text/css"  th:href="@{/css/header.css}">
+    <link rel="stylesheet" type="text/css"  th:href="@{/css/login.css}">
+    <link rel="stylesheet" type="text/css"  th:href="@{/css/winkelwagen.css}">
+    <link rel="stylesheet" type="text/css"  th:href="@{/css/productDetail.css}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
-<body>
+<script type="text/javascript" src="../js/navigatie.js" th:src="@{/js/navigatie.js}"></script>
+<script type="text/javascript" src="../js/winkelwagen.js" th:src="@{/js/winkelwagen.js}"></script>
+<script type="text/javascript" src="../js/productDetail.js" th:src="@{/js/notification.js}"></script>
+<script type="text/javascript" src="../js/login.js" th:src="@{/js/login.js}"></script></head>
+<body onload="getCategories(); winkelWagenContent();">
+
+<!--div voor header en navigatie-->
+<div class="header">
+    <div class="topbar">
+        <a class="logo" href='/'>IAC</a>
+        <i onclick="showWinkelwagen()" class="fa fa-shopping-cart fa-2x"></i>
+        <a id="inlog" class="login" href="login.html">Inloggen</a>
+        <a id="uitlog" class="loguit hidden" onclick="logout()" href="/">Uitloggen</a>
+    </div>
+
+    <nav class="navigatie">
+        <a th:href="@{'/'}">Home</a>
+        <a th:href="@{'/products'}">Alle</a>
+
+    </nav>
+</div>
+
+<div th:each="product : ${products}" class="detail">
+
+<!--Linker kolom-->
+<div class="left-column">
+    <img th:src="@{/afbeeldingen/voetbal.png}" alt="Afbeelding werkt niet"/>
+</div>
+
+<!--Rechter kolom-->
+<div class="right-column">
+
+    <div class="toast__container" th:unless="${product.aanbiedingprijs} == null">
+    <div class="toast__cell">
+    <div class="toast toast--green">
+    <div class="toast__icon">
+    <svg version="1.1" class="toast__svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+    <g><g><path d="M504.502,75.496c-9.997-9.998-26.205-9.998-36.204,0L161.594,382.203L43.702,264.311c-9.997-9.998-26.205-9.997-36.204,0    c-9.998,9.997-9.998,26.205,0,36.203l135.994,135.992c9.994,9.997,26.214,9.99,36.204,0L504.502,111.7    C514.5,101.703,514.499,85.494,504.502,75.496z"></path>
+    </g></g>
+    </svg>
+    </div>
+    <div class="toast__content">
+    <p class="toast__type">Dit product is in de aanbieding</p>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="product-informatie">
+        <span th:text="${product.id}"></span>
+        <h1  th:text="${product.naam}"></h1>
+    </div>
+
+    <div class="prijs">
+        <span>Prijs</span>
+        <span th:unless="${product.aanbiedingprijs} != null" th:text="${product.prijs}"></span>
+        <strike th:unless="${product.aanbiedingprijs} == null" th:text="${product.prijs}"></strike>
+        <br>
+        <span th:unless="${product.aanbiedingprijs} == null">Aanbiedingsprijs</span>
+        <span id="aanbiedingprijs" th:unless="${product.aanbiedingprijs} == null" th:text="${product.aanbiedingprijs}"></span>
+        <br>
+        <br>
+        <br>
+        <span>Aantal:</span>
+        <br>
+        <select id="aantal">
+        <option value=1>1</option>
+        <option value=2>2</option>
+        <option value=3>3</option>
+        <option value=4>4</option>
+        <option value=5>5</option>
+        <option value=6>6</option>
+        <option value=7>7</option>
+        <option value=8>8</option>
+        <option value=9>9</option>
+        </select>
+        <input value="Voeg toe aan winkelwagen" class="addButton" th:name="${product.id+','+product.naam+','+product.prijs+','+product.aanbiedingprijs}"  onclick="verwerkProduct(this.name)">
+    </div>
+
+</div>
+
+
+
+
+
+    <!--div voor het de winkelwagen-->
+    <div class="winkelwagen">
+        <div class="winkelwagen-content">
+            <div class="winkelwagen-header">
+                <span class="close">&times;</span>
+                <h2>Winkelwagen</h2>
+            </div>
+            <div class="winkelwagen-body">
+                <label class="geenItem">Uw winkelwagen is leeg!</label>
+                <input class="bestelButton" type="button" value="Bestellen">
+                <label class="total"></label>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 </body>
 </html>

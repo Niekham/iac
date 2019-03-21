@@ -7,8 +7,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class AfrekenenController{
 
     @GetMapping("/afrekenen")
-    public String homePage() {
+    public String afrekenenPage() {
         return "afrekenen";
     }
 
+    @GetMapping("/success")
+    public String successPage() {
+        return "afrekenenSuccess";
+    }
 }

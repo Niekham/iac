@@ -1,10 +1,12 @@
 package nl.hu.iac.webshop.restControllers;
-        import nl.hu.iac.webshop.DTO.InlogDTO;
-import nl.hu.iac.webshop.domain.Account;
+        import nl.hu.iac.webshop.domain.Account;
 import nl.hu.iac.webshop.domain.Adres;
 import nl.hu.iac.webshop.domain.Klant;
 import nl.hu.iac.webshop.services.AccountService;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
@@ -21,13 +23,6 @@ public class AccountRestController {
     @GetMapping("/{id}")
     public Account getAccount(@PathVariable Long id){
         return accountService.getAccountById(id);
-    }
-
-
-    @PostMapping("/login")
-    public Long accountLogin(@RequestBody InlogDTO inlogDTO){
-        Account account = accountService.getAccount(inlogDTO.getUsername(), inlogDTO.getPassword());
-        return account.getId();
     }
 
 

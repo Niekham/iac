@@ -1,0 +1,115 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+    display: flex;
+}
+
+.left-column {
+    width: 50%;
+    margin-top: 60px;
+    float: left;
+    position: absolute;
+}
+
+.right-column {
+    width: 50%;
+    margin-top: 60px;
+    float: right;
+}
+
+.left-column img {
+    width: 70%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: all 0.3s ease;
+}
+
+.product-informatie {
+    border-bottom: 1px solid darkgrey;
+    margin-bottom: 20px;
+}
+
+.product-informatie span{
+    display: none;
+}
+
+.product-informatie h1{
+    font-weight: 300;
+    font-size: 52px;
+    color: black;
+    letter-spacing: -2px;
+}
+
+.prijs {
+    display: flex;
+    align-items: center;
+    display: block;
+}
+
+.prijs span {
+    font-size: 26px;
+    font-weight: 300;
+    color: #43474D;
+    margin-right: 20px;
+}
+
+.prijs strike {
+    font-size: 26px;
+    font-weight: 300;
+    color: #43474D;
+    margin-right: 20px;
+}
+.addButton {
+    background-color: dimgrey;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #FFFFFF;
+    text-decoration: none;
+    display: inline-block;
+    width: 300px;
+    height: 50px;
+    float: right;
+    margin-left: 50%;
+    text-align: center;
+}
+
+.addButton:hover {
+    background-color: black;
+}
+
+select {
+    width: 50%;
+    margin: 0 auto;
+    font-size: 26px;
+}
+
+/*.detail {*/
+    /*border: lightgray solid 1px;*/
+    /*width: 100%;*/
+    /*height: 500px;*/
+    /*background-color: white;*/
+    /*border-radius: 5px;*/
+    /*padding: 10px;*/
+    /*margin-left: auto;*/
+    /*float: left;*/
+    /*overflow: hidden;*/
+    /*position: relative;*/
+/*}*/
+
+/*.name {*/
+    /*font-size: 40px;*/
+/*}*/
+/*.info {*/
+    /*text-align: center;*/
+    /*font-size: 25px;*/
+/*}*/
+
+/*.addButton {*/
+    /*width: 100px;*/
+/*}*/
+
+/*.aantal {*/
+    /*position: absolute;*/
+/*}*/

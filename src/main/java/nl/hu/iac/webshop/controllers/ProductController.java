@@ -23,7 +23,8 @@ public class ProductController{
 
 
     @GetMapping("/products/{id}")
-    public String handleGetRequest() {
+    public String handleGetRequest(@PathVariable Long id, Model model) {
+        model.addAttribute("products", productService.findById(id));
         return "productDetail";
     }
 

@@ -46,4 +46,7 @@ public class Bestelling {
         return account;
     }
 
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }
