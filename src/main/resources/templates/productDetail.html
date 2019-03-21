@@ -17,8 +17,9 @@
 <script type="text/javascript" src="../js/winkelwagen.js" th:src="@{/js/winkelwagen.js}"></script>
 <script type="text/javascript" src="../js/productDetail.js" th:src="@{/js/notification.js}"></script>
 <script type="text/javascript" src="../js/login.js" th:src="@{/js/login.js}"></script>
-
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+
+
 <body onload="getCategories(); winkelWagenContent();">
 
 <!--div voor header en navigatie-->
@@ -41,7 +42,7 @@
 
 <!--Linker kolom-->
 <div class="left-column">
-    <img th:src="@{/afbeeldingen/voetbal.png}" alt="Afbeelding werkt niet"/>
+    <img class="detailimage" th:src="@{${'../afbeeldingen/' + product.afbeelding}}" />
 </div>
 
 <!--Rechter kolom-->
@@ -91,7 +92,7 @@
         <option value=8>8</option>
         <option value=9>9</option>
         </select>
-        <input value="Voeg toe aan winkelwagen" class="addButton" th:name="${product.id+','+product.naam+','+product.prijs+','+product.aanbiedingprijs}"  onclick="verwerkProduct(this.name)">
+        <input value="Voeg toe aan winkelwagen" class="addButton" th:name="${product.id+','+product.naam+','+product.prijs+','+product.aanbiedingprijs+','+product.afbeelding}"  onclick="verwerkProduct(this.name)">
     </div>
 
 </div>
@@ -115,8 +116,5 @@
         </div>
     </div>
 </div>
-
-
-
 </body>
 </html>

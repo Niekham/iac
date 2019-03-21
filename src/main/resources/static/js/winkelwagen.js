@@ -2,7 +2,7 @@ function verwerkProduct(data) {
     let item = data.split(',');
     let selectbox = document.getElementById("aantal");
     let aantal = selectbox.options[selectbox.selectedIndex].value;
-    let json ={"id":parseInt(item[0]), "naam":item[1], "prijs":parseFloat(item[2]), "aanbiedingprijs":parseFloat(item[3]), "aantal":parseInt(aantal)};
+    let json ={"id":parseInt(item[0]), "naam":item[1], "prijs":parseFloat(item[2]), "aanbiedingprijs":parseFloat(item[3]), "afbeelding":item[4],"aantal":parseInt(aantal)};
     addToCart(json);
     location.reload();
 
@@ -83,6 +83,10 @@ function printContentToWinkelwagen(item) {
     id.style.display="none";
     id.innerText=item.id;
 
+    let img = document.createElement("img");
+    img.setAttribute("class", "cartImg");
+    img.src = "../afbeeldingen/"+ item.afbeelding;
+
     let naam = document.createElement("label");
     naam.setAttribute("class", "naamProductInWinkelwagen");
     naam.innerText=item.naam;
@@ -110,6 +114,7 @@ function printContentToWinkelwagen(item) {
     del.setAttribute("class", "closeButton");
     del.type="button";
     del.value="x";
+    newDiv.appendChild(img);
     newDiv.appendChild(naam);
     newDiv.appendChild(prijs);
     newDiv.append(del);

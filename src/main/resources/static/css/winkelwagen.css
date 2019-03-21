@@ -102,3 +102,8 @@
     bottom: 15px;
     right: 10px;
 }
+
+.cartImg{
+    float: left;
+    width: 5%;
+}
