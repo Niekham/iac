@@ -22,6 +22,11 @@ public class ProductRestController {
         this.categorieService = categorieService;
     }
 
+    @GetMapping()
+    public List<Product> getProducten(){
+        return productService.findAllProducts();
+    }
+
     @PostMapping("/get_product")
     public Product getProduct(@RequestBody Product product){
         return productService.findProduct(product.getNaam(), product.getPrijs(), product.getAfbeelding());

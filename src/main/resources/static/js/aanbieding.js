@@ -73,12 +73,12 @@ function formToJson(tojson){
 function toevoegen_aanbieding(){
     let van_datum = document.getElementById("input2").value;
     let tot_datum = document.getElementById("input3").value;
-    let dt = van_datum.toString();
-    let dt2 = tot_datum.toString();
+    let date = van_datum.toString();
+    let date1 = tot_datum.toString();
     let json = JSON.parse(JSON.stringify($('.aanbieding_form').serializeArray()));
     let obj = formToJson(json);
-    obj["vanDatum"]=dt;
-    obj["totDatum"]=dt2;
+    obj["vanDatum"]=date;
+    obj["totDatum"]=date1;
     console.log(obj);
     $.ajax({
         'url': 'http://localhost:8081/api/aanbieding/add',

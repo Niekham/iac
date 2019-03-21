@@ -31,4 +31,7 @@ public class ProductController{
     @GetMapping("api/product/add")
     public String add_product(){ return "Product_toevoegen"; }
 
+    @GetMapping("api/bestaandeProducten")
+    public String add_productToAanbieding(){ return "bestaande_producten"; }
+
 }
