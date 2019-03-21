@@ -19,10 +19,25 @@ function toevoegen(){
         'contentType': 'application/json',
         'success' : function(){
             alert("Product is toegevoegd")
+            sessionStorage.setItem("productnaam", document.getElementById("naam1").value);
+            sessionStorage.setItem("productprijs", document.getElementById("prijs").value);
+            sessionStorage.setItem("productafbeelding", document.getElementById("naam").value);
         },
         'erorr' : function(){
             alert("Product is niet toegevoegd")
         }
     });
+}
+
+function nieuwe_categorie(){
+    toevoegen();
+    document.querySelector(".optie").value = "/api/categorie/add";
+
+}
+
+function bestaande_categorie(){
+    toevoegen();
+    document.querySelector(".optie").value = "/api/bestaande_categorie";
+
 }
 

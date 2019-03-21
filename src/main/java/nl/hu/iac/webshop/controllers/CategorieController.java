@@ -23,4 +23,9 @@ public class CategorieController {
     public String add_categorie(){
         return "categorie_toevoegen";
     }
+
+    @GetMapping("api/bestaande_categorie")
+    public String add_Bestaande_categorie(){
+        return "bestaande_categorie";
+    }
 }

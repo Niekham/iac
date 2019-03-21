@@ -2,17 +2,18 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Categorie toevoegen</title>
+    <title>Bestaande categorie toevoegen</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/generalCSS.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="/js/winkelwagen.js" th:src="@{/js/winkelwagen.js}"></script>
-<script type="text/javascript" src="/js/winkelwagen.js" th:src="@{/js/categorie_toevoegen.js}"></script>
+<script type="text/javascript" src="/js/categorie_toevoegen.js" th:src="@{/js/categorie_toevoegen.js}"></script>
 
-<body onload=" asd()">
+<body onload="categorien()">
+
 
 <div class="header">
     <div class="topbar">
@@ -31,14 +32,15 @@
 <div class="container">
     <h3>Vul deze gegevens in om een categorie toe te voegen aan de webshop!</h3>
     <h4>
-    <form class="categerieForm" method="POST" action="/api/uploadFile" enctype="multipart/form-data">
-        Naam categorie:<input name="naam" class="input" type="text" required><p></p>
-        Beschrijving: <input name="omschrijving" class="input" type="text" required><p></p>
-        Afbeelding: <input name="file" class="input" type="file" required><p></p>
-        Afbeelding Naam: <input class="input" id="naam" type="text" name="name" required><p></p>
-        <input name="optie" value="/" style="display: none">
-        <input class="input3" onclick="catgorieToevoegen()" type="submit" value="Voeg Categorie toe!">
-    </form>
+        <table class="w3-table" id="table">
+            <tr id="row">
+                <th> Id:</th>
+                <th>Naam:</th>
+                <th>Omschrijving:</th>
+                <th>Toevoegen aan product:</th>
+            </tr>
+        </table>
+
     </h4>
 
 </div>

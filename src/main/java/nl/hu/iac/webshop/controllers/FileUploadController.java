@@ -5,9 +5,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import oracle.jdbc.proxy.annotation.Post;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -42,7 +40,7 @@ public class FileUploadController {
                 new FileOutputStream(serverFile));
         stream.write(bytes);
         stream.close();
-        return new RedirectView("/api/"+optie+"/add");
+        return new RedirectView(optie);
     }
 
 }

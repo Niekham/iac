@@ -20,6 +20,10 @@ public class ProductService {
         return productRepository.findAll();
     }
 
+    public Product findProduct(String naam, double prijs, String afbeelding){
+        return productRepository.findIdByNaamAndPrijsAndAfbeelding(naam, prijs, afbeelding);
+    }
+
     public Product findById(Long id){
         return productRepository.findById(id).orElseThrow(() -> new ProductNotFoundException(id));
     }

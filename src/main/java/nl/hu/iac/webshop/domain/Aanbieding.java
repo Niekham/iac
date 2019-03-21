@@ -42,7 +42,9 @@ public class Aanbieding {
         TimeZone zone = TimeZone.getTimeZone("UTC");
         SimpleDateFormat formatter1 = new SimpleDateFormat("d-M-yyyy");
         formatter1.setTimeZone(zone);
+        System.out.println(vanDatum);
         try {
+
             this.vanDatum = formatter1.parse(vanDatum);
         } catch (ParseException e) {
             e.printStackTrace();

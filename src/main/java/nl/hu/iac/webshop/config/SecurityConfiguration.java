@@ -24,12 +24,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/api**").hasRole("ADMIN")
-                .antMatchers("/**",
-                        "/products**",
-                        "/registreren**",
-                        "/login**",
-                        "/afrekenen**").permitAll()
+                .antMatchers("/afrekenen").hasRole("ADMIN")
+                .antMatchers("/afrekenen").hasRole("USER")
+                .antMatchers("/",
+                        "/products",
+                        "/registreren",
+                        "/login",
+                        "/api/product/add",
+                        "/api/bestaande/categorie",
+                        "/api/categorie/add"
+                ).permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
