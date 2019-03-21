@@ -1,15 +1,24 @@
 //get request voor het ophalen van alle categorieen
 function getCategories() {
-    fetch("http://localhost:8081/api/categories")
-        .then(function(response){
-            return response.json();
-        })
-        .then(function(myJson){
-            var i;
-            for (i = 0; i < myJson.length; i++){
-                verwerkGetCategories(myJson[i]);
+    $.ajax({
+        'url': 'http://localhost:8081/api/categories',
+        'type':'GET',
+        'contentType':'application/json',
+        'error':function () {
+            console.log("Er is iers misgegaan met ophalen van categories")
+        },
+        'success':function (data) {
+            if (data.length !== 0){
+                let i;
+                for (i = 0; i < data.length; i++){
+                    verwerkGetCategories(data[i]);
+                }
+            } else {
+                console.log("Er zijn geen categorieen gevonden");
             }
-        });
+
+        }
+    });
 }
 
 //voegt alle categorieen te aan de pagina

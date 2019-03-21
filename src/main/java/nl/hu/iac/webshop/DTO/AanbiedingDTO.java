@@ -1,11 +1,15 @@
 package nl.hu.iac.webshop.DTO;
 
-import java.util.Date;
+import javax.validation.constraints.NotEmpty;
+
 ;
 
 public class AanbiedingDTO {
+    @NotEmpty
     private String vanDatum;
+    @NotEmpty
     private String totDatum;
+    @NotEmpty
     private int percentage;
 
     public AanbiedingDTO(String vanDatum, String totDatum, int percentage) {

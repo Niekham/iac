@@ -9,8 +9,8 @@
 
 </head>
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="/js/winkelwagen.js" th:src="@{/js/winkelwagen.js}"></script>
-<script type="text/javascript" src="/js/winkelwagen.js" th:src="@{/js/categorie_toevoegen.js}"></script>
+<script type="text/javascript"  th:src="@{/js/winkelwagen.js}"></script>
+<script type="text/javascript"  th:src="@{/js/categorie_toevoegen.js}"></script>
 
 <body onload=" asd()">
 
@@ -30,16 +30,16 @@
 
 <div class="container">
     <h3>Vul deze gegevens in om een categorie toe te voegen aan de webshop!</h3>
-    <h4>
     <form class="categerieForm" method="POST" action="/api/uploadFile" enctype="multipart/form-data">
+        <h4>
         Naam categorie:<input name="naam" class="input" type="text" required><p></p>
         Beschrijving: <input name="omschrijving" class="input" type="text" required><p></p>
         Afbeelding: <input name="file" class="input" type="file" required><p></p>
         Afbeelding Naam: <input class="input" id="naam" type="text" name="name" required><p></p>
         <input name="optie" value="/" style="display: none">
         <input class="input3" onclick="catgorieToevoegen()" type="submit" value="Voeg Categorie toe!">
+        </h4>
     </form>
-    </h4>
 
 </div>
 

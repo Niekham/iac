@@ -14,7 +14,7 @@ function akkoord() {
     let mand = JSON.parse(sessionStorage.getItem("bestellingregel"));
     let regels = mand["product"];
 
-    var i;
+    let i;
     for(i = 0; i < regels.length; i++) {
         delete regels[i]["aanbiedingprijs"];
         delete regels[i]["naam"];

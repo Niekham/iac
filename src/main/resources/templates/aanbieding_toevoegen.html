@@ -9,8 +9,8 @@
 
 </head>
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="/js/winkelwagen.js" th:src="@{/js/winkelwagen.js}"></script>
-<script type="text/javascript" src="/js/aanbieding.js" th:src="@{/js/aanbieding.js}"></script>
+<script type="text/javascript"  th:src="@{/js/winkelwagen.js}"></script>
+<script type="text/javascript"  th:src="@{/js/aanbieding.js}"></script>
 
 <body>
 
@@ -32,14 +32,12 @@
 <div class="container">
     <h3>Vul deze gegevens in om een aanbieding toe te voegen aan de webshop!</h3>
     <form class="aanbieding_form"  method="post">
-        <h4>Percentage: <input name="percentage" class="input" type="number"><p></p>
-            Begin aanbieding: <input id="input2" name="van_datum" class="input" type="date"><p></p>
-            Einde aanbieding: <input id="input3" name="tot_datum" class="input" type="date"><p></p>
-            Wil je producten toevoegen bij de aanbieding?<P></P>
-
+        <h4>Begin aanbieding: <input id="input2" name="vanDatum" class="input" type="date"><br>
+            Einde aanbieding: <input id="input3" name="totDatum" class="input" type="date"><br>
+            Percentage: <input name="percentage" class="input" type="number"><br>
+            Wil je producten toevoegen bij de aanbieding?<br>
         </h4>
     </form>
-
     <button onclick="toevoegen_aanbieding()" class="button_product">Voeg aanbieding toe!</button><P></P>
     <button onclick="toevoegen_aanbieding()" class="button_product">Voeg aanbieding toe! Met producten</button>
 

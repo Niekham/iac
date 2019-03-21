@@ -16,6 +16,8 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
+import static org.unbescape.html.HtmlEscape.escapeHtml5;
+
 @SuppressWarnings("ArraysAsListWithZeroOrOneArgument")
 @Service
 public class UserService implements UserServiceInterface {
@@ -44,16 +46,16 @@ public class UserService implements UserServiceInterface {
         Adres adres = new Adres();
         Klant klant = new Klant();
 
-        account.setUsername(registreerDTO.getUsername());
-        account.setPassword(passwordEncoder.encode(registreerDTO.getPassword()));
+        account.setUsername(escapeHtml5(registreerDTO.getUsername()));
+        account.setPassword(passwordEncoder.encode(escapeHtml5(registreerDTO.getPassword())));
         account.setRollen(Arrays.asList(new Role("ROLE_USER")));
 
-        adres.setPlaats(registreerDTO.getPlaats());
-        adres.setPostcode(registreerDTO.getPostcode());
-        adres.setStraat(registreerDTO.getStraat());
+        adres.setPlaats(escapeHtml5(registreerDTO.getPlaats()));
+        adres.setPostcode(escapeHtml5(registreerDTO.getPostcode()));
+        adres.setStraat(escapeHtml5(registreerDTO.getStraat()));
 
-        klant.setEmail(registreerDTO.getEmail());
-        klant.setNaam(registreerDTO.getNaam());
+        klant.setEmail(escapeHtml5(registreerDTO.getEmail()));
+        klant.setNaam(escapeHtml5(registreerDTO.getNaam()));
 
         accountRepository.save(account);
         adresRepository.save(adres);

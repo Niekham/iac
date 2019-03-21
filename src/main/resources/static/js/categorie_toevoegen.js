@@ -66,7 +66,7 @@ function categorien(){
                                     $.ajax({
                                         'url': 'http://localhost:8081/api/products/add_categorie/'+data.id+'/'+categorie.id,
                                         'data': JSON.stringify(obj),
-                                        'type': 'PUT',
+                                        'type': 'POST',
                                         'contentType': 'application/json',
                                         'success' : function(){
                                                 window.location.href = "http://localhost:8081/"

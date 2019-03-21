@@ -1,17 +1,24 @@
 //haalt alle aanbiedingen op
-function getAanbiedingen(){
-    fetch("http://localhost:8081/api/aanbieding")
-        .then(function(response){
-            return response.json();
-        })
-        .then(function(myJson){
-            var i;
-            for (i = 0; i < myJson.length; i++){
-                verwerkGetAanbiedingen(myJson[i]);
+function getAanbiedingen() {
+    $.ajax({
+        'url': 'http://localhost:8081/api/aanbieding',
+        'type': 'GET',
+        'contentType': "application/json",
+        'error': function () {
+            console.log("Jo er is iets misgegaan met ophalen van aanbieding");
+        },
+        'success': function (data) {
+            if (data.length !== 0) {
+                let i;
+                for (i = 0; i < data.length; i++) {
+                    verwerkGetAanbiedingen(data[i]);
+                }
+            } else {
+                console.log("Geen aanbiedingen gevonden!");
             }
-        });
+        }
+    });
 }
-
 
 //pakt data van aanbiedingen maakt elementen aan voor elk deel van de data
 function verwerkGetAanbiedingen(data) {
@@ -49,8 +56,6 @@ function verwerkGetAanbiedingen(data) {
     document.querySelector(".container").appendChild(div);
 
     button.addEventListener("click", function () {
-        sessionStorage.removeItem("Categorie");
-        sessionStorage.setItem("Aanbieding", data.id);
         window.location.href="/aanbieding/" + data.id;
     });
 }
@@ -72,8 +77,8 @@ function toevoegen_aanbieding(){
     let dt2 = tot_datum.toString();
     let json = JSON.parse(JSON.stringify($('.aanbieding_form').serializeArray()));
     let obj = formToJson(json);
-    obj["van_datum"]=dt;
-    obj["tot_datum"]=dt2;
+    obj["vanDatum"]=dt;
+    obj["totDatum"]=dt2;
     console.log(obj);
     $.ajax({
         'url': 'http://localhost:8081/api/aanbieding/add',
@@ -84,7 +89,7 @@ function toevoegen_aanbieding(){
             alert("Aanbieding is toegevoegd");
             location.reload();
         },
-        'erorr' : function(){
+        'error' : function(){
             alert("Aanbieding is niet toegevoegd");
         }
     });

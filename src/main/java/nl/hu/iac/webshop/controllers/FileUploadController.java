@@ -1,15 +1,16 @@
 package nl.hu.iac.webshop.controllers;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.view.RedirectView;
+
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
-
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.view.RedirectView;
 
 /**
  * Handles requests for the application file upload requests
@@ -28,7 +29,7 @@ public class FileUploadController {
         byte[] bytes = file.getBytes();
 
         // Creating the directory to store file
-        String rootPath = "C:\\Users\\Luuk\\IdeaProjects\\iac\\src\\main\\resources";
+        String rootPath = "C:\\Users\\Niek Hamoen\\Desktop\\Niek\\School programming\\Intellij\\webshop\\src\\main\\resources\\static\\afbeeldingen";
         File dir = new File(rootPath + File.separator + "afbeeldingen");
         if (!dir.exists())
             dir.mkdirs();

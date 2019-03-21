@@ -53,13 +53,17 @@ function winkelWagenContent(){
     }else {
         document.querySelector(".geenItem").style.display = "hidden";
         let productJson = JSON.parse(sessionStorage.getItem("bestellingregel"));
-        for(const item of productJson['product']){
-            printContentToWinkelwagen(item);
+        if (productJson['product'].length === 0){
+            document.querySelector(".geenItem").style.display = "block";
+        }else {
+            for (const item of productJson['product']) {
+                printContentToWinkelwagen(item);
+            }
         }
     }
 
     //bestelknop doorsturen naar de afrekenpagina
-    var bestelknop = document.getElementsByClassName("bestelButton")[0];
+    let bestelknop = document.getElementsByClassName("bestelButton")[0];
 
     if(bestelknop !== undefined) {
         bestelknop.addEventListener("click", function() {

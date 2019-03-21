@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static org.unbescape.html.HtmlEscape.escapeHtml5;
+
+
 @RestController
 @RequestMapping(AanbiedingRestController.BASE_URL)
 public class AanbiedingRestController {
@@ -26,8 +29,8 @@ public class AanbiedingRestController {
     @PostMapping("/add")
     public Aanbieding saveAanbieding(@RequestBody AanbiedingDTO aanbiedingDTO){
         Aanbieding aanbieding = new Aanbieding();
-        aanbieding.setVanDatum(aanbiedingDTO.getVanDatum());
-        aanbieding.setTotDatum(aanbiedingDTO.getTotDatum());
+        aanbieding.setVanDatum(escapeHtml5(aanbiedingDTO.getVanDatum()));
+        aanbieding.setTotDatum(escapeHtml5(aanbiedingDTO.getTotDatum()));
         aanbieding.setPercentage(aanbiedingDTO.getPercentage());
         return aanbiedingService.saveAanbieding(aanbieding);}
 }
