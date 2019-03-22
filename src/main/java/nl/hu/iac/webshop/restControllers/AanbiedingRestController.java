@@ -32,5 +32,6 @@ public class AanbiedingRestController {
         aanbieding.setVanDatum(escapeHtml5(aanbiedingDTO.getVanDatum()));
         aanbieding.setTotDatum(escapeHtml5(aanbiedingDTO.getTotDatum()));
         aanbieding.setPercentage(aanbiedingDTO.getPercentage());
-        return aanbiedingService.saveAanbieding(aanbieding);}
+        return aanbiedingService.saveAanbieding(aanbieding);
+    }
 }
