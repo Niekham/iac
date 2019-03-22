@@ -2,6 +2,7 @@ package nl.hu.iac.webshop.services;
 
 import nl.hu.iac.webshop.domain.Aanbieding;
 import nl.hu.iac.webshop.exceptions.AanbiedingNotFoundException;
+import nl.hu.iac.webshop.exceptions.CategorieNotFoundException;
 import nl.hu.iac.webshop.repositories.AanbiedingRepository;
 import org.springframework.stereotype.Service;
 
@@ -41,4 +42,14 @@ public class AanbiedingService {
     public Aanbieding getAanbiedingenById(Long id){return aanbiedingRepository.findById(id).orElseThrow(()-> new AanbiedingNotFoundException(id));}
 
     public Aanbieding saveAanbieding(Aanbieding aanbieding){ return aanbiedingRepository.save(aanbieding);}
+
+    public Aanbieding changeAanbieding(Aanbieding changedAanbieding, Long id){
+        return aanbiedingRepository.findById(id)
+                .map(categorie -> {
+                    categorie.setPercentage(changedAanbieding.getPercentage());
+                    categorie.setTotDatum(changedAanbieding.getTotDatum().toString());
+                    categorie.setVanDatum(changedAanbieding.getVanDatum().toString());
+                    return aanbiedingRepository.save(categorie);
+                }).orElseThrow(() -> new CategorieNotFoundException(id));
+    }
 }

@@ -26,7 +26,7 @@
     <form name="loginform" action="/login" class="loginForm" method="post">
         <div th:if="${param.error}"><label class="errorLabel">Uw gegevens zijn onjuist!</label><br></div>
         <div th:if="${param.success}"><label class="successLabel">U bent ingelogt!</label><br></div>
-        <input placeholder="Username" name="username" type="text" required><br>
+        <input placeholder="Gebruikersnaam" name="username" type="text" required><br>
         <input placeholder="Wachtwoord" name="password" type="password" required><br>
         <input id="Login" value="Login" type="submit"><br>
     </form>
