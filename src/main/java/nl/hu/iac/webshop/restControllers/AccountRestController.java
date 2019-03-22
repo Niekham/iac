@@ -25,26 +25,4 @@ public class AccountRestController {
         Principal principal = request.getUserPrincipal();
         return accountService.getAccountByUsername(principal.getName()).getKlant();
     }
-
-    @GetMapping("/{id}")
-    public Account getAccount(@PathVariable Long id){
-        return accountService.getAccountById(id);
-    }
-
-
-    @GetMapping("/delete/{id}")
-    public void deleteAccount(@PathVariable Long id) {
-        Account account = accountService.getAccountById(id);
-        accountService.deleteAccount(account);
-    }
-
-    @GetMapping("/klant/{id}")
-    public Klant getKlant(@PathVariable Long id){
-        return accountService.getKlantById(id);
-    }
-
-    @GetMapping("/adres/{id}")
-    public Adres getAdres(@PathVariable Long id){
-        return accountService.getAdresById(id);
-    }
 }
