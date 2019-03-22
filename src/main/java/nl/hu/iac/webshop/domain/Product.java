@@ -92,6 +92,8 @@ public class Product {
         return aanbiedingprijs;
     }
 
+
+
     public void setAanbiedingprijs(String aanbiedingprijs) {
         this.aanbiedingprijs = aanbiedingprijs;
     }

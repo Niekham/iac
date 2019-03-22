@@ -19,10 +19,15 @@ public class AanbiedingService {
         this.aanbiedingRepository = aanbiedingRepository;
     }
 
+    public List<Aanbieding> getAanbiedingenWithoutProducts(){
+        List<Aanbieding> aanbiedingen = aanbiedingRepository.findAll();
+        return aanbiedingen;
+    }
+
     public List<Aanbieding> getAanbiedingen(){
         List<Aanbieding> aanbiedingen = aanbiedingRepository.findAll();
         List<Aanbieding> newList = new ArrayList<>();
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date date = new Date();
         dateFormat.format(date);
         for (Aanbieding aanbieding : aanbiedingen){
