@@ -6,6 +6,7 @@
     <title>Home</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/generalCSS.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/admin.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/winkelwagen.css}">
@@ -38,6 +39,12 @@
 
 <div class="banner">
     <h1>Actie</h1>
+</div>
+<div class="nav-admin" sec:authorize="isAuthenticated()">
+    <ul>
+        <li><a th:href="@{'api/product/add'}">Product toevoegen</a></li>
+        <li><a th:href="@{'api/aanbieding/add'}">Aanbieding toevoegen</a></li>
+    </ul>
 </div>
 
 <div class="container">
