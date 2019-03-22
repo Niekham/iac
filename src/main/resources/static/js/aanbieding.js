@@ -36,9 +36,9 @@ function verwerkGetAanbiedingen(data) {
 
     let vanDatum = document.createElement("label");
     let vanDatumDate = new Date(data.vanDatum);
-    let vanDatumFormat = vanDatumDate.getDate() + '-' + vanDatumDate.getMonth() + '-' + vanDatumDate.getFullYear();
+    let vanDatumFormat = vanDatumDate.getDate() + '-' + (vanDatumDate.getMonth() + 1) + '-' + vanDatumDate.getFullYear();
     let totDatumDate = new Date(data.totDatum);
-    let totDatumDateFormat = totDatumDate.getDate() + '-' + totDatumDate.getMonth() + '-' + totDatumDate.getFullYear();
+    let totDatumDateFormat = totDatumDate.getDate() + '-' + (vanDatumDate.getMonth() + 1) + '-' + totDatumDate.getFullYear();
     vanDatum.setAttribute("class", "looptijd");
     vanDatum.innerText="De actie loopt van "+ vanDatumFormat + " tot " + totDatumDateFormat;
 
