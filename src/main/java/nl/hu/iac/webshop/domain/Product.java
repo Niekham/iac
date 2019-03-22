@@ -99,4 +99,6 @@ public class Product {
     public List<Bestellingsregel> getBestellingsregels() {
         return bestellingsregels;
     }
+
+    public String getAanbiedingOmschrijving() {return aanbieding.getOmschrijving();}
 }

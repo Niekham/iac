@@ -25,6 +25,7 @@ public class ProductController{
     @GetMapping("/products/{id}")
     public String handleGetRequest(@PathVariable Long id, Model model) {
         model.addAttribute("products", productService.findById(id));
+        model.addAttribute("aanbiedingOmschrijving", productService.findAanbiedingOmschrijving(productService.findById(id)));
         return "productDetail";
     }
 

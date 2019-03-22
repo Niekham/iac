@@ -51,4 +51,8 @@ public class ProductService {
     public void deleteProduct(Long id){
         productRepository.deleteById(id);
     }
+
+    public String findAanbiedingOmschrijving(Product product) {
+        return product.getAanbiedingOmschrijving();
+    }
 }

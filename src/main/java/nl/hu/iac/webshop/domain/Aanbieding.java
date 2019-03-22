@@ -19,6 +19,7 @@ public class Aanbieding {
     private Date vanDatum;
     private Date totDatum;
     private int percentage;
+    private String omschrijving;
     @JsonIgnore
     @OneToMany(mappedBy = "aanbieding")
     private List<Product> products;
@@ -26,11 +27,12 @@ public class Aanbieding {
     public Aanbieding() {
     }
 
-    public Aanbieding(Date vanDatum, Date totDatum, int percentage, List<Product> products) {
+    public Aanbieding(Date vanDatum, Date totDatum, int percentage, List<Product> products, String omschrijving) {
         this.vanDatum = vanDatum;
         this.totDatum = totDatum;
         this.percentage = percentage;
         this.products = products;
+        this.omschrijving = omschrijving;
     }
 
     public Long getId() {
@@ -78,5 +80,13 @@ public class Aanbieding {
 
     public List<Product> getProducts() {
         return products;
+    }
+
+    public String getOmschrijving() {
+        return omschrijving;
+    }
+
+    public void setOmschrijving(String omschrijving) {
+        this.omschrijving = omschrijving;
     }
 }
