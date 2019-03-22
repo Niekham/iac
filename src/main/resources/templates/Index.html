@@ -38,7 +38,8 @@
 </div>
 
 <div class="banner">
-    <h1>Actie</h1>
+    <h1 sec:authorize="isAnonymous()">Actie</h1>
+    <h1 sec:authorize="isAuthenticated()">Welkom beheerder</h1>
 </div>
 <div class="nav-admin" sec:authorize="isAuthenticated()">
     <ul>
