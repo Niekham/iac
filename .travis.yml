@@ -1,13 +1,6 @@
 language: java
-jdk: -oraclejdk11
+jdk: -openjdk11
 install:
-  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+  - mvn clean install -Dskiptests=true
 script:
   - mvn test
-deploy:
-  provider: pages
-  skip-cleanup: true
-  github-token: 7c1d0411deb3de1a15fe6c322090fca90ba269b1
-  keep-history: true
-  on:
-    branch: master
