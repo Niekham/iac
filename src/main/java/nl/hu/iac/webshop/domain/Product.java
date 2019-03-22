@@ -99,4 +99,5 @@ public class Product {
     public List<Bestellingsregel> getBestellingsregels() {
         return bestellingsregels;
     }
+
 }
