@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>uncheckradiobuttontutorial</title>
+</head>
+<body>
+<label>Dit is een label en jij bent noob</label><input type="radio" onchange="jemoeder(this)">
+<form onsubmit="kaas()">
+    <input class="rad1" type="radio" name="rad" value="1">
+    <input class="rad2" type="radio" name="rad" value="2">
+    <input class="rad3" type="radio" name="rad" value="3">
+    <input type="submit">
+</form>
+</body>
+
+<script>
+    function jemoeder(info) {
+        console.log(info.checked)
+    }
+
+    function kaas() {
+        let r1 = document.querySelector(".rad1");
+        let r2 = document.querySelector(".rad2");
+        let r3 = document.querySelector(".rad3");
+        if (r1.checked){
+            console.log(r1.value);
+        }if(r2.checked){
+            console.log(r2.value)
+        }if(r3.checked){
+            console.log(r3.value);
+        }
+    }
+
+</script>
+</html>

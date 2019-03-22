@@ -3,9 +3,9 @@ package nl.hu.iac.webshop.services;
 import nl.hu.iac.webshop.domain.Aanbieding;
 import nl.hu.iac.webshop.domain.Product;
 import nl.hu.iac.webshop.exceptions.ProductNotFoundException;
-import nl.hu.iac.webshop.repositories.CategorieRepository;
 import nl.hu.iac.webshop.repositories.ProductRepository;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service
@@ -43,6 +43,7 @@ public class ProductService {
         return productRepository.findById(id)
                 .map(product -> {
                     product.setNaam(changedProduct.getNaam());
+                    product.setAfbeelding(changedProduct.getAfbeelding());
                     product.setPrijs(changedProduct.getPrijs());
                     product.setPrijs(changedProduct.getPrijs());
                     return productRepository.save(product);

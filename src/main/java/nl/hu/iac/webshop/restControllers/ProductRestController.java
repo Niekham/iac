@@ -6,7 +6,6 @@ import nl.hu.iac.webshop.services.CategorieService;
 import nl.hu.iac.webshop.services.ProductService;
 import org.springframework.web.bind.annotation.*;
 
-import javax.ws.rs.Path;
 import java.util.List;
 
 @RestController
@@ -53,14 +52,14 @@ public class ProductRestController {
        Product product = productService.findById(product_id);
        Categorie categorie = categorieService.findById(categorie_id);
 
-       List<Categorie> categorieLijst = product.getCategories();
-       List<Product> productLijst = categorie.getProducts();
+        List<Categorie> categorieLijst = product.getCategories();
+        List<Product> productLijst = categorie.getProducts();
 
-       categorieLijst.add(categorie);
-       productLijst.add(product);
+        categorieLijst.add(categorie);
+        productLijst.add(product);
 
-       product.setCategories(categorieLijst);
-       categorie.setProducts(productLijst);
+        product.setCategories(categorieLijst);
+        categorie.setProducts(productLijst);
 
        productService.saveProduct(product);
        categorieService.saveCategorie(categorie);
