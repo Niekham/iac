@@ -93,3 +93,8 @@ function toevoegen_aanbieding(){
     });
 
 }
+
+function bestaande_producten(){
+    toevoegen_aanbieding();
+    window.location.href = "http://localhost:8081/api/bestaandeProducten"
+}

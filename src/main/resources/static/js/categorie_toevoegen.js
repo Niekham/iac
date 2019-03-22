@@ -120,21 +120,3 @@ function catgorieToevoegen(){
                 }
         });
 }
-
-function asd(){
-    $.ajax({
-        'url': 'http://localhost:8081/api/categories',
-        'type': 'GET',
-        'contentType': 'application/json',
-        'success': function (data) {
-            let maxID;
-            let lijst= [];
-            let i;
-            for (i=0;i<data.length; i++) {
-                lijst.push(data[i].id);
-            }
-            console.log(Math.max.apply(Math, lijst));
-
-            }
-        });
-}
