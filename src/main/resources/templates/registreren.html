@@ -36,7 +36,7 @@
         <h4>Inlog gegevens</h4>
         <hr>
         <input th:field="*{email}" name="email" placeholder="* Email" type="text" class="input"><br>
-        <input th:field="*{username}"  placeholder="* Username" type="text" class="input" required><p th:if="${param.exists}"class="register-exist">Username is al in gebruik</p>
+        <input th:field="*{username}"  placeholder="* Gebruikersnaam" type="text" class="input" required><p th:if="${param.exists}"class="register-exist">Username is al in gebruik</p>
         <br>
         <input th:field="*{password}" id="pass" placeholder="* Wachtwoord" type="password" class="input" required><br>
         <input id="confirm" placeholder="* Valideer wachtwoord" type="password" class="input" oninput="check(this)" required><p class="ongelijk">niet gelijk!</p><br>
