@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" lang="nl">
+<html lang="nl">
 <head>
     <meta http-equiv="Content-Type" content="text/html" charset=UTF-8"/>
     <title>400 Error</title>
@@ -24,8 +24,6 @@
     <div class="topbar">
         <a class="logo" href="/">IAC</a>
         <i onclick="showWinkelwagen()" class="fa fa-shopping-cart fa-2x"></i>
-        <div sec:authorize="isAnonymous()"><a id="inlog" class="login" th:href="@{'/login'}">Inloggen</a></div>
-        <div sec:authorize="isAuthenticated()"><a id="uitlog" class="loguit" th:href="${'/logout'}">Uitloggen</a></div>
     </div>
 
     <nav class="navigatie">
