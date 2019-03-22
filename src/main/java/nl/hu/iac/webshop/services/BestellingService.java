@@ -32,26 +32,6 @@ public class BestellingService {
         this.bestellingRegelRepository = bestellingRegelRepository;
     }
 
-    public void saveBestelling(Account account, List<Bestellingsregel> bestellingsregels){
-        List<Bestelling> bestellingen = account.getBestellingen();
-        if (!bestellingen.isEmpty()){
-            for(Bestelling bestelling : bestellingen) {
-                if (bestelling.getStatus().equals("open")) {
-                    for (Bestellingsregel regel : bestellingsregels) {
-                        regel.setBestelling(bestelling);
-                        bestellingRegelRepository.save(regel);
-                    }
-                }else if (!bestelling.getStatus().equals("open")){
-                    nieuweBestelling(account, bestellingsregels);
-                }
-            }
-        }else {
-            nieuweBestelling(account, bestellingsregels);
-        }
-
-
-    }
-
     public void goedgekeurd(Long id) {
         Bestelling bes = getBestelling(id);
         bes.setStatus("goedgekeurd");
@@ -68,7 +48,7 @@ public class BestellingService {
         return bestellingRepository.findById(id).orElseThrow(()-> new BestellingNotFoundException(id));
     }
 
-    private void nieuweBestelling(Account account, List<Bestellingsregel> bestellingsregels) {
+    public void nieuweBestelling(Account account, List<Bestellingsregel> bestellingsregels) {
         // maken en opslaan van een bestelling
         Bestelling newBestelling = new Bestelling("open", account, bestellingsregels);
         for(Bestellingsregel regel : bestellingsregels){
