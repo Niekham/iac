@@ -29,7 +29,7 @@
 
     <nav class="navigatie">
         <a th:href="@{'/'}">Home</a>
-        <a th:href="@{'/products'}">Alle</a>
+        <a th:href="@{'/products'}">Alle categorieën</a>
     </nav>
 </div>
 
@@ -40,7 +40,8 @@
         Prijs: <label th:text="${product.prijs}" class="text">Prijs</label>
         <label th:unless="${product.aanbiedingprijs} == null">Aanbiedingsprijs: </label>
         <label th:unless="${product.aanbiedingprijs} == null" th:text="${product.aanbiedingprijs}" class="text"></label>
-        <img th:src="@{${'../afbeeldingen/' + product.afbeelding}}" class="pimage" alt="Er is geen afbeelding aanwezig">
+        <p class="no-img" th:unless="${product.aanbiedingprijs} != null">Van dit product is geen afbeelding bekend</p>
+        <img th:unless="${product.afbeelding} == null" th:src="@{${'../afbeeldingen/' + product.afbeelding}}" class="pimage" alt="Er is geen afbeelding aanwezig">
         <input type="button" value="Bekijken" class="productButton" th:name="${product.id}" onclick="window.location.href='/products/' + this.name">
     </div>
     <!--div voor het de winkelwagen-->

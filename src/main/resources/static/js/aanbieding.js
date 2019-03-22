@@ -5,7 +5,7 @@ function getAanbiedingen() {
         'type': 'GET',
         'contentType': "application/json",
         'error': function () {
-            console.log("Jo er is iets misgegaan met ophalen van aanbieding");
+            console.log("Er is iets misgegaan met ophalen van aanbieding");
         },
         'success': function (data) {
             if (data.length !== 0) {
@@ -27,7 +27,7 @@ function verwerkGetAanbiedingen(data) {
 
     let korting = document.createElement("label");
     korting.setAttribute("class", "aanbiedinglabel");
-    korting.innerText = data.percentage + "% korting";
+    korting.innerText = data.omschrijving;
 
     let aanbiedingId = document.createElement("label");
     aanbiedingId.setAttribute("class", "aanbiedingId");
@@ -35,13 +35,12 @@ function verwerkGetAanbiedingen(data) {
     aanbiedingId.hidden;
 
     let vanDatum = document.createElement("label");
-    vanDatum.setAttribute("class", "aanbiedinglabel");
-    vanDatum.innerText="Van: "+data.vanDatum;
-
-    let totDatum = document.createElement("label");
-    totDatum.setAttribute("class", "aanbiedinglabel");
-    totDatum.innerText="Tot: "+data.totDatum;
-
+    let vanDatumDate = new Date(data.vanDatum);
+    let vanDatumFormat = vanDatumDate.getDate() + '-' + vanDatumDate.getMonth() + '-' + vanDatumDate.getFullYear();
+    let totDatumDate = new Date(data.totDatum);
+    let totDatumDateFormat = totDatumDate.getDate() + '-' + totDatumDate.getMonth() + '-' + totDatumDate.getFullYear();
+    vanDatum.setAttribute("class", "looptijd");
+    vanDatum.innerText="De actie loopt van "+ vanDatumFormat + " tot " + totDatumDateFormat;
 
     let button = document.createElement("input");
     button.setAttribute("type", "button");
@@ -52,11 +51,10 @@ function verwerkGetAanbiedingen(data) {
     div.appendChild(aanbiedingId);
     div.appendChild(korting);
     div.appendChild(vanDatum);
-    div.appendChild(totDatum);
     document.querySelector(".container").appendChild(div);
 
     button.addEventListener("click", function () {
-        window.location.href="/aanbieding/" + data.id;
+        window.location.href="/products/" + data.id;
     });
 }
 
@@ -95,4 +93,3 @@ function toevoegen_aanbieding(){
     });
 
 }
-

@@ -25,7 +25,6 @@ public class AanbiedingService {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         Date date = new Date();
         dateFormat.format(date);
-
         for (Aanbieding aanbieding : aanbiedingen){
             if (date.after(aanbieding.getVanDatum()) && date.before(aanbieding.getTotDatum()) && !aanbieding.getProducts().isEmpty()){
                 newList.add(aanbieding);

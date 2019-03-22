@@ -1,0 +1,8 @@
+.banner {
+    width: 100%;
+    background-color: black;
+    height: 110px;
+    color: white;
+    text-align: center;
+    font-size: 40px;
+}
