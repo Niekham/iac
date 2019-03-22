@@ -51,28 +51,8 @@ public class BestellingRestController {
             regel.setProduct(product);
             regels.add(regel);
         }
-        bestellingService.saveBestelling(account, regels);
+        bestellingService.nieuweBestelling(account, regels);
 
         return 200;
     }
-
-//    @PostMapping("/add/{id}")
-//    public void newOrder(@RequestBody List<BestellingDTO> bestellingDTO, @PathVariable Long id){
-//        Account account = accountService.getAccountById(id);
-//        List<Bestellingsregel> regels = new ArrayList<>();
-//        for (BestellingDTO dto : bestellingDTO) {
-//            Product product = (productService.findById(dto.getProduct_id()));
-//            Bestellingsregel regel = new Bestellingsregel();
-//            regel.setAantal(dto.getAantal());
-//
-//            if (product.getAanbiedingprijs() == null) {
-//                regel.setPrijs(product.getPrijs());
-//            }else{
-//                regel.setPrijs(Double.parseDouble(product.getAanbiedingprijs()));
-//            }
-//            regel.setProduct(product);
-//            regels.add(regel);
-//        }
-//        bestellingService.saveBestelling(account, regels);
-//    }
 }
