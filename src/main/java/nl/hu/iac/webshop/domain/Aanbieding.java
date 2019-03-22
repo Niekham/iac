@@ -3,6 +3,7 @@ package nl.hu.iac.webshop.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -39,7 +40,11 @@ public class Aanbieding {
         return id;
     }
 
-    public Date getVanDatum() { return vanDatum;
+    public Date getVanDatum() {
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date vanDatum = this.vanDatum;
+        dateFormat.format(vanDatum);
+        return vanDatum;
     }
 
     public void setVanDatum(String vanDatum) {
@@ -56,7 +61,7 @@ public class Aanbieding {
 
     public void setTotDatum(String totDatum) {
         TimeZone zone = TimeZone.getTimeZone("UTC");
-        SimpleDateFormat formatter2 = new SimpleDateFormat("yyyy-M-d HH-mm-ss");
+        SimpleDateFormat formatter2 = new SimpleDateFormat("yyyy-M-d");
         formatter2.setTimeZone(zone);
         try {
             this.totDatum = formatter2.parse(totDatum + " 22-59-00");
@@ -66,6 +71,9 @@ public class Aanbieding {
     }
 
     public Date getTotDatum() {
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date vanDatum = this.totDatum;
+        dateFormat.format(totDatum);
         return totDatum;
     }
 

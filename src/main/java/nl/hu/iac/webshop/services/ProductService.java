@@ -1,5 +1,6 @@
 package nl.hu.iac.webshop.services;
 
+import nl.hu.iac.webshop.domain.Aanbieding;
 import nl.hu.iac.webshop.domain.Product;
 import nl.hu.iac.webshop.exceptions.ProductNotFoundException;
 import nl.hu.iac.webshop.repositories.CategorieRepository;
@@ -52,7 +53,7 @@ public class ProductService {
         productRepository.deleteById(id);
     }
 
-    public String findAanbiedingOmschrijving(Product product) {
-        return product.getAanbiedingOmschrijving();
+    public Aanbieding findAanbieding(Product product) {
+        return product.getAanbieding();
     }
 }

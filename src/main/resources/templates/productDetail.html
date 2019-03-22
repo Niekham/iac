@@ -58,7 +58,10 @@
     </svg>
     </div>
     <div class="toast__content">
-    <p class="toast__type"  th:text="${aanbiedingOmschrijving}"></p>
+        <div th:each="aanbieding : ${aanbieding}" class="detail">
+    <p class="toast__type"  th:text="${aanbieding.omschrijving}"></p>
+    <p class="toast__type"  th:text="'De aanbieding loopt vanaf ' + ${#dates.format(aanbieding.vanDatum, 'dd-MM-yyyy')} + ' tot ' + ${#dates.format(aanbieding.totDatum, 'dd-MM-yyyy')}"></p>
+        </div>
     </div>
     </div>
     </div>

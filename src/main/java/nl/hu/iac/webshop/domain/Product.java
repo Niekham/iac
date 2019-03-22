@@ -100,5 +100,4 @@ public class Product {
         return bestellingsregels;
     }
 
-    public String getAanbiedingOmschrijving() {return aanbieding.getOmschrijving();}
 }

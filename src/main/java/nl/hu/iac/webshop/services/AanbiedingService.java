@@ -22,9 +22,10 @@ public class AanbiedingService {
     public List<Aanbieding> getAanbiedingen(){
         List<Aanbieding> aanbiedingen = aanbiedingRepository.findAll();
         List<Aanbieding> newList = new ArrayList<>();
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         Date date = new Date();
         dateFormat.format(date);
+
         for (Aanbieding aanbieding : aanbiedingen){
             if (date.after(aanbieding.getVanDatum()) && date.before(aanbieding.getTotDatum()) && !aanbieding.getProducts().isEmpty()){
                 newList.add(aanbieding);
