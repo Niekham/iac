@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import static org.unbescape.html.HtmlEscape.escapeHtml5;
+
 @Service
 public class ProductService {
     private final ProductRepository productRepository;
@@ -36,14 +38,20 @@ public class ProductService {
     public List<Product> findByAanbieding(Long id){return productRepository.findProductsByAanbiedingId(id);}
 
     public Product saveProduct(Product product){
+
+        // escape HTML5
+        product.setNaam(escapeHtml5(product.getNaam()));
+        product.setAfbeelding(escapeHtml5(product.getAfbeelding()));
+        product.setAanbiedingprijs(escapeHtml5(product.getAanbiedingprijs()));
+
         return productRepository.save(product);
     }
 
     public Product changeProduct(Product changedProduct, Long id){
         return productRepository.findById(id)
                 .map(product -> {
-                    product.setNaam(changedProduct.getNaam());
-                    product.setAfbeelding(changedProduct.getAfbeelding());
+                    product.setNaam(escapeHtml5(changedProduct.getNaam()));
+                    product.setAfbeelding(escapeHtml5(changedProduct.getAfbeelding()));
                     product.setPrijs(changedProduct.getPrijs());
                     product.setPrijs(changedProduct.getPrijs());
                     return productRepository.save(product);

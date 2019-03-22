@@ -1,17 +1,21 @@
 package nl.hu.iac.webshop.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
 public class Bestellingsregel {
     @Id
+    @JsonIgnore
     @SequenceGenerator(name = "regel_id_generator", sequenceName = "regel_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "regel_id_generator")
     private Long id;
     private int aantal;
     private double prijs;
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "bestelling_id")
     private Bestelling bestelling;
     @ManyToOne

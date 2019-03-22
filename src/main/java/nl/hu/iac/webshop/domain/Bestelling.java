@@ -8,14 +8,15 @@ import java.util.List;
 @Entity
 public class Bestelling {
     @Id
+    @JsonIgnore
     @SequenceGenerator(name = "bestelling_id_generator", sequenceName = "bestelling_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "bestelling_id_generator")
     private Long id;
     private String status;
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "account_id")
     private Account account;
-    @JsonIgnore
     @OneToMany(mappedBy = "bestelling")
     private List<Bestellingsregel> bestellingsregels;
 

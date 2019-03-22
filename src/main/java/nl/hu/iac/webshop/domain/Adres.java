@@ -8,6 +8,7 @@ import javax.validation.constraints.NotEmpty;
 @Entity
 public class Adres {
     @Id
+    @JsonIgnore
     @SequenceGenerator(name = "adres_id_generator", sequenceName = "adres_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "adres_id_generator")
     private Long id;

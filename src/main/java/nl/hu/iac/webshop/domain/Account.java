@@ -10,10 +10,12 @@ import java.util.List;
 @Entity
 public class Account {
     @Id
+    @JsonIgnore
     @SequenceGenerator(name = "account_id_generator", sequenceName = "account_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "account_id_generator")
     private Long id;
     private String username;
+    @JsonIgnore
     private String password;
     private Date openDatum;
     @JsonIgnore

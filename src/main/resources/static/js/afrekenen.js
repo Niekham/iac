@@ -61,4 +61,12 @@ function displayGegevens() {
             }
         }
     });
+
+    $.ajax({
+        'url': 'http://localhost:8081/api/account/bestellingen',
+        'type': 'GET',
+        'success' : function(data){
+            console.log(data);
+        }
+    });
 }

@@ -9,6 +9,7 @@ import javax.validation.constraints.NotEmpty;
 @Table(name = "KLANT")
 public class Klant {
     @Id
+    @JsonIgnore
     @SequenceGenerator(name = "klant_id_generator", sequenceName = "klant_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "klant_id_generator")
     private Long id;
