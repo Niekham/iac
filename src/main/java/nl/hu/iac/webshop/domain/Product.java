@@ -3,7 +3,9 @@ package nl.hu.iac.webshop.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
@@ -14,22 +16,32 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_id_generator")
     @Column(nullable = false, name = "ID")
     private Long id;
+
     @Column(name = "NAAM")
+    @NotBlank
     private String naam;
+
     @Column(name = "PRIJS")
+    @NotNull
     private double prijs;
     @Column(name = "OMSCHRIJVING")
     private String omschrijving;
+
     @Column(name = "AANBIEDINGPRIJS")
     private String aanbiedingprijs;
+
     @Column(name = "AFBEELDING")
+    @NotBlank
     private String afbeelding;
+
     @JsonIgnore
     @ManyToMany(mappedBy = "products", cascade = CascadeType.REMOVE)
     private List<Categorie> categories;
+
     @ManyToOne
     @JoinColumn(name = "aanbieding_id")
     private Aanbieding aanbieding;
+
     @JsonIgnore
     @OneToMany(mappedBy = "product")
     private List<Bestellingsregel> bestellingsregels;

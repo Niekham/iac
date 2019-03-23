@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -25,6 +26,12 @@ public class AccountRestController {
     public Klant getUserDetails(HttpServletRequest request) {
         Principal principal = request.getUserPrincipal();
         return accountService.getAccountByUsername(principal.getName()).getKlant();
+    }
+
+    @RequestMapping(value = "/alleKlanten", method = RequestMethod.GET)
+    @ResponseBody
+    public ArrayList<Klant> getAllUsersDetails() {
+        return accountService.getAlleKlanten();
     }
 
     @RequestMapping(value = "/bestellingen", method = RequestMethod.GET)

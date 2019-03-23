@@ -3,6 +3,8 @@ package nl.hu.iac.webshop.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
@@ -13,7 +15,9 @@ public class Klant {
     @SequenceGenerator(name = "klant_id_generator", sequenceName = "klant_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "klant_id_generator")
     private Long id;
+    @NotBlank
     private String naam;
+    @Email
     private String email;
     @JsonIgnore
     @OneToOne(cascade = CascadeType.ALL)

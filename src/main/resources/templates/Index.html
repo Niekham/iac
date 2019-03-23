@@ -44,8 +44,10 @@
 </div>
 <div class="nav-admin" sec:authorize="hasRole('ROLE_ADMIN')">
     <ul>
+        <li><a th:href="@{'/klanten'}">Klanten Overzicht</a></li>
         <li><a th:href="@{'api/product/add'}">Product toevoegen</a></li>
         <li><a th:href="@{'api/aanbieding/add'}">Aanbieding toevoegen</a></li>
+
     </ul>
 </div>
 
