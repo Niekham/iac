@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title><!DOCTYPE html>
+        <!--suppress HtmlUnknownTarget -->
+        <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+            <title>Afrekenen</title>
+            <link rel="stylesheet" type="text/css"  th:href="@{/css/generalCSS.css}">
+            <link rel="stylesheet" type="text/css"  th:href="@{/css/header.css}">
+            <link rel="stylesheet" type="text/css"  th:href="@{/css/login.css}">
+            <link rel="stylesheet" type="text/css"  th:href="@{/css/winkelwagen.css}">
+            <link rel="stylesheet" href="text/css"  th:href="@{/css/klanten.css}">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+            <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        </head>
+        <script type="text/javascript" src="../js/winkelwagen.js" th:src="@{/js/winkelwagen.js}"></script>
+        <script type="text/javascript" src="../js/login.js" th:src="@{/js/login.js}"></script>
+        <script type="text/javascript" src="../js/afrekenen.js" th:src="@{/js/klanten.js}"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+
+
+<body onload="klantenOphalen(); winkelWagenContent();">
+<!--div voor header en navigatie-->
+<div class="header">
+    <div class="topbar">
+        <a class="logo" th:href="${'/'}">IAC</a>
+        <i onclick="showWinkelwagen()" class="fa fa-shopping-cart fa-2x"></i>
+        <div sec:authorize="isAnonymous()"><a id="inlog" class="login" th:href="@{'/login'}">Inloggen</a></div>
+        <div sec:authorize="isAuthenticated()"><a id="uitlog" class="loguit" th:href="${'/logout'}">Uitloggen</a></div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="winkelwagen-header">
+        <h2>Overzicht van klanten:</h2>
+    </div>
+    <div class="klanten-body">
+        <table id="klanten-tabel">
+            <tr>
+                <th>Naam</th>
+                <th>Email</th>
+                <th>Straat</th>
+                <th>Postcode</th>
+                <th>Plaats</th>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html></title>
+</head>
+<body>
+
+</body>
+</html>

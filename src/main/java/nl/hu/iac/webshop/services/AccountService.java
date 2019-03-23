@@ -11,6 +11,7 @@ import nl.hu.iac.webshop.repositories.AdresRepository;
 import nl.hu.iac.webshop.repositories.KlantRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 
 
 @Service
@@ -36,6 +37,10 @@ public class AccountService {
         }
         return account;
 
+    }
+
+    public ArrayList<Klant> getAlleKlanten() {
+        return klantRepository.findAll();
     }
 
 

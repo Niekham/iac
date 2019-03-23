@@ -1,8 +1,10 @@
 package nl.hu.iac.webshop.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -14,7 +16,10 @@ public class Account {
     @SequenceGenerator(name = "account_id_generator", sequenceName = "account_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "account_id_generator")
     private Long id;
+    @NotBlank
+    @Column(unique=true)
     private String username;
+    @NotBlank
     @JsonIgnore
     private String password;
     private Date openDatum;

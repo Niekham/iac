@@ -1,8 +1,10 @@
 package nl.hu.iac.webshop.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import nl.hu.iac.webshop.Validators.AdresConstraint;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
@@ -12,8 +14,11 @@ public class Adres {
     @SequenceGenerator(name = "adres_id_generator", sequenceName = "adres_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "adres_id_generator")
     private Long id;
+    @NotBlank
     private String straat;
+    @AdresConstraint
     private String postcode;
+    @NotBlank
     private String plaats;
     @JsonIgnore
     @OneToOne(mappedBy = "adres", cascade = CascadeType.ALL)

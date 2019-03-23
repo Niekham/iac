@@ -5,6 +5,7 @@ import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import java.util.List;
 
@@ -15,8 +16,11 @@ public class Categorie {
     @SequenceGenerator(name = "category_id_generator", sequenceName = "category_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "category_id_generator")
     private Long id;
+    @NotBlank
     private String naam;
+    @NotBlank
     private String afbeelding;
+    @NotBlank
     private String omschrijving;
     @JsonIgnore
     @ManyToMany(cascade = {CascadeType.ALL})
