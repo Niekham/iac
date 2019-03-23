@@ -99,4 +99,13 @@ public class Account {
     public void setBestellingen(List<Bestelling> bestellingen) {
         this.bestellingen = bestellingen;
     }
+
+    public boolean isAdmin() {
+        for(Role rol : rollen) {
+            if(rol.getName().equals("ROLE_ADMIN")) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

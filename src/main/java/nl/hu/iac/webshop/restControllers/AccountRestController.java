@@ -1,5 +1,6 @@
 package nl.hu.iac.webshop.restControllers;
 
+import nl.hu.iac.webshop.domain.Account;
 import nl.hu.iac.webshop.domain.Bestelling;
 import nl.hu.iac.webshop.domain.Klant;
 import nl.hu.iac.webshop.services.AccountService;
@@ -30,8 +31,24 @@ public class AccountRestController {
 
     @RequestMapping(value = "/alleKlanten", method = RequestMethod.GET)
     @ResponseBody
-    public ArrayList<Klant> getAllUsersDetails() {
-        return accountService.getAlleKlanten();
+    public ArrayList<Klant> getAllUsersDetails(HttpServletRequest request) {
+        Principal principal = request.getUserPrincipal();
+
+        if(principal == null) {
+            return null;
+        }
+
+        Account account = accountService.getAccountByUsername(principal.getName());
+
+        if(account == null) {
+            return null;
+        }
+
+        if(account.isAdmin()) {
+            return accountService.getAlleKlanten();
+        }
+
+        return null;
     }
 
     @RequestMapping(value = "/bestellingen", method = RequestMethod.GET)
