@@ -23,7 +23,7 @@ public class Product {
     @Column(name = "AFBEELDING")
     private String afbeelding;
     @JsonIgnore
-    @ManyToMany(mappedBy = "products")
+    @ManyToMany(mappedBy = "products", cascade = CascadeType.REMOVE)
     private List<Categorie> categories;
     @ManyToOne
     @JoinColumn(name = "aanbieding_id")
@@ -31,6 +31,7 @@ public class Product {
     @JsonIgnore
     @OneToMany(mappedBy = "product")
     private List<Bestellingsregel> bestellingsregels;
+
 
     public Product() {
     }

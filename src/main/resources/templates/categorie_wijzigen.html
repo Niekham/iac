@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Producten wijzigen</title>
+    <title>Categorie wijzigen</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/generalCSS.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -10,9 +10,9 @@
 </head>
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 <script type="text/javascript"  th:src="@{/js/winkelwagen.js}"></script>
-<script type="text/javascript"  th:src="@{/js/product_toevoegen.js}"></script>
+<script type="text/javascript"  th:src="@{/js/categorie_toevoegen.js}"></script>
 
-<body onload="getProducten()">
+<body onload="getCatgorie()">
 
 
 <div class="header">
@@ -30,14 +30,13 @@
 </div>
 
 <div class="container">
-    <h3>Klik op een product om die te wijzigen of te verwijderen!</h3>
+    <h3>Klik op een categorie om die te wijzigen of verwijderen!</h3>
     <h4>
         <table class="w3-table" id="table">
             <tr id="row">
                 <th>Id:</th>
                 <th>Naam:</th>
-                <th>Prijs:</th>
-                <th>Aanbiedingprijs:</th>
+                <th>Omschrijving:</th>
                 <th>Wijzigen?</th>
                 <th>Verwijderen?</th>
             </tr>

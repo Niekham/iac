@@ -120,3 +120,74 @@ function catgorieToevoegen(){
                 }
         });
 }
+
+function getCatgorie(){
+    $.ajax({
+        'url': 'http://localhost:8081/api/categories',
+        'type': 'GET',
+        'contentType': 'application/json',
+        'success': function (data) {
+            for (const categorie of data) {
+                let table = document.querySelector("table");
+                let row = table.insertRow(1);
+                let cell1 = row.insertCell(0);
+                let cell2 = row.insertCell(1);
+                let cell3 = row.insertCell(2);
+                cell1.innerHTML = categorie.id;
+                cell2.innerHTML = categorie.naam;
+                cell3.innerHTML = categorie.omschrijving;
+
+                let btn = document.createElement('input');
+                btn.type = "button";
+                btn.className = "button";
+                btn.value = "Wijzigen"
+                row.appendChild(btn);
+
+                let btn_verwijderen = document.createElement('input');
+                btn_verwijderen.type = "button";
+                btn_verwijderen.className = "verwijderen";
+                btn_verwijderen.value = "Verwijderen";
+                row.appendChild(btn_verwijderen);
+
+                btn.addEventListener("click", function(){
+                    sessionStorage.setItem("categorieID",categorie.id);
+                    window.location.href = "http://localhost:8081/api/categorie/AttributenWijzigen"
+                })
+
+                btn_verwijderen.addEventListener("click", function(){
+                    $.ajax({
+                        'url': 'http://localhost:8081/api/categories/delete/'+categorie.id,
+                        'type': 'DELETE',
+                        'contentType': 'application/json',
+                        'success' : function(){
+                            alert("Categorie is verwijderd");
+                            location.reload();
+                        },
+
+                    });
+                })
+
+    }
+}
+    });
+}
+
+function wijzigCategorie(){
+    let json = JSON.parse(JSON.stringify(jQuery('.categerieForm').serializeArray()));
+    let obj = formToJson(json);
+    obj["afbeelding"] = document.getElementById("naam").value;
+    let id = sessionStorage.getItem("categorieID")
+    $.ajax({
+        'url': 'http://localhost:8081/api/categories/edit/'+id,
+        'data': JSON.stringify(obj),
+        'type': 'POST',
+        'contentType': 'application/json',
+        'success' : function(){
+            alert("Categorie is gewijzigd");
+        },
+        'erorr' : function(){
+            alert("Categorie is niet gewijzigd")
+        }
+    });
+
+}

@@ -28,4 +28,15 @@ public class CategorieController {
     public String add_Bestaande_categorie(){
         return "bestaande_categorie";
     }
+
+    @GetMapping("/api/categorie/wijzigen")
+    public String aanbiedingenWijzigen(){
+        return "categorie_wijzigen";
+    }
+
+
+    @GetMapping("/api/categorie/AttributenWijzigen")
+    public String aanbiedingWijzigen(){
+        return "categorieAttributenWijzigen";
+    }
 }

@@ -25,6 +25,11 @@ public class CategorieRestController {
     @GetMapping("/{id}")
     public Categorie getCategorieById(@PathVariable Long id){return categorieService.findById(id);}
 
+    @DeleteMapping("/delete/{id}")
+    public void deleteCategorie(@PathVariable Long id){
+         categorieService.deleteCategorie(id);
+    }
+
     @PostMapping("/add")
     public Categorie saveCategorie(@RequestBody Categorie categorie){return categorieService.saveCategorie(categorie);}
 

@@ -127,7 +127,45 @@ function getProducten(){
                 btn_verwijderen.className = "verwijderen";
                 btn_verwijderen.value = "Verwijderen";
                 row.appendChild(btn_verwijderen);
+
+                btn.addEventListener("click", function(){
+                    sessionStorage.setItem("productID",product.id);
+                    window.location.href="http://localhost:8081/api/product/AttributenWijzigen";
+                })
+
+                btn_verwijderen.addEventListener("click", function(){
+                    $.ajax({
+                        'url': 'http://localhost:8081/api/products/delete/'+product.id,
+                        'type': 'DELETE',
+                        'contentType': 'application/json',
+                        'success' : function(){
+                            alert("Product is verwijderd");
+                            location.reload();
+                        },
+
+                    });
+                })
             }
+        }
+    });
+
+}
+
+function wijzigProduct(){
+    let json = JSON.parse(JSON.stringify(jQuery('.productForm').serializeArray()));
+    let obj = formToJson(json);
+    obj["afbeelding"] = document.getElementById("naam").value;
+    let id = sessionStorage.getItem("productID")
+    $.ajax({
+        'url': 'http://localhost:8081/api/products/edit/'+id,
+        'data': JSON.stringify(obj),
+        'type': 'PUT',
+        'contentType': 'application/json',
+        'success' : function(){
+            alert("Product is gewijzigd");
+        },
+        'erorr' : function(){
+            alert("Product is niet gewijzigd")
         }
     });
 

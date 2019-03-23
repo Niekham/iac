@@ -29,6 +29,10 @@ public class CategorieService {
         return categorieRepository.save(categorie);
     }
 
+    public void deleteCategorie (Long id){
+        categorieRepository.deleteById(id);
+    }
+
     public Categorie changeCategorie(Categorie changedCategorie, Long id){
         return categorieRepository.findById(id)
                 .map(categorie -> {
