@@ -49,6 +49,14 @@ body{
     letter-spacing: -2px;
 }
 
+.product-informatie p{
+    font-weight: 150;
+    font-size: 25px;
+    color: black;
+    letter-spacing: -2px;
+}
+
+
 .prijs {
     display: flex;
     align-items: center;

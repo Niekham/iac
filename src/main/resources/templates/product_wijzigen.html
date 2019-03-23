@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Bestaande producten toevoegen</title>
+    <title>Producten wijzigen</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/generalCSS.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -15,22 +15,23 @@
 <body onload="getProducten()">
 
 
+<!--div voor header en navigatie-->
 <div class="header">
     <div class="topbar">
-        <a class="logo" href='/'>IAC</a>
+        <a class="logo" th:href="${'/'}">IAC</a>
         <i onclick="showWinkelwagen()" class="fa fa-shopping-cart fa-2x"></i>
-        <a id="inlog" class="login" href="login.html">Inloggen</a>
-        <a id="uitlog" class="loguit hidden" onclick="logout()" href="/">Uitloggen</a>
+        <div sec:authorize="isAnonymous()"><a id="inlog" class="login" th:href="@{'/login'}">Inloggen</a></div>
+        <div sec:authorize="isAuthenticated()"><a id="uitlog" class="loguit" th:href="${'/logout'}">Uitloggen</a></div>
     </div>
 
     <nav class="navigatie">
         <a th:href="@{'/'}">Home</a>
-        <a th:href="@{'/products'}">Alle categorieën</a>
+        <a th:href="@{'/products'}">Alle</a>
     </nav>
 </div>
 
 <div class="container">
-    <h3>Klik op een product om die te wijzigen!</h3>
+    <h3>Klik op een product om die te wijzigen of te verwijderen!</h3>
     <h4>
         <table class="w3-table" id="table">
             <tr id="row">

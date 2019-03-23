@@ -1,31 +1,32 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>Aanbieding toevoegen</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/generalCSS.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
 </head>
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 <script type="text/javascript"  th:src="@{/js/winkelwagen.js}"></script>
 <script type="text/javascript"  th:src="@{/js/aanbieding.js}"></script>
+<script type="text/javascript"  th:src="@{/js/navigatie.js}"></script>
 
-<body>
+<body  onload="getCategories();">
 
 
 <div class="header">
     <div class="topbar">
-        <a class="logo" href='/'>IAC</a>
-        <i onclick="showWinkelwagen()" class="fa fa-shopping-cart fa-2x"></i>
-        <a id="inlog" class="login" href="login.html">Inloggen</a>
-        <a id="uitlog" class="loguit hidden" onclick="logout()" href="/">Uitloggen</a>
+        <a class="logo" th:href="${'/'}">IAC</a>
+        <div sec:authorize="isAnonymous()"><a id="inlog" class="login" th:href="@{'/login'}">Inloggen</a></div>
+        <div sec:authorize="isAuthenticated()"><a id="uitlog" class="loguit" th:href="${'/logout'}">Uitloggen</a></div>
     </div>
 
     <nav class="navigatie">
         <a th:href="@{'/'}">Home</a>
-        <a th:href="@{'/products'}">Alle categorieën</a>
+        <a th:href="@{'/products'}">Alle</a>
     </nav>
 </div>
 
@@ -40,7 +41,6 @@
     </form>
     <button onclick="toevoegen_aanbieding()" class="button_product">Voeg aanbieding toe!</button><P></P>
     <button onclick="bestaande_producten()" class="button_product">Voeg aanbieding toe! Met producten</button>
-
 </div>
 
 </body>

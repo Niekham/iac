@@ -107,3 +107,7 @@
     float: left;
     width: 5%;
 }
+
+i {
+    cursor: pointer;
+}

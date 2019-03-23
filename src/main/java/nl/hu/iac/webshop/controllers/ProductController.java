@@ -38,4 +38,9 @@ public class ProductController{
     @GetMapping("api/product/wijzigen")
     public String productWijzigen(){ return "product_wijzigen"; }
 
+    @GetMapping("/api/product/AttributenWijzigen")
+    public String aanbiedingWijzigen(){
+        return "productAttributenWijzigen";
+    }
+
 }

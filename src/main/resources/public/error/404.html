@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset=UTF-8"/>
+    <title>404 Error</title>
+
+    <link rel="stylesheet" type="text/css" href="/css/generalCSS.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <link rel="stylesheet" type="text/css" href="/css/header.css">
+    <link rel="stylesheet" type="text/css" href="/css/login.css">
+    <link rel="stylesheet" type="text/css" href="/css/winkelwagen.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+
+<script type="text/javascript" src="/js/login.js"></script>
+<script type="text/javascript" src="/js/navigatie.js"></script>
+<script type="text/javascript" src="/js/winkelwagen.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+
+<body onload="getCategories(); winkelWagenContent();">
+<!--div voor header en navigatie-->
+<div class="header">
+    <div class="topbar">
+        <a class="logo" href="/">IAC</a>
+        <i onclick="showWinkelwagen()" class="fa fa-shopping-cart fa-2x"></i>
+    </div>
+
+    <nav class="navigatie">
+        <a href="/">Home</a>
+        <a href="/products">Alle</a>
+    </nav>
+</div>
+
+<h1>404: Niet gevonden</h1>
+
+<div class="container">
+    <!--div voor het de winkelwagen-->
+    <div class="winkelwagen">
+        <div class="winkelwagen-content">
+            <div class="winkelwagen-header">
+                <span class="close">&times;</span>
+                <h2>Winkelwagen</h2>
+            </div>
+            <div class="winkelwagen-body">
+                <label class="geenItem">Uw winkelwagen is leeg!</label>
+                <input class="bestelButton" type="button" value="Bestellen">
+                <label class="total"></label>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

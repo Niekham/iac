@@ -44,6 +44,11 @@
         <img th:if="${product.afbeelding}!=null" th:src="@{${'../afbeeldingen/' + product.afbeelding}}" class="pimage">
         <input type="button" value="Bekijken" class="productButton" th:name="${product.id}" onclick="window.location.href='/products/' + this.name">
     </div>
+
+    <div th:if="${#lists.isEmpty(products)}">
+        <h1>404: Niet gevonden</h1>
+    </div>
+
     <!--div voor het de winkelwagen-->
     <div class="winkelwagen">
         <div class="winkelwagen-content">
