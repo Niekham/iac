@@ -25,7 +25,7 @@ function akkoord() {
     }
 
     $.ajax({
-       'url': 'http://localhost:8081/api/bestelling/add',
+       'url': 'api/bestelling/add',
         'type': 'POST',
         'data': JSON.stringify(regels),
         'contentType': 'application/json',
@@ -44,7 +44,7 @@ function akkoord() {
 function displayGegevens() {
 
     $.ajax({
-        'url': 'http://localhost:8081/api/account/details',
+        'url': 'api/account/details',
         'type': 'GET',
         'success' : function(klant){
             document.getElementById("naam").innerHTML = klant["naam"];
@@ -59,14 +59,6 @@ function displayGegevens() {
             if (xhr['status'] === 500) {
                 window.location.href = "/login";
             }
-        }
-    });
-
-    $.ajax({
-        'url': 'http://localhost:8081/api/account/bestellingen',
-        'type': 'GET',
-        'success' : function(data){
-            console.log(data);
         }
     });
 }

@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static org.unbescape.html.HtmlEscape.escapeHtml5;
+
 @RestController
 @RequestMapping(ProductRestController.BASE_URL)
 public class ProductRestController {
@@ -33,12 +35,12 @@ public class ProductRestController {
 
     @PostMapping("/add")
     public Product createProduct(@RequestBody Product product) {
-        return productService.saveProduct(product);
+        return productService.saveProduct(escapeHtml5InProduct(product));
     }
 
     @PutMapping("/edit/{id}")
     public Product changeProduct(@RequestBody Product product, @PathVariable Long id) {
-        return productService.changeProduct(product, id);
+        return productService.changeProduct(escapeHtml5InProduct(product), id);
     }
 
     @DeleteMapping("/delete/{id}")
@@ -65,6 +67,13 @@ public class ProductRestController {
        categorieService.saveCategorie(categorie);
     }
 
+    private Product escapeHtml5InProduct(Product product) {
+        product.setNaam(escapeHtml5(product.getNaam()));
+        product.setOmschrijving(escapeHtml5(product.getOmschrijving()));
+        product.setAanbiedingprijs(escapeHtml5(product.getAanbiedingprijs()));
+        product.setAfbeelding(escapeHtml5(product.getAfbeelding()));
 
+        return product;
+    }
 
 }

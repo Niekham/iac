@@ -33,4 +33,11 @@ public class AccountRestController {
         Principal principal = request.getUserPrincipal();
         return accountService.getAccountByUsername(principal.getName()).getBestellingen();
     }
+
+    @RequestMapping(value = "/name", method = RequestMethod.GET)
+    @ResponseBody
+    public String getUsername(HttpServletRequest request) {
+        Principal principal = request.getUserPrincipal();
+        return accountService.getAccountByUsername(principal.getName()).getKlant().getNaam();
+    }
 }
