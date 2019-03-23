@@ -18,6 +18,8 @@ public class Product {
     private String naam;
     @Column(name = "PRIJS")
     private double prijs;
+    @Column(name = "OMSCHRIJVING")
+    private String omschrijving;
     @Column(name = "AANBIEDINGPRIJS")
     private String aanbiedingprijs;
     @Column(name = "AFBEELDING")
@@ -36,9 +38,10 @@ public class Product {
     public Product() {
     }
 
-    public Product(String naam, double prijs, String aanbiedingprijs, String afbeelding, List<Categorie> categories, Aanbieding aanbieding, List<Bestellingsregel> bestellingsregels) {
+    public Product(String naam, double prijs, String omschrijving, String aanbiedingprijs, String afbeelding, List<Categorie> categories, Aanbieding aanbieding, List<Bestellingsregel> bestellingsregels) {
         this.naam = naam;
         this.prijs = prijs;
+        this.omschrijving = omschrijving;
         this.aanbiedingprijs = aanbiedingprijs;
         this.afbeelding = afbeelding;
         this.categories = categories;
@@ -66,6 +69,13 @@ public class Product {
         this.prijs = prijs;
     }
 
+    public String getOmschrijving() {
+        return omschrijving;
+    }
+
+    public void setOmschrijving(String omschrijving) {
+        this.omschrijving = omschrijving;
+    }
 
     public String getAfbeelding() {
         return afbeelding;
@@ -92,8 +102,6 @@ public class Product {
     public String getAanbiedingprijs() {
         return aanbiedingprijs;
     }
-
-
 
     public void setAanbiedingprijs(String aanbiedingprijs) {
         this.aanbiedingprijs = aanbiedingprijs;
