@@ -18,7 +18,7 @@ function toevoegen(){
         'type': 'POST',
         'contentType': 'application/json',
         'success' : function(){
-            alert("Product is toegevoegd")
+            alert("Product is toegevoegd");
             sessionStorage.setItem("productnaam", document.getElementById("naam1").value);
             sessionStorage.setItem("productprijs", document.getElementById("prijs").value);
             sessionStorage.setItem("productafbeelding", document.getElementById("naam").value);
@@ -32,11 +32,13 @@ function toevoegen(){
 function nieuwe_categorie(){
     toevoegen();
     document.querySelector(".optie").value = "/api/categorie/add";
+    document.querySelector(".productForm").submit();
 }
 
 function bestaande_categorie(){
     toevoegen();
     document.querySelector(".optie").value = "/api/bestaande_categorie";
+    document.querySelector(".productForm").submit();
 }
 
 function producten(){
