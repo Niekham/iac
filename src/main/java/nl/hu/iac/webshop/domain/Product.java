@@ -43,7 +43,7 @@ public class Product {
     private Aanbieding aanbieding;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "product", cascade = CascadeType.REMOVE)
     private List<Bestellingsregel> bestellingsregels;
 
 
