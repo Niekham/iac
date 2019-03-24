@@ -40,16 +40,13 @@
 <div class="banner">
     <h1 sec:authorize="isAnonymous()">Actie</h1>
     <h1 sec:authorize="hasRole('ROLE_ADMIN')">Welkom beheerder</h1>
-    <h1 sec:authorize="hasRole('ROLE_USER')">Welkom klant, Dit zijn onze acties:</h1>
+    <h1  sec:authorize="hasRole('ROLE_USER') and !hasRole('ROLE_ADMIN')">Welkom klant, Dit zijn onze acties:</h1>
 </div>
 <div class="nav-admin" sec:authorize="hasRole('ROLE_ADMIN')">
-    <ul>
-        <li><a th:href="@{'/klanten'}">Klanten Overzicht</a></li>
-        <li><a th:href="@{'api/product/add'}">Product toevoegen</a></li>
-        <li><a th:href="@{'api/aanbieding/add'}">Aanbieding toevoegen</a></li>
-        <li><a th:href="@{'/api/categorie/wijzigen'}">Categorie wijzigen</a></li>
-        <li><a th:href="@{'api/product/wijzigen'}">Product wijzigen</a></li>
-    </ul>
+        <a th:href="@{'/klanten'}">Klanten Overzicht</a><a th:href="@{'api/product/add'}">Product toevoegen</a>
+        <a th:href="@{'api/aanbieding/add'}">Aanbieding toevoegen</a>
+        <a th:href="@{'/api/categorie/wijzigen'}">Categorie wijzigen</a>
+        <a th:href="@{'api/product/wijzigen'}">Product wijzigen</a>
 </div>
 
 <div class="container">
