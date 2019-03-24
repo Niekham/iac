@@ -37,7 +37,7 @@
     <div class="winkelwagen-header">
         <h2>Klant gegevens: </h2>
     </div>
-    <div class="klanten-body" th:each="klant : ${klant}" th:each="adres : ${adres}">
+    <div class="klanten-body" th:object="${klant}">
         <table id="klanten-tabel">
             <tr>
                 <th>Naam:</th>
