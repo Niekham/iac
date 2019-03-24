@@ -35,7 +35,8 @@
     <form class="productForm" method="POST" action="/api/uploadFile" enctype="multipart/form-data">
         <h4>
             Naam product:<input name="naam" class="input" type="text" required><p></p>
-            prijs: <input name="omschrijving" class="input" type="number" required><p></p>
+            prijs: <input name="prijs" class="input" type="number" required><p></p>
+            Omschrijving: <br><textarea id="omschrijving" name="omschrijving" class="input" required></textarea><p></p>
             Afbeelding: <input name="file" class="input" type="file" required><p></p>
             Afbeelding Naam: <input class="input" id="naam" type="text" name="name" required><p></p>
             <input name="optie" value="/" style="display: none">

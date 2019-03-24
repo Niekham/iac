@@ -29,7 +29,7 @@ public class FileUploadController {
         byte[] bytes = file.getBytes();
 
         // Creating the directory to store file
-        String rootPath = "C:\\Users\\Luuk\\IdeaProjects\\iac\\src\\main\\resources";
+        String rootPath = "C:\\Users\\Jonat\\IdeaProjects\\iac\\src\\main\\resources\\static";
         File dir = new File(rootPath + File.separator + "afbeeldingen");
         if (!dir.exists())
             dir.mkdirs();

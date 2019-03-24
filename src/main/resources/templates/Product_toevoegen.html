@@ -33,7 +33,7 @@
 <div class="container">
     <h3>Vul deze gegevens in om een product toe te voegen aan de webshop!</h3>
     <h4>
-    <form  class="productForm" method="POST" action="/api/uploadFile" enctype="multipart/form-data" onsubmit="toevoegen()">
+    <form  class="productForm" method="POST" action="/api/uploadFile" enctype="multipart/form-data">
         Naam product:
         <input id="naam1" name="naam" class="input" type="text" required><p></p>
         Prijs:
@@ -44,7 +44,7 @@
         <input class="input" id="naam" type="text" name="name" required><p></p>
         <input name="optie" class="optie" value="/api/product/add" style="display: none">
         Wilt u bij dit product geen categorie, nieuwe categorie of een bestaande categorie toevoegen?<p></p>
-        <input type="submit" value="Voeg product toe!"><p></p>
+        <input onclick="toevoegen()" type="submit" value="Voeg product toe!"><p></p>
         <button onclick="nieuwe_categorie()" >Nieuwe categorie toevoegen</button><p></p>
         <button onclick="bestaande_categorie()">Bestaande categorie toevoegen</button>
     </form>

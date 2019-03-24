@@ -35,7 +35,7 @@ public class Product {
     private String afbeelding;
 
     @JsonIgnore
-    @ManyToMany(mappedBy = "products", cascade = CascadeType.REMOVE)
+    @ManyToMany(mappedBy = "products")
     private List<Categorie> categories;
 
     @ManyToOne
