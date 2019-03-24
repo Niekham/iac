@@ -43,7 +43,7 @@ public class ProductService {
         product.setNaam(escapeHtml5(product.getNaam()));
         product.setAfbeelding(escapeHtml5(product.getAfbeelding()));
         product.setAanbiedingprijs(escapeHtml5(product.getAanbiedingprijs()));
-
+        product.setOmschrijving(escapeHtml5(product.getOmschrijving()));
         return productRepository.save(product);
     }
 

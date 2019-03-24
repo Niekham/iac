@@ -35,13 +35,15 @@
     <h4>
     <form  class="productForm" method="POST" action="/api/uploadFile" enctype="multipart/form-data">
         Naam product:
-        <input id="naam1" name="naam" class="input" type="text" required><p></p>
+        <input id="naam1" name="naam" class="input" type="text" required><br>
         Prijs:
-        <input id="prijs" name="prijs" class="input" type="number" required><p></p>
+        <input id="prijs" name="prijs" class="input" type="number" required><br>
+        Omschrijving:<br>
+        <textarea id="omschrijving" name="omschrijving" class="input"></textarea><br>
         Afbeelding:
-        <input name="file" class="input" type="file" required><p></p>
+        <input name="file" class="input" type="file" required><br>
         Afbeelding Naam:
-        <input class="input" id="naam" type="text" name="name" required><p></p>
+        <input class="input" id="naam" type="text" name="name" required><br>
         <input name="optie" class="optie" value="/api/product/add" style="display: none">
         Wilt u bij dit product geen categorie, nieuwe categorie of een bestaande categorie toevoegen?<p></p>
         <input onclick="toevoegen()" type="submit" value="Voeg product toe!"><p></p>
