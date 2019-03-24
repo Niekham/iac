@@ -50,7 +50,6 @@ function categorien(){
                     btn.value = "Toevoegen aan product";
                     row.appendChild(btn);
                     var button = document.querySelector(".btn");
-                }
 
 
                     button.addEventListener("click", function () {
@@ -80,7 +79,7 @@ function categorien(){
 
 
                     });
-
+                }
             }
         });
 }

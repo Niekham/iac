@@ -26,6 +26,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/klanten", "/afrekenen**", "/api/uploadFile",
                         "/api/bestaandeProducten",
+                        "/api/bestaande_categorie",
                         "/api/aanbieding/add",
                         "/api/categorie/add", "/api/categorie/wijzigen", "/api/categorie/AttributenWijzigen",
                         "/api/product/add", "/api/product/wijzigen", "/api/product/AttributenWijzigen").hasRole("ADMIN")
