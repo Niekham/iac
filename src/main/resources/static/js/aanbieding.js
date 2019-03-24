@@ -54,7 +54,7 @@ function verwerkGetAanbiedingen(data) {
     document.querySelector(".container").appendChild(div);
 
     button.addEventListener("click", function () {
-        window.location.href="/products/" + data.id;
+        window.location.href="/aanbieding/" + data.id;
     });
 }
 
