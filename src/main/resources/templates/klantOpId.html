@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
-
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Klanten Overzicht</title>
+    <meta charset="UTF-8">
+    <title>Klant Gegevens</title>
     <link rel="stylesheet" type="text/css"  th:href="@{/css/generalCSS.css}">
     <link rel="stylesheet" type="text/css"  th:href="@{/css/header.css}">
     <link rel="stylesheet" type="text/css"  th:href="@{/css/login.css}">
@@ -14,11 +14,11 @@
 </head>
 <script type="text/javascript" src="../js/winkelwagen.js" th:src="@{/js/winkelwagen.js}"></script>
 <script type="text/javascript" src="../js/login.js" th:src="@{/js/login.js}"></script>
-<script type="text/javascript" src="../js/klanten.js" th:src="@{/js/klanten.js}"></script>
+<!--<script type="text/javascript" src="../js/klant.js" th:src="@{/js/klant.js}"></script>-->
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 
 
-<body onload="klantenOphalen(); winkelWagenContent();">
+<body onload="klantOphalen(); winkelWagenContent();">
 <!--div voor header en navigatie-->
 <div class="header">
     <div class="topbar">
@@ -35,24 +35,32 @@
 
 <div class="container">
     <div class="winkelwagen-header">
-        <h2>Overzicht van klanten:</h2>
+        <h2>Klant gegevens: </h2>
     </div>
-    <div class="klanten-body">
+    <div class="klanten-body" th:object="${klant}">
         <table id="klanten-tabel">
             <tr>
-                <th>Naam</th>
-                <th>Email</th>
-                <th>Straat</th>
-                <th>Postcode</th>
-                <th>Plaats</th>
+                <th>Naam:</th>
+                <th th:text="${klant.naam}"></th>
+            </tr>
+            <tr id="email">
+                <th>Email:</th>
+                <th th:text="${klant.email}"></th>
+            </tr>
+            <tr id="straat">
+                <th>Straat:</th>
+                <th th:text="${adres.straat}"></th>
+            </tr>
+            <tr id="postcode">
+                <th>Postcode:</th>
+                <th th:text="${adres.postcode}"></th>
+            </tr>
+            <tr>
+                <th>Plaats:</th>
+                <th th:text="${adres.plaats}"></th>
             </tr>
         </table>
     </div>
 </div>
-</body>
-</html></title>
-</head>
-<body>
-
 </body>
 </html>

@@ -26,7 +26,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/afrekenen**", "/api/uploadFile",
                         "/api/product/add", "/api/aanbieding/add",
-                        "/klanten").hasRole("ADMIN")
+                        "/klanten", "/klant/{id}").hasRole("ADMIN")
                 .antMatchers("/afrekenen**").hasRole("USER")
                 .antMatchers("/**",
                         "/products**",

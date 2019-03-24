@@ -4,19 +4,17 @@ function klantenOphalen() {
         .then(response => response.json())
         .then(function(myJson){
         for(const klant of myJson){
-            console.log(klant);
-            var naam = klant.naam;
-            var email= klant.email
-            var adres = klant.adres;
-            var straat= adres.straat;
-            var postcode = adres.postcode;
-            var plaats = adres.plaats;
+                var naam = klant.naam;
+                var email = klant.email
+                var adres = klant.adres;
+                var straat = adres.straat;
+                var postcode = adres.postcode;
+                var plaats = adres.plaats;
 
 
+                var table = document.querySelector("#klanten-tabel");
 
-            var table = document.querySelector("#klanten-tabel");
-
-            var newRow = table.insertRow(-1);
+                var newRow = table.insertRow(-1);
                 // create a new cell
                 var naamcell = newRow.insertCell(0);
                 var emailcell = newRow.insertCell(1);
@@ -30,8 +28,6 @@ function klantenOphalen() {
                 straatcell.innerHTML = straat;
                 postcodecell.innerHTML = postcode;
                 plaatscell.innerHTML = plaats;
-
-
-            }
+        }
     })
 }
