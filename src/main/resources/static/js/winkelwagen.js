@@ -116,7 +116,6 @@ function printContentToWinkelwagen(item) {
         let option = document.createElement("option");
         option.value=i;
         option.text=i;
-        aantal.selectedIndex = item.aantal - 1;
         aantal.appendChild(option);
     }
 
@@ -124,6 +123,7 @@ function printContentToWinkelwagen(item) {
     del.setAttribute("class", "closeButton");
     del.type="button";
     del.value="x";
+    aantal.selectedIndex = item.aantal - 1;
     newDiv.appendChild(img);
     newDiv.appendChild(naam);
     newDiv.appendChild(prijs);
