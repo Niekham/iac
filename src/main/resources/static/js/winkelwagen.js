@@ -44,6 +44,16 @@ function showWinkelwagen(){
             modal.style.display = "none";
         }
     });
+
+    bestelknop = document.getElementsByClassName("bestelButton")[0];
+    winkelwageninhoud = JSON.parse(sessionStorage.getItem("bestellingregel"))["product"];
+
+    if(winkelwageninhoud.length > 0) {
+        bestelknop.style.visibility='visible';
+    } else {
+        bestelknop.style.visibility='hidden';
+    }
+
 }
 
 
