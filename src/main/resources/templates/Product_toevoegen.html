@@ -5,6 +5,7 @@
     <title>Product toevoegen</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/generalCSS.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/forms.css}">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
 </head>
@@ -42,9 +43,8 @@
         Afbeelding Naam:
         <input class="input" id="naam" type="text" name="name" required><p></p>
         <input name="optie" class="optie" value="/api/product/add" style="display: none">
+        Wilt u bij dit product geen categorie, nieuwe categorie of een bestaande categorie toevoegen?<p></p>
         <input type="submit" value="Voeg product toe!"><p></p>
-
-    Wilt u bij dit product geen categorie, nieuwe categorie of een bestaande categorie toevoegen?<p></p>
         <button onclick="nieuwe_categorie()" >Nieuwe categorie toevoegen</button><p></p>
         <button onclick="bestaande_categorie()">Bestaande categorie toevoegen</button>
     </form>
